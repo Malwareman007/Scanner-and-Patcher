@@ -1,8 +1,8 @@
 # Web-Vulnerability-Scanner
 # Use Program as python3 web_scan.py https://example.com
-A vulnerability scanner is a computer program designed to assess computers, networks or applications for known weaknesses. In plain words, these scanners are used to discover the weaknesses of a given system.
+# A vulnerability scanner is a computer program designed to assess computers, networks or applications for known weaknesses. In plain words, these scanners are used to discover the weaknesses of a given system.
 
-This tools is very helpfull to find the vulnerabilities present in the website.
+# This tools is very helpfull to find the vulnerabilities present in the website.
 
 ![Screenshot from 2022-04-02 02-14-31](https://user-images.githubusercontent.com/86009160/161339137-3732c16e-5034-4f1c-9018-894e8c031ac0.png)
 
