@@ -27,19 +27,19 @@
 * User has to write:- "python3 web_scan.py (https or http) ://example.com"
 * At first program will note initial time of running, then it will make url with "www.example.com".
 * After this step system will check the internet connection using ping.
-  Functionalities:-
-* 1 To navigate to helper menue write this command:-  --help for update --update
-* 2 If user want to skip current scan/test:-  CTRL+C
-* 3 To quit the scanner use:-   CTRL+Z
-* 4 The program will tell scanning time taken by the tool for a specific test.
+* Functionalities:-
+* * To navigate to helper menue write this command:-  --help for update --update
+* * If user want to skip current scan/test:-  CTRL+C
+* * To quit the scanner use:-   CTRL+Z
+* * The program will tell scanning time taken by the tool for a specific test.
 
 ### Phase 2
 * From here the main function of scanner will start: 
 * The scanner will automatically select any tool to start scanning.
 * Scanners that will be used and filename rotation (default: enabled (1)
 * Command that is used to initiate the tool (with parameters and extra params) already given in code 
-* After founding vulnerability in web application scanner will classify vulnerablity in specific format:- 
-* * [Responses + Severity (c - critical | h - high | m - medium | l - low | i - informational) + Reference for Vuln Definition and Remediation]
+* After founding vulnerability in web application scanner will classify vulnerability in specific format:- 
+* * [Responses + Severity (c - critical | h - high | m - medium | l - low | i - informational) + Reference for Vulnerability Definition and Remediation]
 * * Here **c or critical** defines most vulnerability wheres **l or low** is for least vulnerable system 
 
 #### Definitions:-
@@ -87,6 +87,11 @@ Exploitation of the vulnerability likely results in root-level compromise of ser
 ## Use
 Use Program as python3 web_scan.py (https or http) ://example.com
 
+```
+--help
+--update
+```
+
 |Serial No.|Vulnerabilities to Scan|   |Serial No.|Vulnerabilities to Scan|
 |:----------:|:---------------------:|---|:----------:|:---------------------:|
 |1|IPv6||2|Wordpress|
@@ -109,6 +114,12 @@ Use Program as python3 web_scan.py (https or http) ://example.com
 |35|Elmah||36|SMB Ports over TCP and UDP|
 |37|IIS WebDAV||38|X-XSS Protection|
 
+
+### Installation
+
+```
+git clone https://github.com/Malwareman007/Open_Source_Web-Vulnerability-Scanner-and-Patcher.git
+```
 
 ### Screenshots of Scanner
 ![Screenshot from 2022-04-02 02-14-31](https://user-images.githubusercontent.com/86009160/161339137-3732c16e-5034-4f1c-9018-894e8c031ac0.png)
