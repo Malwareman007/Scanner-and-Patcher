@@ -7,7 +7,7 @@
 ***
   |Serial No.|Tool Name|  |Serial No.|Tool Name|    
   |:---------:|:--------|:--|:---------:|:--------:|
-  |1|whatwev|  |2|nmap| 
+  |1|whatweb|  |2|nmap| 
   |3|golismero| |4|host| 
   |5|wget| |6|uniscan| 
   |7|wafw00f| |8|dirb| 
