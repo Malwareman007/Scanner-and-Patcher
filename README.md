@@ -28,7 +28,7 @@
 * At first program will note initial time of running, then it will make url with "www.example.com".
 * After this step system will check the internet connection using ping.
 * Functionalities:-
-* * To navigate to helper menue write this command:-  --help for update --update
+* * To navigate to helper menu write this command:-  --help for update --update
 * * If user want to skip current scan/test:-  CTRL+C
 * * To quit the scanner use:-   CTRL+Z
 * * The program will tell scanning time taken by the tool for a specific test.
