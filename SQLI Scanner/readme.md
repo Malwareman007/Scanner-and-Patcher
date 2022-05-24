@@ -24,6 +24,6 @@ It can change both, foreground and background color of any text which is display
 ## Goal of the code
 injection and checks the playload for the vulnerability and slows it down if the vulnerabal's are presents ..
 
-## LOGIC Utlilized in the code 
+## Logic Utlilized in the code 
 Using the colorama we test the payload to check if the url has a vulnerability and to verfiy the url for time elapsed from when the connection is made with url . 
 If an SQLI vulnerability is found then the payload slows down the browser and we are informed of the existence of the vulnerability.
