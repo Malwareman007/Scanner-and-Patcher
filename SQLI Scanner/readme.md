@@ -6,18 +6,18 @@ SQL injection is mostly known as an attack vector for websites but can be used t
 
 ## Libraries Used  
 
-### requests
+* REQUESTS
 The requests library is the de facto standard for making HTTP requests in Python. 
 It abstracts the complexities of making requests behind a beautiful, simple API so that you can focus on interacting with services and consuming data in your application.
 
-### argparse
+* ARGPARSE
 This class helps create a program in a command-line-environment in a way that appears easy to code but also improves interaction. 
 It also automatically generates help and usage messages and issues errors when users give the program invalid arguments.
 
-### sys
+* SYS
 This particular library is necessary as it helps by providing various functions and variables to manipulate different parts of the Python Runtime environment.
 
-### colorama
+* COLORAMA
 Colorama is a python module that is used to display colored output in console. 
 It can change both, foreground and background color of any text which is displayed in the console.
 
