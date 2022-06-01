@@ -129,9 +129,4 @@ python3 -m pip install --no-cache-dir -r requirements.txt
 
 ![Screenshot from 2022-04-02 02-26-22](https://user-images.githubusercontent.com/86009160/161340411-1d4157fe-daf8-4b2d-bfa8-c240601b2572.png)
 
-
-https://user-images.githubusercontent.com/86009160/171447214-ff6ee1ab-bb95-4545-9072-18de1c1fe82f.mp4
-
-
-
 ***
