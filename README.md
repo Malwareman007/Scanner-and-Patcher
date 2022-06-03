@@ -7,7 +7,7 @@
     <img alt="Documentation" src="https://img.shields.io/badge/Documentation-yes-brightgreen.svg" />
   </a>
     <a href="https://github.com/Malwareman007/Open_Source_Web-Vulnerability-Scanner-and-Patcher/blob/main/LICENSE" target="_blank">
-    <img alt="License: MIT" src="https://img.shields.io/github/License/Malwareman007/Open_Source_Web-Vulnerability-Scanner-and-Patcher" />
+    <img alt="License: MIT" src="https://img.shields.io/github/license/Malwareman007/Open_Source_Web-Vulnerability-Scanner-and-Patcher" />
   </a>
   
 ### This tools is very helpful for finding vulnerabilities present in the Web _**Applications**_.
