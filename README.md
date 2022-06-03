@@ -1,5 +1,15 @@
-# Open Source  Web-Vulnerability-Scanner and Patcher
+# Open_Source_Web-Vulnerability-Scanner and Patcher
 ***
+<a href="https://github.com/Malwareman007/Open_Source_Web-Vulnerability-Scanner-and-Patcher" target="_blank">
+    <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" />
+  </a>
+  <a href="https://github.com/Malwareman007/Open_Source_Web-Vulnerability-Scanner-and-Patcher/blob/main/README.md" target="_blank">
+    <img alt="Documentation" src="https://img.shields.io/badge/Documentation-yes-brightgreen.svg" />
+  </a>
+    <a href="https://github.com/Malwareman007/Open_Source_Web-Vulnerability-Scanner-and-Patcher/blob/main/LICENSE" target="_blank">
+    <img alt="License: MIT" src="https://img.shields.io/github/License/Malwareman007/Open_Source_Web-Vulnerability-Scanner-and-Patcher" />
+  </a>
+  
 ### This tools is very helpful for finding vulnerabilities present in the Web _**Applications**_.
 * A vulnerability scanner is a computer program designed to assess computers, networks or applications for known weaknesses. In plain words, these scanners are used to discover the weaknesses of a given system.
 *** 
@@ -128,5 +138,24 @@ python3 -m pip install --no-cache-dir -r requirements.txt
 ***
 
 ![Screenshot from 2022-04-02 02-26-22](https://user-images.githubusercontent.com/86009160/161340411-1d4157fe-daf8-4b2d-bfa8-c240601b2572.png)
+
+***
+
+## 👤 Authors
+👤 GitHub: [@**Malwareman007**](https://github.com/Malwareman)<br>
+👤 GitHub: [@**nano-bot01**](https://github.com/nano-bot01)<br>
+👤 GitHub: [@**bsnakshay**](https://github.com/bsnakshay)<br>
+👤 GitHub: [@**techmain8**](https://github.com/techmain8)<br>
+
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/Malwareman007/Open_Source_Web-Vulnerability-Scanner-and-Patcher/issues).
+
+
+
+## ❤ Show your support
+
+Give a ⭐️ if this project helped you!
+
 
 ***
