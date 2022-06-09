@@ -1,0 +1,58 @@
+have_library: checking for fdatasync() in -lrt... -------------------- yes
+
+"cc -o conftest -I. -I/usr/lib/ruby/1.8/i486-linux -I/home/sderle/projects/geocoder/sqlite3-ruby/ext/sqlite3_api -I/usr/local/include  -D_FILE_OFFSET_BITS=64  -fno-strict-aliasing -g -g -O2  -fPIC   conftest.c  -L. -L/usr/lib -L/usr/local/lib -L. -Wl,-Bsymbolic-functions -rdynamic -Wl,-export-dynamic     -lruby1.8-static -lrt  -lpthread -ldl -lcrypt -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:3: error: ‘fdatasync’ undeclared (first use in this function)
+conftest.c:3: error: (Each undeclared identifier is reported only once
+conftest.c:3: error: for each function it appears in.)
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { void ((*volatile p)()); p = (void ((*)()))fdatasync; return 0; }
+/* end */
+
+"cc -o conftest -I. -I/usr/lib/ruby/1.8/i486-linux -I/home/sderle/projects/geocoder/sqlite3-ruby/ext/sqlite3_api -I/usr/local/include  -D_FILE_OFFSET_BITS=64  -fno-strict-aliasing -g -g -O2  -fPIC   conftest.c  -L. -L/usr/lib -L/usr/local/lib -L. -Wl,-Bsymbolic-functions -rdynamic -Wl,-export-dynamic     -lruby1.8-static -lrt  -lpthread -ldl -lcrypt -lm   -lc"
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { fdatasync(); return 0; }
+/* end */
+
+--------------------
+
+have_header: checking for sqlite3.h... -------------------- yes
+
+"cc -E -I. -I/usr/lib/ruby/1.8/i486-linux -I/home/sderle/projects/geocoder/sqlite3-ruby/ext/sqlite3_api -I/usr/local/include  -D_FILE_OFFSET_BITS=64  -fno-strict-aliasing -g -g -O2  -fPIC    conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include <sqlite3.h>
+/* end */
+
+--------------------
+
+have_library: checking for sqlite3_open() in -lsqlite3... -------------------- yes
+
+"cc -o conftest -I. -I/usr/lib/ruby/1.8/i486-linux -I/home/sderle/projects/geocoder/sqlite3-ruby/ext/sqlite3_api -I/usr/local/include  -D_FILE_OFFSET_BITS=64  -fno-strict-aliasing -g -g -O2  -fPIC   conftest.c  -L. -L/usr/lib -L/usr/local/lib -L. -Wl,-Bsymbolic-functions -rdynamic -Wl,-export-dynamic    -lrt  -lruby1.8-static -lsqlite3 -lrt  -lpthread -ldl -lcrypt -lm   -lc"
+conftest.c: In function ‘t’:
+conftest.c:3: error: ‘sqlite3_open’ undeclared (first use in this function)
+conftest.c:3: error: (Each undeclared identifier is reported only once
+conftest.c:3: error: for each function it appears in.)
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { void ((*volatile p)()); p = (void ((*)()))sqlite3_open; return 0; }
+/* end */
+
+"cc -o conftest -I. -I/usr/lib/ruby/1.8/i486-linux -I/home/sderle/projects/geocoder/sqlite3-ruby/ext/sqlite3_api -I/usr/local/include  -D_FILE_OFFSET_BITS=64  -fno-strict-aliasing -g -g -O2  -fPIC   conftest.c  -L. -L/usr/lib -L/usr/local/lib -L. -Wl,-Bsymbolic-functions -rdynamic -Wl,-export-dynamic    -lrt  -lruby1.8-static -lsqlite3 -lrt  -lpthread -ldl -lcrypt -lm   -lc"
+checked program was:
+/* begin */
+1: /*top*/
+2: int main() { return 0; }
+3: int t() { sqlite3_open(); return 0; }
+/* end */
+
+--------------------
+
