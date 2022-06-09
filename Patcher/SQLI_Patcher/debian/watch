@@ -1,0 +1,3 @@
+version=2
+http://rubyforge.org/frs/?group_id=254 \
+  .*/sqlite3-ruby-([\d\.]*).tar.gz

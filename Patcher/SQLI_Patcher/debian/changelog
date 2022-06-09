@@ -1,0 +1,698 @@
+sqlite3-ruby (1.3.1-1sg20) lucid; urgency=low
+
+  [ Jamis Buck ]
+  * Changed layout to support tagging and branching
+  * Changed extconf.rb to allow /usr/local sqlite3 installations to be
+    supported "out-of-the-box".
+  * Fixed deprecation warnings in faq.rb about Object#id.
+  * Added various bsds to the detection routine in dl/api.rb.
+  * Added static changelog
+  * Changed Rakefile to support the static changelog file.
+  * Version bump, and made it so that an array may be passed as the bind
+    parameter and it will be flattened prior to binding. The native
+    implementation of bind_text also does a to_s on its parameter now to
+    prevent segfaults.
+  * Updated changelog with latest changes
+  * Fixed problem with /usr/local sqlite includes not being found.
+    Hopefully.
+  * Updated changelog.
+  * Version bump.
+  * If 'Native' driver is not found, opening a second database resulted
+    in a NameError because the require would not fail--it would just
+    return false.
+  * Added Database#query and made it possible to close a statement from
+    a resultset. This should make it easier to create a sqlite3 adapter
+    for Og.
+  * Added missing exceptions (format, range, and NOTADB). Exceptions
+    also now have a "code" attribute that is the numeric value of the
+    error that occurred.
+  * Support for solaris.
+  * ChangeLog is dynamically generated again.
+  * Fixed a bug that caused crashes when using type translation with
+    typeless columns (like those from count(*), etc.).
+  * Fix a few broken tests (and comment out a few that appear to be
+    broken due to sqlite3 bugs). Add a pre-built sqlite3_api_wrap.c and
+    make the extconf.rb not try to build it every time. Make extconf.rb
+    die if asked to build the wrap.c file and swig is not installed.
+  * Update gemspec and version. Update README with instructions for
+    installation if sqlite3 is installed in a non-standard location.
+  * Update win32 gemspec
+  * db.transaction should properly catch an exception (closes #3981)
+  * Parenthesize parameters correctly (closes #3847)
+  * Fix for use of callbacks (busy_handler, set_authorize and trace)
+    (thanks Sylvain Joyeux, closes #2955)
+  * Add a test to ensure that bug #2045 is no longer an issue
+  * Allow bind parameters to be specified without a leading colon. Also
+    allow them to be specified as a symbol.
+  * Add a test case to make sure table_info works with type-translation
+    active.
+  * deprecate the DL driver
+  * Allow bignum values to be bound (thanks Timothy Wood, closes #3463)
+  * Get rid of (most of) the warnings when running in -w mode
+  * Get more detailed error messages when a DB connection cannot be
+    established (thanks Tom Moertel, closes #5504)
+  * Add a 'build' task for more easily building the native extension
+  * Fix another warning (thanks Mike Kasick, debian bug #405612)
+  * reset the statement when binding new variables (thanks Mike Kusick,
+    debian bug #405614)
+  * Include a link to the current SVN repository
+  * a simple batch file to aid in building the library on win32
+  * Version bump!
+  * Update rdoc task to pass options correctly to rdoc
+  * support for building beta gems
+  * make the table_info method adjust the returned default value for the
+    rows so that the sqlite3 change in 3.3.8 and greater can be handled
+    transparently
+  * version bump
+  * ruby 1.9 compatibility tweaks (thanks Roman Le Negrate
+    <roman2k@free.fr>)
+  * Use #eval instead of #define_method and #send for significant speed-
+    up (thanks Erik Veenstra)
+  * cache the type-name, instead of recomputing it on each request
+    (thanks Erik Veenstra)
+  * Add test case to show that type translation must explicitly check
+    for nil values
+  * use if/elsif rather than case, for slight performance improvement
+    (thanks Erik Veenstra)
+  * check for TEXT columns before NULL, on the assumption that TEXT will
+    be more common than NULL (thanks Erik Veenstra)
+  * indicate github as the source code repository
+  * use a more recent email address
+  * kill the paranoid copy of the license at the top of every source
+    file
+
+  [ Rob Holland ]
+  * Correct busy_handler documentation
+  * Adjust test cases such that there is no possibility of using the
+    same database handle from more than one thread, as per the SQLite
+    usage API requirements.
+  * Up the busy_timeout test time so that systems on which SQLite has
+    reverted to using sleep instead of usleep can still pass the tests.
+  * Use true/false for the busy_handler return value as the rdoc
+    suggests.
+  * Use int_bind64 on Fixnum values larger than a 32bit C int can take.
+  * Work around a quirk in SQLite's error reporting by calling
+    sqlite3_reset to produce a more informative error code upon a
+    failure from sqlite3_step.
+  * Add missing method, just because
+  * Move to mocha instead of flexmock.
+  * doc fix from rubyforge [#16451]
+  * small style fix
+  * switch to mocha
+  * amend rdoc to make it clear to use Statement#execute to execute a
+    prepared statement
+  * Revert "amend rdoc to make it clear to use Statement#execute to
+    execute a prepared statement" Included some portability work by
+    mistake. This reverts commit
+    36ff0b85ed9049a63cc3b66533282e730a7db398.
+  * amend rdoc to make it clear to use Statement#execute to execute a
+    prepared statement
+  * be more granular with time/data translation
+  * use Date directly for parsing rather than going via Time
+  * check for the rt library and fdatasync so we link against that when
+    needed
+  * rename data structures to avoid collion on win32. based on patch by:
+    Luis Lavena
+  * add missing require
+  * add missing require
+  * Add test for defaults from Daniel Rodríguez Troitiño
+  * Inherit from StandardError for SQLite3 exceptions so that they are
+    caught with a standard rescue
+
+  [ Jamis Buck ]
+  * unquote double-quoted values, too. Contributed by Łukasz Dargiewicz
+    <lukasz.dargiewicz@gmail.com>
+  * use a real CHANGELOG to track significant changes in a human-
+    readable fashion
+  * rename README to README.rdoc. Also update the Rakefile and gemspecs
+    to reference the new CHANGELOG.rdoc README.rdoc.
+  * Add a .gitignore file
+  * version bump
+  * Update the sqlite3-api wrapper implementation. This updates the
+    swig-generated C file, so that people can build sqlite3-ruby without
+    needing swig around. Also, the makefile is built on-demand by
+    extconf.rb so we don't need it in the repo.
+  * don't need the svn-to-changelog converter anymore, now that we're on
+    git
+  * make sure the Makefile gets cleaned up via rake clean
+  * set the release date
+
+  [ Rob Holland ]
+  * Fix linking against Ruby 1.8.5
+
+  [ Jamis Buck ]
+  * Ruby 1.9 compatibility tweak for Array#zip
+
+  [ Erik Veenstra ]
+  * Avoid using Object#extend for greater speedups
+
+  [ Jamis Buck ]
+  * reinstate the #to_a for Ruby 1.9 compatibility
+  * Version bump
+  * update build.bat As the batch file itself says, this is not expected
+    to work, in general. Rather, I (Jamis) use it when building a new
+    windows release, and so I keep it up to date with my current windows
+    configuration. If someone wants to work on a more general build
+    environment for windows, I'll be happy to include it.
+  * Update the C wrapper to reflect the changes to the SWIG file
+  * Version bump
+  * Check for illegal nil before executing SQL
+  * ignore vi *.swp files
+
+  [ Luis Lavena ]
+  * Reorganization of Rakefile. - Started to move stuff out and adding
+    specific tasks for them.   (It ease the location of the task and
+    related actions for them). - Commented out all previous task while
+    the migration is in place. - Generate .gemspec file in YAML format
+    to avoid $SAFE issues with GitHub.
+  * Disabled package generation for now.
+  * Cleanup extension building process and dependencies. - Always use
+    the bundled and generated C wrapper - Moved SWIG generation to a
+    Rake task, instead of being in the extension. - Ignoring 'tmp' where
+    is the new building place for the extension. - Cleanup ext folder.
+  * Added common tasks (like cleanup, default and test).
+  * Added test task.
+  * Added RDoc generation task.
+  * Added FAQ generation to RDoc.
+  * Build sqlite3_api C extension for cross compilation. - Still to iron
+    issues with i586-mingw32msvc-gcc and exported symbols   from SQLite3
+    library.
+  * Complete cross compile sqlite3_api - Grab binaries for sqlite3 and
+    header files to build the import library - Do not depend on previous
+    installed files on the environment
+  * Cleanup: no beta gems. Removed old Rakefile information.
+  * Cleanup: build procedure Rake::ExtensionTask already covered
+    compilation process (rake compile).
+  * Cleanup: RDoc task Already covered by tasks/rdoc.rake
+  * Cleanup: removed clean tasks (already covered in common.rake).
+  * Cleanup: moved benchmark and test tasks to it's own space.
+  * Cleanup: removed obsolete package tasks.
+  * Cleanup: already moved FAQ generation to RDoc section.
+  * Always define vendor:sqlite3 and related actions.
+  * Better cross native tasks. - It now detects better dlltool across
+    platforms. - Rewired the hooks for vendored sqlite3 library.
+  * Support VC6 for compilation. Abstracted 'dlltool' to be able to
+    generate import library (.lib) from any compiler (MinGW, cross-
+    platform or even Visual C).
+  * DL Driver should support mingw as platform. Small correction on DL
+    Driver to support MinGW compiler.
+  * Removed the Windows gemspec. GitHub cannot handle production and
+    creation of native gems.
+  * Upgraded vendored SQLite to 3.6.13
+  * Build both mswin32 and mingw32 gems Taking advantage of rake-
+    compiler 0.5.0, now is possible. Please note that some tweaks still
+    are required to rake-compiler to be bullet-proof on this area.
+  * Trigger cross-compilation anything except Windows. Rake-compiler
+    cross compilation options only should be enabled when running on
+    platforms like Darwin or Linux.
+  * Bumped vendored SQLite3 to 3.6.14.1
+  * Adapt Rakefiles to Hoe.  - Relocated FAQ out of doc folder  - Added
+    manifest support  - Renamed Changelog and README to suit better Hoe
+    defaults.  - Include extension in gem specification.  - Advertise
+    rake-compiler as development dependency.  - Ensure extension is
+    always compiled before tests.  - Add test database to cleanup.  -
+    Bumped SQLite to 3.6.16
+  * Proper usage of SWIG (swapped params).
+  * Updated C wrapper to SWIG 1.3.39
+  * Improve Ruby 1.9 support.
+  * Updated git ignores.
+  * Better test cases and file ordering.
+  * Remove deprecated DL driver from tests.
+  * Completed formatting of test cases. Also, splitted integration ones
+    to make it more easy to find tests that needs to be solved.
+  * Moved conflictive tests to it's own file. This is to help me
+    pinpoint the root of the issue.
+  * Added mocha as development dependency.
+  * Support multiple Ruby versions (fat-binaries).
+  * Added missing require.
+  * Process ruby version without creating variables.
+  * Updated manifest.
+  * Updated changelog and prepare for release.
+  * Regenerate gem specification.
+
+  [ Gerrit Kaiser ]
+  * modified Database.open/Database.new to optionally accept a block á
+    la File.open Block will ensure db is closed Signed-off-by: Luis
+    Lavena <luislavena@gmail.com>
+
+  [ Luis Lavena ]
+  * Taint returned values. Patch #20325
+  * Label 1.2.4.1 as internal version It wasn't an official release.
+  * Fixed undefined @types warning on tests.
+  * Removed obsolete Windows build script.
+  * Updated manifest.
+  * Prepare for release 1.2.5!
+  * Updated gemspec for 1.2.5
+  * Missed one contribution and new feature.
+  * Corrected GitHub repository location.
+
+  [ Alexey Borzenkov ]
+  * Give thread time to enter transaction This test fails on mingw/ruby,
+    because by the time statement is executed thread is not yet in
+    transaction.
+  * Delete test.db in TC_Database_Integration#setup On mingw/ruby this
+    test fails, some other test leaves test.db with table foo behind and
+    "create table foo" fails.
+
+  [ Luis Lavena ]
+  * Updated development dependencies.
+  * Adding failing case for Bug #27241.
+  * Corrected gem dependencies and removed GitHub spec
+  * Fixed "No definition for" warnings from RDoc at install
+  * Minor adjustments in Gem specification. - Added myself as author of
+    the gem (actual maintainer) - Generate zip and tgz files for
+    releases - Made RubyGems 1.3.5 the minimum version required for the
+    newer gems
+  * Marked latest changes as "bugfixes"
+  * Prevent mkmf interfere with Mighty Snow Leopard
+  * Avoid OS default file sorting affect rake loading
+
+  [ Aaron Patterson ]
+  * only adding prerequisites if the cross compiler is available
+  * removing dl driver
+  * initial start for custom c bindings
+  * new yields, adding tests for utf-16
+  * converting utf-8 to utf-16 for test
+  * database can be closed
+  * block closes self
+  * moving statement to c
+  * fixing remainder property on statement
+  * statement closing works now
+  * adding each to statement
+  * string bind param works
+  * always use 64 bit ints
+  * doubles workin
+  * named bind works
+  * colon is optional
+  * missing bind params raise exceptions
+  * implementing reset!
+  * adding a done? method to statement
+  * updating statement c codes
+  * adding column count
+  * adding column name method
+  * statement integration test is working
+  * removing bad comment
+  * refactoring execute!
+  * tiny refactor
+  * refactoring key manipulation
+  * using an in memory database
+  * fixing execute_bach method
+  * adding docs for api changes
+  * renaming files
+  * total_changes is implemented in C
+  * fixing the database#trace api. API CHANGE!
+  * documenting and fixing tests with API changes
+  * last_insert_row_id works
+  * define_function works
+  * functions have return values
+  * adapting create_function to define_function
+  * interrupt works
+  * only binding parameters if there are the right number to bind
+  * implementing errmsg on Database
+  * moving errcode to C
+  * define aggregate works nicely
+  * create_aggregate_handler works with define_aggregator now
+  * create_aggregate_with_block works.  oh boy...
+  * aggregator with procs works now
+  * dead code is dead
+  * dead code is dead
+  * complete? works
+  * moved changes method to C
+  * the authorizer function can be set
+  * authorization callbacks are working
+  * fixing warnings
+  * updating api changes, removing dead code
+  * fixing resultset and tests
+  * adding the cannot open exception to database intialize
+  * centralizing exception handling, removing dead code
+  * pending tests work
+  * dead code is dead
+  * fixing warning
+  * finalizing any open statements left when the database is garbage
+    collected
+  * describing GC strategy
+  * dead code is dead
+  * renaming native part to make windows happy
+  * varios code cleanups
+  * swig sucks
+  * updating manifest
+  * initializing ivars
+  * something
+  * rails adapter is working
+  * adding giant hacks for rails backwards compat
+  * fixing 1.9 issues
+  * adding ruby 1.9 encoding support
+  * blobs work much better
+  * fixing rubygems version requirement
+  * executing utf8 statement
+  * defaulting to utf8 if we can not select the encoding
+  * statement encoding is converted
+  * only converting to utf-8 if i must
+  * encoding checks for 1.8
+  * adding utf16 support open a database
+  * make it work with 1.8!
+  * adding database_name to statement
+  * using sqlite3_open_v2 for openint a database
+  * blobs are used for binary data
+  * converting file names to UTF-8 when needed
+
+  [ Mike Dalessio ]
+  * :compile rake task is now a dependency of :test
+  * xfree or die hard.
+
+  [ Luis Lavena ]
+  * Relocate gem definition to its own task.
+  * Updated extension tasks to match newer structure.
+  * Prepend sqlite3 library root when cross compiling.
+  * Load extension based on ruby-specific version.
+  * Bumped SQLite3 version used to 3.6.22 (latest)
+
+  [ Aaron Patterson ]
+  * supporting 32 bit systems, fixed hoe requirement, fixed sqlite3 load
+    path
+  * updated extconf to put the dynamic library in the correct directory
+  * making the tests green on 1.9
+
+  [ Luis Lavena ]
+  * I'm going to regret this, adding rubygems to tasks Just to make
+    Ubuntu happy.
+  * Updated dependency on rake-compiler to 0.7.0
+
+  [ Aaron Patterson ]
+  * adding . to the test dirs for 1.9.2
+  * cleaning up compiler warnings, setting the busy handler to the right
+    thing
+
+  [ Luis Lavena ]
+  * Minor space thing
+
+  [ NARUSE, Yui ]
+  * See also the directory's extconf.rb in extdir.
+  * Don't get File.dirname(rel), use rel as is.
+  * Ignore *.log, *.o and so on.
+  * Fix mixed declarations and code. ISO C90 forbids mixed declarations
+    and code, and this breaks VC++.
+
+  [ Aaron Patterson ]
+  * cleaning up 1.9.2 warning
+
+  [ NARUSE, Yui ]
+  * Remove ISO C90 warnings. * ISO C90 can't use '//' comment. * ISO C90
+    forbids mixed declarations and code.
+  * cleaning up 1.9.2 warning
+  * Don't convert Blob with EUC-JP string
+  * Bind ASCII-8BIT strings as BLOB Strings from BLOB column are labeled
+    as ASCII-8BIT, so strings labeled as ASCII-8BIT should be binded as
+    BLOB.
+  * Bind ASCII-8BIT strings as BLOB Strings from BLOB column are labeled
+    as ASCII-8BIT, so strings labeled as ASCII-8BIT should be binded as
+    BLOB.
+  * Add more NUL characcter for UTF-16LE string. UTF-16LE string needs
+    wide NUL character, so add one more NUL.
+  * Cleaning up more warnings. * Use LONG_LONG functions for
+    sqlite3_int64 because long may be   32bit. The maccro LONG_LONG is
+    platform independent long long int.   LONG_LONG is not always exist
+    but sqlite3.h uses related items,   so I assumed LONG_LONG exist and
+    it is 64bit or larger. * Add Bignum cases. On platforms whose long
+    is 32bit, a bignum can   be included in sqlite3_int64.
+  * Add RBIGNUM_LEN for 1.8.6.
+  * Call xalloc only when argc > 0. To clean "passing arg # of `foo' as
+    signed/unsigned due to prototype".
+  * Cast long and LONG_LONG to sqlite3_int64.
+  * Don't declare new variable.
+
+  [ Aaron Patterson ]
+  * using assert_equal() rather than assert()
+  * sqlite3 abides by default_internal encoding settings
+
+  [ Luis Lavena ]
+  * Defined minimum Ruby as 1.8.6
+  * Started collect changes for newer release.
+  * Bump version file
+
+  [ kashif ]
+  * Experimental: Added API to access and load extensions These
+    functions maps directly into SQLite3 own enable_load_extension() and
+    load_extension() C-API functions.
+
+  [ Luis Lavena ]
+  * Updated Changelog to include experimental changes.
+  * Document C code now (pretty much documented) Thanks to tenderlove
+    (Aaron Patterson) for that!
+  * Updated changelog with recent closed tickets.
+
+  [ kashif ]
+  * Fixed typo.
+
+  [ Aaron Patterson ]
+  * tricking RDoc in to reading the C
+
+  [ Luis Lavena ]
+  * Wrap 1.3.0.beta.1 release.
+  * Minor documentation corrections to README.
+
+  [ kashif ]
+  * Allow extension compilation search common paths Use /usr/local,
+    /opt/local and /usr as build search paths (Search the two most
+    common install paths and then the system path.)
+
+  [ Romulo A. Ceccon ]
+  * Corrected extension compilation under MSVC - Properly set compiler
+    flags under MSVC vs GCC - renamed errocode to errcode_ to avoid name
+    clash due crtdefs.h - Added note to README about need of
+    SQLITE_ENABLE_COLUMN_METADATA   compilation define.
+
+  [ Aaron Patterson ]
+  * Statement#database_name may not be available, so making the method
+    optionally implemented
+  * Database#query should accept nil for backwards compat. Fixes RF
+    #28192
+  * backwards compatibility with sequel
+  * do not need this test in the extconf
+  * adding test_deprecated
+  * load extension and enable_load_extension may not be available
+
+  [ Luis Lavena ]
+  * Strict versioning for mswin32 binary gems. Stick to MSVCRT 6.0
+    builds of Ruby due cross compilers linking. Avoid any potential
+    issue.
+
+  [ Aaron Patterson ]
+  * supporting type translations from the ResultSet class
+  * more backwards compatibility for sequel, more deprecation noticies
+  * adding hacks for Sequel backwards compatibility
+
+  [ Luis Lavena ]
+  * Wrapping things for another beta
+  * Bump version file
+  * Prepare for release 1.3.0
+
+  [ Aaron Patterson ]
+  * adding support documentation
+  * raising an error on installation if the installed version of sqlite3
+    is too old
+  * skipping broken test in 1.9 for now
+  * silence warnings on default_internal on 1.9
+  * only the deprecated tests should use deprecated apis
+  * silencing warnings in the deprecated tests
+  * automatically stepping statements that have 0 return columns RF
+    #28308
+  * updating docs to point at github issues
+  * fixing skip on 1.8
+  * custom collations are available.  fixes #3
+  * collations can be removed
+  * testing strings sent to comparator are properly encoded
+  * strings are automatically transcoded
+  * updating changelog
+
+  [ Luis Lavena ]
+  * Always clean after you.
+  * Added post install message for Windows binaries. Now gems will
+    display a note with instructions for downloading specific version of
+    SQLite3 DLL. This closes GH-1
+
+  [ Aaron Patterson ]
+  * adding encoding method to SQLite3::Database on 1.8
+
+  [ Luis Lavena ]
+  * Preparation for 1.3.1 release.
+
+  [ Aaron Patterson ]
+  * fixing a bug with tyep_translation=, results as hash, and calling
+    execute()
+
+  [ Mathieu Marache ]
+  * added /sw/local path for fink under macosx
+
+  [ Aaron Patterson ]
+  * keeping defined functions in a hash to prevent GC. fixes #7
+
+  [ NARUSE, Yui ]
+  * Add SQLite3::Backup. Add wrapper class (SQLite3::Backup) for Online
+    Backup API. http://www.sqlite.org/backup.html This feature requires
+    SQLite 3.6.11 or later.
+
+  [ Aaron Patterson ]
+  * fts3 module will clean up open statements. closes #9
+  * adding change to api notes
+  * removing gcc specific flags from the extconf.  fixes #11
+
+  [ Hiromasa YOSHIMOTO ]
+  * Add read-only access mode
+
+  [ Aaron Patterson ]
+  * splat is not required >= 1.8.7
+  * goodbye ruby 1.8.6
+
+  [ NARUSE, Yui ]
+  * Add SQLite3::VERSION etc. Bundled extension library of Ruby has some
+    constants. For example, zlib has following: * Zlib::VERSION is the
+    version of the zlib wrapper. * Zlib::ZLIB_VERSION is the version of
+    the linked zlib. So following constants are added to sqlite3-ruby: *
+    SQLite3::VERSION is the version of sqlite3-ruby *
+    SQLite3::SQLITE_VERSION is the version of linked sqlite3. *
+    SQLite3::SQLITE_VERSION_NUMBER is the numeric version of linked
+    sqlite3.
+
+  [ Aaron Patterson ]
+  * removing use of deprecated apis
+  * adding more concrete time for deprecation
+  * fixing RDoc warnings
+  * deprecating SQLite3::Version module
+
+  [ Antonio Terceiro ]
+  * Update FunctionProxy docs wrt the new API
+
+  [ Luis Lavena ]
+  * Windows: build against SQLite 3.7.3
+  * SQLite3::Database can now be open in readonly mode Useful for not
+    messing this up, but catch 22 for :memory: dbs ;-) Closes GH-14
+
+  [ Aaron Patterson ]
+  * improving error messaging. fixes #10
+
+  [ Luis Lavena ]
+  * Preparing for 1.3.2 release
+
+  [ Aaron Patterson ]
+  * updating manifest
+  * abort on installation if sqlite3_backup_init is not available. fixes
+    #19
+  * adding a synopsis
+  * use original bind var in deprecated method. closes #23
+
+  [ SimpleGeo Nerds ]
+
+ -- SimpleGeo Nerds <nerds@simplegeo.com>  Wed, 12 Jan 2011 00:13:17 +0000
+
+sqlite3-ruby (1.3.1-1sg19) lucid; urgency=low
+
+  * UNRELEASED
+
+ -- SimpleGeo Nerds <nerds@simplegeo.com>  Tue, 24 Aug 2010 02:08:51 +0000
+
+sqlite3-ruby (1.3.1-1sg17) lucid; urgency=low
+
+  * UNRELEASED
+
+ -- SimpleGeo Nerds <nerds@simplegeo.com>  Tue, 24 Aug 2010 01:58:28 +0000
+
+sqlite3-ruby (1.3.1-1sg16) lucid; urgency=low
+
+  * UNRELEASED
+
+ -- SimpleGeo Nerds <nerds@simplegeo.com>  Tue, 24 Aug 2010 01:49:33 +0000
+
+sqlite3-ruby (1.3.1-1sg15) lucid; urgency=low
+
+  * UNRELEASED
+
+ -- SimpleGeo Nerds <nerds@simplegeo.com>  Tue, 24 Aug 2010 01:46:42 +0000
+
+sqlite3-ruby (1.3.1-1sg14) lucid; urgency=low
+
+  * UNRELEASED
+
+ -- SimpleGeo Nerds <nerds@simplegeo.com>  Tue, 24 Aug 2010 00:11:46 +0000
+
+sqlite3-ruby (1.3.1-1sg13) lucid; urgency=low
+
+  [ Ian Eure ]
+  * Fix documentation installation.
+  * Update debian/compat.
+  * Declare source format.
+
+  [ SimpleGeo Nerds ]
+
+ -- SimpleGeo Nerds <nerds@simplegeo.com>  Tue, 24 Aug 2010 00:01:52 +0000
+
+sqlite3-ruby (1.3.1-1sg0) lucid; urgency=low
+
+  * New upstream release.
+  * Fixed ruby-1.9 prereq in control file.
+
+ -- Schuyler Erle <angdraug@debian.org>  Fri, 06 Aug 2010 23:03:50 +0000
+
+sqlite3-ruby (1.2.4-2) unstable; urgency=low
+
+  * The included C wrappers were generated by an old buggy SWIG version,
+    regenerate them with current SWIG (Closes: #454533).
+
+ -- Dmitry Borodaenko <angdraug@debian.org>  Sun, 26 Oct 2008 14:19:34 +0200
+
+sqlite3-ruby (1.2.4-1) unstable; urgency=low
+
+  * New upstream release:
+    - Fix linking against Ruby 1.8.5
+    - Ruby 1.9 compatibility tweaks for Array#zip
+    - Avoid using Object#extend for greater speedups
+    - Fix incorrect permissions on database.rb and translator.rb
+    - Package the updated C file for source builds.
+  * Replaced dpatch with quilt.
+  * Build a module for Ruby 1.9 in libsqlite3-ruby1.9.
+
+ -- Dmitry Borodaenko <angdraug@debian.org>  Tue, 30 Sep 2008 00:39:11 +0300
+
+sqlite3-ruby (1.2.2-1) unstable; urgency=low
+
+  * New upstream release (Closes: #487937).
+  * dpatch support added.
+  * Make DL driver use libsqlite3.so.0 (Closes: #457296).
+  * Updated to Standards-Version 3.8.0:
+    - Homepage: field added to control file.
+
+ -- Dmitry Borodaenko <angdraug@debian.org>  Wed, 25 Jun 2008 14:05:45 +0300
+
+sqlite3-ruby (1.2.1-1) unstable; urgency=low
+
+  * New upstream release (Closes: #418416).
+  * All previous patches included upstream.
+
+ -- Dmitry Borodaenko <angdraug@debian.org>  Wed, 18 Apr 2007 21:07:38 +0100
+
+sqlite3-ruby (1.1.0-4) unstable; urgency=low
+
+  * Merge upstream fix for type_conversion of typeless columns.
+
+ -- Dmitry Borodaenko <angdraug@debian.org>  Tue, 09 Jan 2007 01:50:34 +0000
+
+sqlite3-ruby (1.1.0-3) unstable; urgency=low
+
+  * Several fixes by Mike Kasick:
+    - avoid warnings in verbose mode (Closes: #405612, #398982)
+    - reset statement handle in Statement#bind_param (Closes: #405614).
+
+ -- Dmitry Borodaenko <angdraug@debian.org>  Mon, 08 Jan 2007 20:50:52 +0000
+
+sqlite3-ruby (1.1.0-2) unstable; urgency=low
+
+  * Fix for use of callbacks (upstream patch #2955). Closes: #365711.
+  * Bumped Standards-Version to 3.7.2.
+
+ -- Dmitry Borodaenko <angdraug@debian.org>  Fri,  5 May 2006 14:01:16 +0300
+
+sqlite3-ruby (1.1.0-1) unstable; urgency=low
+
+  * Initial release.
+
+ -- Dmitry Borodaenko <angdraug@debian.org>  Fri, 19 Aug 2005 14:51:14 +0300
