@@ -84,7 +84,7 @@ Exploitation of the vulnerability likely results in root-level compromise of ser
 
 ### Phase 3
 
-* Scanner will *Generate a proper report including 
+* Scanner will **Generate a proper report** including 
 * * Total number of vulnerabilities scanned
 * * Total number of vulnerabilities skipped
 * * Total number of vulnerabilities detected
