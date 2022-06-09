@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Module: SQLite3</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+
+    <script language="JavaScript" type="text/javascript">
+    // <![CDATA[
+
+        function toggleSource( id )
+        {
+          var elem
+          var link
+
+          if( document.getElementById )
+          {
+            elem = document.getElementById( id )
+            link = document.getElementById( "l_" + id )
+          }
+          else if ( document.all )
+          {
+            elem = eval( "document.all." + id )
+            link = eval( "document.all.l_" + id )
+          }
+          else
+            return false;
+
+          if( elem.style.display == "block" )
+          {
+            elem.style.display = "none"
+            link.innerHTML = "show source"
+          }
+          else
+          {
+            elem.style.display = "block"
+            link.innerHTML = "hide source"
+          }
+        }
+
+        function openCode( url )
+        {
+          window.open( url, "SOURCE_CODE", "width=400,height=400,scrollbars=yes" )
+        }
+      // ]]>
+    </script>
+  </head>
+
+  <body>
+  <table width="100%" border='0' cellpadding='0' cellspacing='0' class='banner'><tr>
+  <td class="file-title"><span class="file-title-prefix">Module</span><br />SQLite3</td>
+  <td align="right">
+    <table cellspacing=0 cellpadding=2>
+      <tr valign="top">
+        <td>In:</td>
+        <td>
+<a href="../files/lib/sqlite3/constants_rb.html">lib/sqlite3/constants.rb</a>
+<a href="../files/lib/sqlite3/database_rb.html">lib/sqlite3/database.rb</a>
+<a href="../files/lib/sqlite3/driver/dl/api_rb.html">lib/sqlite3/driver/dl/api.rb</a>
+<a href="../files/lib/sqlite3/driver/dl/driver_rb.html">lib/sqlite3/driver/dl/driver.rb</a>
+<a href="../files/lib/sqlite3/driver/native/driver_rb.html">lib/sqlite3/driver/native/driver.rb</a>
+<a href="../files/lib/sqlite3/errors_rb.html">lib/sqlite3/errors.rb</a>
+<a href="../files/lib/sqlite3/pragmas_rb.html">lib/sqlite3/pragmas.rb</a>
+<a href="../files/lib/sqlite3/resultset_rb.html">lib/sqlite3/resultset.rb</a>
+<a href="../files/lib/sqlite3/statement_rb.html">lib/sqlite3/statement.rb</a>
+<a href="../files/lib/sqlite3/translator_rb.html">lib/sqlite3/translator.rb</a>
+<a href="../files/lib/sqlite3/value_rb.html">lib/sqlite3/value.rb</a>
+<a href="../files/lib/sqlite3/version_rb.html">lib/sqlite3/version.rb</a>
+        </td>
+      </tr>
+         </table>
+        </td>
+        </tr>
+      </table>
+ <!-- banner header -->
+
+  <div id="bodyContent">
+      <div id="content">
+
+
+
+
+
+
+
+  <div class="sectiontitle">Classes and Modules</div>
+  Module <a href="SQLite3/Constants.html" class="link">SQLite3::Constants</a><br />
+Module <a href="SQLite3/Driver.html" class="link">SQLite3::Driver</a><br />
+Module <a href="SQLite3/Error.html" class="link">SQLite3::Error</a><br />
+Module <a href="SQLite3/Pragmas.html" class="link">SQLite3::Pragmas</a><br />
+Module <a href="SQLite3/Version.html" class="link">SQLite3::Version</a><br />
+Class <a href="SQLite3/AbortException.html" class="link">SQLite3::AbortException</a><br />
+Class <a href="SQLite3/AuthorizationException.html" class="link">SQLite3::AuthorizationException</a><br />
+Class <a href="SQLite3/Blob.html" class="link">SQLite3::Blob</a><br />
+Class <a href="SQLite3/BusyException.html" class="link">SQLite3::BusyException</a><br />
+Class <a href="SQLite3/CantOpenException.html" class="link">SQLite3::CantOpenException</a><br />
+Class <a href="SQLite3/ConstraintException.html" class="link">SQLite3::ConstraintException</a><br />
+Class <a href="SQLite3/CorruptException.html" class="link">SQLite3::CorruptException</a><br />
+Class <a href="SQLite3/Database.html" class="link">SQLite3::Database</a><br />
+Class <a href="SQLite3/EmptyException.html" class="link">SQLite3::EmptyException</a><br />
+Class <a href="SQLite3/Exception.html" class="link">SQLite3::Exception</a><br />
+Class <a href="SQLite3/FormatException.html" class="link">SQLite3::FormatException</a><br />
+Class <a href="SQLite3/FullException.html" class="link">SQLite3::FullException</a><br />
+Class <a href="SQLite3/IOException.html" class="link">SQLite3::IOException</a><br />
+Class <a href="SQLite3/InternalException.html" class="link">SQLite3::InternalException</a><br />
+Class <a href="SQLite3/InterruptException.html" class="link">SQLite3::InterruptException</a><br />
+Class <a href="SQLite3/LockedException.html" class="link">SQLite3::LockedException</a><br />
+Class <a href="SQLite3/MemoryException.html" class="link">SQLite3::MemoryException</a><br />
+Class <a href="SQLite3/MismatchException.html" class="link">SQLite3::MismatchException</a><br />
+Class <a href="SQLite3/MisuseException.html" class="link">SQLite3::MisuseException</a><br />
+Class <a href="SQLite3/NotADatabaseException.html" class="link">SQLite3::NotADatabaseException</a><br />
+Class <a href="SQLite3/NotFoundException.html" class="link">SQLite3::NotFoundException</a><br />
+Class <a href="SQLite3/PermissionException.html" class="link">SQLite3::PermissionException</a><br />
+Class <a href="SQLite3/ProtocolException.html" class="link">SQLite3::ProtocolException</a><br />
+Class <a href="SQLite3/RangeException.html" class="link">SQLite3::RangeException</a><br />
+Class <a href="SQLite3/ReadOnlyException.html" class="link">SQLite3::ReadOnlyException</a><br />
+Class <a href="SQLite3/ResultSet.html" class="link">SQLite3::ResultSet</a><br />
+Class <a href="SQLite3/SQLException.html" class="link">SQLite3::SQLException</a><br />
+Class <a href="SQLite3/SchemaChangedException.html" class="link">SQLite3::SchemaChangedException</a><br />
+Class <a href="SQLite3/Statement.html" class="link">SQLite3::Statement</a><br />
+Class <a href="SQLite3/TooBigException.html" class="link">SQLite3::TooBigException</a><br />
+Class <a href="SQLite3/Translator.html" class="link">SQLite3::Translator</a><br />
+Class <a href="SQLite3/UnsupportedException.html" class="link">SQLite3::UnsupportedException</a><br />
+Class <a href="SQLite3/Value.html" class="link">SQLite3::Value</a><br />
+
+
+  <div class="sectiontitle">Constants</div>
+  <table border='0' cellpadding='5'>
+  <tr valign='top'>
+    <td class="attr-name">EXCEPTIONS</td>
+    <td>=</td>
+    <td class="attr-value">[     nil,     SQLException, InternalException, PermissionException,     AbortException, BusyException, LockedException, MemoryException,     ReadOnlyException, InterruptException, IOException, CorruptException,     NotFoundException, FullException, CantOpenException, ProtocolException,     EmptyException, SchemaChangedException, TooBigException,     ConstraintException, MismatchException, MisuseException,     UnsupportedException, AuthorizationException, FormatException,     RangeException, NotADatabaseException</td>
+  </tr>
+  </table>
+
+
+</div>
+
+  </div>
+
+    </body>
+</html>

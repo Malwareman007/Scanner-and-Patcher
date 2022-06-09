@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Class: SQLite3::Statement</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+
+    <script language="JavaScript" type="text/javascript">
+    // <![CDATA[
+
+        function toggleSource( id )
+        {
+          var elem
+          var link
+
+          if( document.getElementById )
+          {
+            elem = document.getElementById( id )
+            link = document.getElementById( "l_" + id )
+          }
+          else if ( document.all )
+          {
+            elem = eval( "document.all." + id )
+            link = eval( "document.all.l_" + id )
+          }
+          else
+            return false;
+
+          if( elem.style.display == "block" )
+          {
+            elem.style.display = "none"
+            link.innerHTML = "show source"
+          }
+          else
+          {
+            elem.style.display = "block"
+            link.innerHTML = "hide source"
+          }
+        }
+
+        function openCode( url )
+        {
+          window.open( url, "SOURCE_CODE", "width=400,height=400,scrollbars=yes" )
+        }
+      // ]]>
+    </script>
+  </head>
+
+  <body>
+  <table width="100%" border='0' cellpadding='0' cellspacing='0' class='banner'><tr>
+  <td class="file-title"><span class="file-title-prefix">Class</span><br />SQLite3::Statement</td>
+  <td align="right">
+    <table cellspacing=0 cellpadding=2>
+      <tr valign="top">
+        <td>In:</td>
+        <td>
+<a href="../../files/lib/sqlite3/statement_rb.html">lib/sqlite3/statement.rb</a>
+        </td>
+      </tr>
+    <tr>
+      <td>Parent:</td>
+      <td>
+Object
+     </td>
+   </tr>
+         </table>
+        </td>
+        </tr>
+      </table>
+ <!-- banner header -->
+
+  <div id="bodyContent">
+      <div id="content">
+
+  <div class="description"><p>
+A statement represents a prepared-but-unexecuted SQL query. It will rarely
+(if ever) be instantiated directly by a client, and is most often obtained
+via the <a href="Database.html#M000104">Database#prepare</a> method.
+</p>
+</div>
+
+
+
+  <div class="sectiontitle">Methods</div>
+  <ul>
+  <li><a href="#M000082">active?</a></li>
+  <li><a href="#M000078">bind_param</a></li>
+  <li><a href="#M000077">bind_params</a></li>
+  <li><a href="#M000075">close</a></li>
+  <li><a href="#M000076">closed?</a></li>
+  <li><a href="#M000083">columns</a></li>
+  <li><a href="#M000079">execute</a></li>
+  <li><a href="#M000080">execute!</a></li>
+  <li><a href="#M000074">new</a></li>
+  <li><a href="#M000081">reset!</a></li>
+  <li><a href="#M000084">types</a></li>
+  </ul>
+
+
+
+
+
+  <div class="sectiontitle">Attributes</div>
+  <table border='0' cellpadding='5'>
+  <tr valign='top'>
+    <td class='attr-rw'>
+[R]
+    </td>
+    <td class='attr-name'>handle</td>
+    <td class='attr-desc'>
+The underlying opaque handle used to access the SQLite @driver.
+
+</td>
+  </tr>
+  <tr valign='top'>
+    <td class='attr-rw'>
+[R]
+    </td>
+    <td class='attr-name'>remainder</td>
+    <td class='attr-desc'>
+This is any text that followed the first valid SQL statement in the text
+with which the statement was initialized. If there was no trailing text,
+this will be the empty string.
+
+</td>
+  </tr>
+  </table>
+
+<div class="sectiontitle">Public Class methods</div>
+<div class="method">
+  <div class="title">
+    <a name="M000074"></a><b>new</b>( db, sql, utf16=false )
+  </div>
+  <div class="description">
+  <p>
+Create a <a href="Statement.html#M000074">new</a> statement attached to the
+given <a href="Database.html">Database</a> instance, and which encapsulates
+the given SQL text. If the text contains more than one statement (i.e.,
+separated by semicolons), then the remainder property will be set to the
+trailing text.
+</p>
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000074_source')" id="l_M000074_source">show source</a> ]</p>
+  <div id="M000074_source" class="dyn-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/sqlite3/statement.rb, line 33</span>
+33:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>( <span class="ruby-identifier">db</span>, <span class="ruby-identifier">sql</span>, <span class="ruby-identifier">utf16</span>=<span class="ruby-keyword kw">false</span> )
+34:       <span class="ruby-ivar">@db</span> = <span class="ruby-identifier">db</span>
+35:       <span class="ruby-ivar">@driver</span> = <span class="ruby-ivar">@db</span>.<span class="ruby-identifier">driver</span>
+36:       <span class="ruby-ivar">@closed</span> = <span class="ruby-keyword kw">false</span>
+37:       <span class="ruby-ivar">@results</span> = <span class="ruby-ivar">@columns</span> = <span class="ruby-keyword kw">nil</span>
+38:       <span class="ruby-identifier">result</span>, <span class="ruby-ivar">@handle</span>, <span class="ruby-ivar">@remainder</span> = <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">prepare</span>( <span class="ruby-ivar">@db</span>.<span class="ruby-identifier">handle</span>, <span class="ruby-identifier">sql</span> )
+39:       <span class="ruby-constant">Error</span>.<span class="ruby-identifier">check</span>( <span class="ruby-identifier">result</span>, <span class="ruby-ivar">@db</span> )
+40:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="sectiontitle">Public Instance methods</div>
+<div class="method">
+  <div class="title">
+    <a name="M000082"></a><b>active?</b>()
+  </div>
+  <div class="description">
+  <p>
+Returns true if the statement is currently active, meaning it has an open
+result set.
+</p>
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000082_source')" id="l_M000082_source">show source</a> ]</p>
+  <div id="M000082_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/sqlite3/statement.rb, line 180</span>
+180:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">active?</span>
+181:       <span class="ruby-keyword kw">not</span> <span class="ruby-ivar">@results</span>.<span class="ruby-identifier">nil?</span>
+182:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000078"></a><b>bind_param</b>( param, value )
+  </div>
+  <div class="description">
+  <p>
+Binds value to the named (or positional) placeholder. If <tt>param</tt> is
+a Fixnum, it is treated as an index for a positional placeholder. Otherwise
+it is used as the name of the placeholder to bind to.
+</p>
+<p>
+See also <a href="Statement.html#M000077">bind_params</a>.
+</p>
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000078_source')" id="l_M000078_source">show source</a> ]</p>
+  <div id="M000078_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/sqlite3/statement.rb, line 85</span>
+ 85:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">bind_param</span>( <span class="ruby-identifier">param</span>, <span class="ruby-identifier">value</span> )
+ 86:       <span class="ruby-identifier">must_be_open!</span>
+ 87:       <span class="ruby-identifier">reset!</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">active?</span>
+ 88:       <span class="ruby-keyword kw">if</span> <span class="ruby-constant">Fixnum</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">param</span>
+ 89:         <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">value</span>
+ 90:           <span class="ruby-keyword kw">when</span> <span class="ruby-constant">Bignum</span> <span class="ruby-keyword kw">then</span>
+ 91:             <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">bind_int64</span>( <span class="ruby-ivar">@handle</span>, <span class="ruby-identifier">param</span>, <span class="ruby-identifier">value</span> )
+ 92:           <span class="ruby-keyword kw">when</span> <span class="ruby-constant">Integer</span> <span class="ruby-keyword kw">then</span>
+ 93:             <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">value</span> <span class="ruby-operator">&gt;=</span> (<span class="ruby-value">2</span> <span class="ruby-operator">**</span> <span class="ruby-value">31</span>)
+ 94:               <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">bind_int64</span>( <span class="ruby-ivar">@handle</span>, <span class="ruby-identifier">param</span>, <span class="ruby-identifier">value</span> )
+ 95:             <span class="ruby-keyword kw">else</span>
+ 96:               <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">bind_int</span>( <span class="ruby-ivar">@handle</span>, <span class="ruby-identifier">param</span>, <span class="ruby-identifier">value</span> )
+ 97:             <span class="ruby-keyword kw">end</span>
+ 98:           <span class="ruby-keyword kw">when</span> <span class="ruby-constant">Numeric</span> <span class="ruby-keyword kw">then</span>
+ 99:             <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">bind_double</span>( <span class="ruby-ivar">@handle</span>, <span class="ruby-identifier">param</span>, <span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_f</span> )
+100:           <span class="ruby-keyword kw">when</span> <span class="ruby-constant">Blob</span> <span class="ruby-keyword kw">then</span>
+101:             <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">bind_blob</span>( <span class="ruby-ivar">@handle</span>, <span class="ruby-identifier">param</span>, <span class="ruby-identifier">value</span> )
+102:           <span class="ruby-keyword kw">when</span> <span class="ruby-keyword kw">nil</span> <span class="ruby-keyword kw">then</span>
+103:             <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">bind_null</span>( <span class="ruby-ivar">@handle</span>, <span class="ruby-identifier">param</span> )
+104:           <span class="ruby-keyword kw">else</span>
+105:             <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">bind_text</span>( <span class="ruby-ivar">@handle</span>, <span class="ruby-identifier">param</span>, <span class="ruby-identifier">value</span> )
+106:         <span class="ruby-keyword kw">end</span>
+107:       <span class="ruby-keyword kw">else</span>
+108:         <span class="ruby-identifier">param</span> = <span class="ruby-identifier">param</span>.<span class="ruby-identifier">to_s</span>
+109:         <span class="ruby-identifier">param</span> = <span class="ruby-node">&quot;:#{param}&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">param</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">==</span> <span class="ruby-value">?:</span>
+110:         <span class="ruby-identifier">index</span> = <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">bind_parameter_index</span>( <span class="ruby-ivar">@handle</span>, <span class="ruby-identifier">param</span> )
+111:         <span class="ruby-identifier">raise</span> <span class="ruby-constant">Exception</span>, <span class="ruby-node">&quot;no such bind parameter '#{param}'&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">index</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+112:         <span class="ruby-identifier">bind_param</span> <span class="ruby-identifier">index</span>, <span class="ruby-identifier">value</span>
+113:       <span class="ruby-keyword kw">end</span>
+114:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000077"></a><b>bind_params</b>( *bind_vars )
+  </div>
+  <div class="description">
+  <p>
+Binds the given variables to the corresponding placeholders in the SQL
+text.
+</p>
+<p>
+See <a href="Database.html#M000105">Database#execute</a> for a description
+of the valid placeholder syntaxes.
+</p>
+<p>
+Example:
+</p>
+<pre>
+  stmt = db.prepare( &quot;select * from table where a=? and b=?&quot; )
+  stmt.bind_params( 15, &quot;hello&quot; )
+</pre>
+<p>
+See also <a href="Statement.html#M000079">execute</a>, <a
+href="Statement.html#M000078">bind_param</a>, <a
+href="Statement.html#M000078">Statement#bind_param</a>, and <a
+href="Statement.html#M000077">Statement#bind_params</a>.
+</p>
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000077_source')" id="l_M000077_source">show source</a> ]</p>
+  <div id="M000077_source" class="dyn-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/sqlite3/statement.rb, line 68</span>
+68:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">bind_params</span>( <span class="ruby-operator">*</span><span class="ruby-identifier">bind_vars</span> )
+69:       <span class="ruby-identifier">index</span> = <span class="ruby-value">1</span>
+70:       <span class="ruby-identifier">bind_vars</span>.<span class="ruby-identifier">flatten</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">var</span><span class="ruby-operator">|</span>
+71:         <span class="ruby-keyword kw">if</span> <span class="ruby-constant">Hash</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">var</span>
+72:           <span class="ruby-identifier">var</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">val</span><span class="ruby-operator">|</span> <span class="ruby-identifier">bind_param</span> <span class="ruby-identifier">key</span>, <span class="ruby-identifier">val</span> }
+73:         <span class="ruby-keyword kw">else</span>
+74:           <span class="ruby-identifier">bind_param</span> <span class="ruby-identifier">index</span>, <span class="ruby-identifier">var</span>
+75:           <span class="ruby-identifier">index</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+76:         <span class="ruby-keyword kw">end</span>
+77:       <span class="ruby-keyword kw">end</span>
+78:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000075"></a><b>close</b>()
+  </div>
+  <div class="description">
+  <p>
+Closes the statement by finalizing the underlying statement handle. The
+statement must not be used after being closed.
+</p>
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000075_source')" id="l_M000075_source">show source</a> ]</p>
+  <div id="M000075_source" class="dyn-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/sqlite3/statement.rb, line 44</span>
+44:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">close</span>
+45:       <span class="ruby-identifier">must_be_open!</span>
+46:       <span class="ruby-ivar">@closed</span> = <span class="ruby-keyword kw">true</span>
+47:       <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">finalize</span>( <span class="ruby-ivar">@handle</span> )
+48:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000076"></a><b>closed?</b>()
+  </div>
+  <div class="description">
+  <p>
+Returns true if the underlying statement has been closed.
+</p>
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000076_source')" id="l_M000076_source">show source</a> ]</p>
+  <div id="M000076_source" class="dyn-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/sqlite3/statement.rb, line 51</span>
+51:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">closed?</span>
+52:       <span class="ruby-ivar">@closed</span>
+53:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000083"></a><b>columns</b>()
+  </div>
+  <div class="description">
+  <p>
+Return an array of the column names for this statement. Note that this may
+<a href="Statement.html#M000079">execute</a> the statement in order to
+obtain the metadata; this makes it a (potentially) expensive operation.
+</p>
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000083_source')" id="l_M000083_source">show source</a> ]</p>
+  <div id="M000083_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/sqlite3/statement.rb, line 187</span>
+187:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">columns</span>
+188:       <span class="ruby-identifier">get_metadata</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@columns</span>
+189:       <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@columns</span>
+190:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000079"></a><b>execute</b>( *bind_vars ) {|@results| ...}
+  </div>
+  <div class="description">
+  <p>
+Execute the statement. This creates a <a
+href="Statement.html#M000074">new</a> <a
+href="ResultSet.html">ResultSet</a> object for the statement&#8216;s
+virtual machine. If a block was given, the <a
+href="Statement.html#M000074">new</a> <a
+href="ResultSet.html">ResultSet</a> will be yielded to it; otherwise, the
+<a href="ResultSet.html">ResultSet</a> will be returned.
+</p>
+<p>
+Any parameters will be bound to the statement using <a
+href="Statement.html#M000077">bind_params</a>.
+</p>
+<p>
+Example:
+</p>
+<pre>
+  stmt = db.prepare( &quot;select * from table&quot; )
+  stmt.execute do |result|
+    ...
+  end
+</pre>
+<p>
+See also <a href="Statement.html#M000077">bind_params</a>, <a
+href="Statement.html#M000079">execute</a>!.
+</p>
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000079_source')" id="l_M000079_source">show source</a> ]</p>
+  <div id="M000079_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/sqlite3/statement.rb, line 130</span>
+130:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">execute</span>( <span class="ruby-operator">*</span><span class="ruby-identifier">bind_vars</span> )
+131:       <span class="ruby-identifier">must_be_open!</span>
+132:       <span class="ruby-identifier">reset!</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">active?</span>
+133: 
+134:       <span class="ruby-identifier">bind_params</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">bind_vars</span>) <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">bind_vars</span>.<span class="ruby-identifier">empty?</span>
+135:       <span class="ruby-ivar">@results</span> = <span class="ruby-constant">ResultSet</span>.<span class="ruby-identifier">new</span>( <span class="ruby-ivar">@db</span>, <span class="ruby-keyword kw">self</span> )
+136: 
+137:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">block_given?</span>
+138:         <span class="ruby-keyword kw">yield</span> <span class="ruby-ivar">@results</span>
+139:       <span class="ruby-keyword kw">else</span>
+140:         <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@results</span>
+141:       <span class="ruby-keyword kw">end</span>
+142:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000080"></a><b>execute!</b>( *bind_vars ) {|row| ...}
+  </div>
+  <div class="description">
+  <p>
+Execute the statement. If no block was given, this returns an array of rows
+returned by executing the statement. Otherwise, each row will be yielded to
+the block.
+</p>
+<p>
+Any parameters will be bound to the statement using <a
+href="Statement.html#M000077">bind_params</a>.
+</p>
+<p>
+Example:
+</p>
+<pre>
+  stmt = db.prepare( &quot;select * from table&quot; )
+  stmt.execute! do |row|
+    ...
+  end
+</pre>
+<p>
+See also <a href="Statement.html#M000077">bind_params</a>, <a
+href="Statement.html#M000079">execute</a>.
+</p>
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000080_source')" id="l_M000080_source">show source</a> ]</p>
+  <div id="M000080_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/sqlite3/statement.rb, line 158</span>
+158:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">execute!</span>( <span class="ruby-operator">*</span><span class="ruby-identifier">bind_vars</span> )
+159:       <span class="ruby-identifier">result</span> = <span class="ruby-identifier">execute</span>( <span class="ruby-operator">*</span><span class="ruby-identifier">bind_vars</span> )
+160:       <span class="ruby-identifier">rows</span> = [] <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">block_given?</span>
+161:       <span class="ruby-keyword kw">while</span> <span class="ruby-identifier">row</span> = <span class="ruby-identifier">result</span>.<span class="ruby-identifier">next</span>
+162:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">block_given?</span>
+163:           <span class="ruby-keyword kw">yield</span> <span class="ruby-identifier">row</span>
+164:         <span class="ruby-keyword kw">else</span>
+165:           <span class="ruby-identifier">rows</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">row</span>
+166:         <span class="ruby-keyword kw">end</span>
+167:       <span class="ruby-keyword kw">end</span>
+168:       <span class="ruby-identifier">rows</span>
+169:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000081"></a><b>reset!</b>(clear_result=true)
+  </div>
+  <div class="description">
+  <p>
+Resets the statement. This is typically done internally, though it might
+occassionally be necessary to manually reset the statement.
+</p>
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000081_source')" id="l_M000081_source">show source</a> ]</p>
+  <div id="M000081_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/sqlite3/statement.rb, line 173</span>
+173:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">reset!</span>(<span class="ruby-identifier">clear_result</span>=<span class="ruby-keyword kw">true</span>)
+174:       <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">reset</span>(<span class="ruby-ivar">@handle</span>)
+175:       <span class="ruby-ivar">@results</span> = <span class="ruby-keyword kw">nil</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">clear_result</span>
+176:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000084"></a><b>types</b>()
+  </div>
+  <div class="description">
+  <p>
+Return an array of the data <a href="Statement.html#M000084">types</a> for
+each column in this statement. Note that this may <a
+href="Statement.html#M000079">execute</a> the statement in order to obtain
+the metadata; this makes it a (potentially) expensive operation.
+</p>
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000084_source')" id="l_M000084_source">show source</a> ]</p>
+  <div id="M000084_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/sqlite3/statement.rb, line 195</span>
+195:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">types</span>
+196:       <span class="ruby-identifier">get_metadata</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@types</span>
+197:       <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@types</span>
+198:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+</div>
+
+  </div>
+
+    </body>
+</html>

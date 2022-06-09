@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<style>
+<!--
+  body {
+    background-color: #EEE;
+    font-family: "Bitstream Vera Sans", Verdana, Arial, Helvetica, sans-serif; 
+    color: #000;
+    margin: 0px;
+  }
+  .banner {
+    background: #005;
+    color: #FFF;
+    padding: 0.2em;
+    font-size: small;
+    font-weight: bold;
+    text-align: center;
+  }
+  .entries {
+    margin: 0.25em 1em 0 1em;
+    font-size: x-small;
+  }
+  a {
+    color: #00F;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  a:hover {
+    color: #77F;
+    text-decoration: underline;
+  }
+-->
+</style>
+<base target="docwin">
+</head>
+<body>
+<div class="banner">Methods</div>
+<div class="entries">
+<a href="classes/SQLite3/Database/FunctionProxy.html#M000129">[] (SQLite3::Database::FunctionProxy)</a><br>
+<a href="classes/SQLite3/Database/FunctionProxy.html#M000130">[]= (SQLite3::Database::FunctionProxy)</a><br>
+<a href="classes/SQLite3/Statement.html#M000082">active? (SQLite3::Statement)</a><br>
+<a href="classes/SQLite3/Translator.html#M000072">add_translator (SQLite3::Translator)</a><br>
+<a href="classes/SQLite3/Driver/DL/Driver.html#M000062">aggregate_context (SQLite3::Driver::DL::Driver)</a><br>
+<a href="classes/SQLite3/Driver/Native/Driver.html#M000049">api_delegate (SQLite3::Driver::Native::Driver)</a><br>
+<a href="classes/SQLite3/Driver/DL/Driver.html#M000068">api_delegate (SQLite3::Driver::DL::Driver)</a><br>
+<a href="classes/SQLite3/Database.html#M000103">authorizer (SQLite3::Database)</a><br>
+<a href="classes/SQLite3/Pragmas.html#M000003">auto_vacuum (SQLite3::Pragmas)</a><br>
+<a href="classes/SQLite3/Pragmas.html#M000004">auto_vacuum= (SQLite3::Pragmas)</a><br>
+<a href="classes/SQLite3/Driver/DL/Driver.html#M000063">bind_blob (SQLite3::Driver::DL::Driver)</a><br>
+<a href="classes/SQLite3/Statement.html#M000078">bind_param (SQLite3::Statement)</a><br>
+<a href="classes/SQLite3/Statement.html#M000077">bind_params (SQLite3::Statement)</a><br>
+<a href="classes/SQLite3/Driver/DL/Driver.html#M000064">bind_text (SQLite3::Driver::DL::Driver)</a><br>
+<a href="classes/SQLite3/Driver/Native/Driver.html#M000041">bind_text (SQLite3::Driver::Native::Driver)</a><br>
+<a href="classes/SQLite3/Database.html#M000115">busy_handler (SQLite3::Database)</a><br>
+<a href="classes/SQLite3/Driver/Native/Driver.html#M000035">busy_handler (SQLite3::Driver::Native::Driver)</a><br>
+<a href="classes/SQLite3/Driver/DL/Driver.html#M000058">busy_handler (SQLite3::Driver::DL::Driver)</a><br>
+<a href="classes/SQLite3/Database.html#M000116">busy_timeout (SQLite3::Database)</a><br>
+<a href="classes/SQLite3/Pragmas.html#M000009">cache_size (SQLite3::Pragmas)</a><br>
+<a href="classes/SQLite3/Pragmas.html#M000010">cache_size= (SQLite3::Pragmas)</a><br>
+<a href="classes/SQLite3/Database.html#M000112">changes (SQLite3::Database)</a><br>
+<a href="classes/SQLite3/Error.html#M000032">check (SQLite3::Error)</a><br>
+<a href="classes/SQLite3/ResultSet.html#M000090">close (SQLite3::ResultSet)</a><br>
+<a href="classes/SQLite3/Statement.html#M000075">close (SQLite3::Statement)</a><br>
+<a href="classes/SQLite3/Database.html#M000100">close (SQLite3::Database)</a><br>
+<a href="classes/SQLite3/ResultSet.html#M000091">closed? (SQLite3::ResultSet)</a><br>
+<a href="classes/SQLite3/Database.html#M000101">closed? (SQLite3::Database)</a><br>
+<a href="classes/SQLite3/Statement.html#M000076">closed? (SQLite3::Statement)</a><br>
+<a href="classes/SQLite3/Exception.html#M000131">code (SQLite3::Exception)</a><br>
+<a href="classes/SQLite3/Exception.html#M000132">code (SQLite3::Exception)</a><br>
+<a href="classes/SQLite3/Driver/DL/Driver.html#M000056">column_blob (SQLite3::Driver::DL::Driver)</a><br>
+<a href="classes/SQLite3/Driver/Native/Driver.html#M000043">column_decltype (SQLite3::Driver::Native::Driver)</a><br>
+<a href="classes/SQLite3/Driver/DL/Driver.html#M000067">column_decltype (SQLite3::Driver::DL::Driver)</a><br>
+<a href="classes/SQLite3/Driver/Native/Driver.html#M000042">column_name (SQLite3::Driver::Native::Driver)</a><br>
+<a href="classes/SQLite3/Driver/DL/Driver.html#M000066">column_name (SQLite3::Driver::DL::Driver)</a><br>
+<a href="classes/SQLite3/Driver/DL/Driver.html#M000065">column_text (SQLite3::Driver::DL::Driver)</a><br>
+<a href="classes/SQLite3/Driver/Native/Driver.html#M000044">column_text (SQLite3::Driver::Native::Driver)</a><br>
+<a href="classes/SQLite3/Statement.html#M000083">columns (SQLite3::Statement)</a><br>
+<a href="classes/SQLite3/ResultSet.html#M000093">columns (SQLite3::ResultSet)</a><br>
+<a href="classes/SQLite3/Database.html#M000121">commit (SQLite3::Database)</a><br>
+<a href="classes/SQLite3/Driver/DL/Driver.html#M000070">commit_hook (SQLite3::Driver::DL::Driver)</a><br>
+<a href="classes/SQLite3/Driver/Native/Driver.html#M000034">complete? (SQLite3::Driver::Native::Driver)</a><br>
+<a href="classes/SQLite3/Database.html#M000096">complete? (SQLite3::Database)</a><br>
+<a href="classes/SQLite3/Driver/DL/Driver.html#M000053">complete? (SQLite3::Driver::DL::Driver)</a><br>
+<a href="classes/SQLite3/Database/FunctionProxy.html#M000128">count (SQLite3::Database::FunctionProxy)</a><br>
+<a href="classes/SQLite3/Database.html#M000118">create_aggregate (SQLite3::Database)</a><br>
+<a href="classes/SQLite3/Database.html#M000119">create_aggregate_handler (SQLite3::Database)</a><br>
+<a href="classes/SQLite3/Driver/DL/Driver.html#M000061">create_function (SQLite3::Driver::DL::Driver)</a><br>
+<a href="classes/SQLite3/Driver/Native/Driver.html#M000045">create_function (SQLite3::Driver::Native::Driver)</a><br>
+<a href="classes/SQLite3/Database.html#M000117">create_function (SQLite3::Database)</a><br>
+<a href="classes/SQLite3/Pragmas.html#M000027">database_list (SQLite3::Pragmas)</a><br>
+<a href="classes/SQLite3/Pragmas.html#M000011">default_cache_size (SQLite3::Pragmas)</a><br>
+<a href="classes/SQLite3/Pragmas.html#M000012">default_cache_size= (SQLite3::Pragmas)</a><br>
+<a href="classes/SQLite3/Pragmas.html#M000013">default_synchronous (SQLite3::Pragmas)</a><br>
+<a href="classes/SQLite3/Pragmas.html#M000014">default_synchronous= (SQLite3::Pragmas)</a><br>
+<a href="classes/SQLite3/Pragmas.html#M000017">default_temp_store (SQLite3::Pragmas)</a><br>
+<a href="classes/SQLite3/Pragmas.html#M000018">default_temp_store= (SQLite3::Pragmas)</a><br>
+<a href="classes/SQLite3/ResultSet.html#M000089">each (SQLite3::ResultSet)</a><br>
+<a href="classes/SQLite3/ResultSet.html#M000087">eof? (SQLite3::ResultSet)</a><br>
+<a href="classes/SQLite3/Database.html#M000098">errcode (SQLite3::Database)</a><br>
+<a href="classes/SQLite3/Driver/DL/Driver.html#M000051">errmsg (SQLite3::Driver::DL::Driver)</a><br>
+<a href="classes/SQLite3/Database.html#M000097">errmsg (SQLite3::Database)</a><br>
+<a href="classes/SQLite3/Driver/Native/Driver.html#M000039">errmsg (SQLite3::Driver::Native::Driver)</a><br>
+<a href="classes/SQLite3/Database.html#M000105">execute (SQLite3::Database)</a><br>
+<a href="classes/SQLite3/Statement.html#M000079">execute (SQLite3::Statement)</a><br>
+<a href="classes/SQLite3/Statement.html#M000080">execute! (SQLite3::Statement)</a><br>
+<a href="classes/SQLite3/Database.html#M000106">execute2 (SQLite3::Database)</a><br>
+<a href="classes/SQLite3/Database.html#M000107">execute_batch (SQLite3::Database)</a><br>
+<a href="classes/SQLite3/Pragmas.html#M000028">foreign_key_list (SQLite3::Pragmas)</a><br>
+<a href="classes/SQLite3/Pragmas.html#M000021">full_column_names (SQLite3::Pragmas)</a><br>
+<a href="classes/SQLite3/Pragmas.html#M000022">full_column_names= (SQLite3::Pragmas)</a><br>
+<a href="classes/SQLite3/Database.html#M000109">get_first_row (SQLite3::Database)</a><br>
+<a href="classes/SQLite3/Database.html#M000110">get_first_value (SQLite3::Database)</a><br>
+<a href="classes/SQLite3/Pragmas.html#M000029">index_info (SQLite3::Pragmas)</a><br>
+<a href="classes/SQLite3/Pragmas.html#M000030">index_list (SQLite3::Pragmas)</a><br>
+<a href="classes/SQLite3/Pragmas.html#M000002">integrity_check (SQLite3::Pragmas)</a><br>
+<a href="classes/SQLite3/Database.html#M000114">interrupt (SQLite3::Database)</a><br>
+<a href="classes/SQLite3/Database.html#M000111">last_insert_row_id (SQLite3::Database)</a><br>
+<a href="classes/SQLite3/Value.html#M000136">length (SQLite3::Value)</a><br>
+<a href="classes/SQLite3/Translator.html#M000071">new (SQLite3::Translator)</a><br>
+<a href="classes/SQLite3/Driver/Native/Driver.html#M000033">new (SQLite3::Driver::Native::Driver)</a><br>
+<a href="classes/SQLite3/Statement.html#M000074">new (SQLite3::Statement)</a><br>
+<a href="classes/SQLite3/Database.html#M000095">new (SQLite3::Database)</a><br>
+<a href="classes/SQLite3/ResultSet.html#M000085">new (SQLite3::ResultSet)</a><br>
+<a href="classes/SQLite3/Database/FunctionProxy.html#M000124">new (SQLite3::Database::FunctionProxy)</a><br>
+<a href="classes/SQLite3/Value.html#M000133">new (SQLite3::Value)</a><br>
+<a href="classes/SQLite3/ResultSet.html#M000088">next (SQLite3::ResultSet)</a><br>
+<a href="classes/SQLite3/Value.html#M000134">null? (SQLite3::Value)</a><br>
+<a href="classes/SQLite3/Driver/Native/Driver.html#M000038">open (SQLite3::Driver::Native::Driver)</a><br>
+<a href="classes/SQLite3/Driver/DL/Driver.html#M000050">open (SQLite3::Driver::DL::Driver)</a><br>
+<a href="classes/SQLite3/Pragmas.html#M000023">parser_trace (SQLite3::Pragmas)</a><br>
+<a href="classes/SQLite3/Pragmas.html#M000024">parser_trace= (SQLite3::Pragmas)</a><br>
+<a href="classes/SQLite3/Database.html#M000104">prepare (SQLite3::Database)</a><br>
+<a href="classes/SQLite3/Driver/DL/Driver.html#M000052">prepare (SQLite3::Driver::DL::Driver)</a><br>
+<a href="classes/SQLite3/Driver/Native/Driver.html#M000040">prepare (SQLite3::Driver::Native::Driver)</a><br>
+<a href="classes/SQLite3/Driver/DL/Driver.html#M000069">progress_handler (SQLite3::Driver::DL::Driver)</a><br>
+<a href="classes/SQLite3/Database.html#M000108">query (SQLite3::Database)</a><br>
+<a href="classes/SQLite3/Database.html#M000094">quote (SQLite3::Database)</a><br>
+<a href="classes/SQLite3/ResultSet.html#M000086">reset (SQLite3::ResultSet)</a><br>
+<a href="classes/SQLite3/Statement.html#M000081">reset! (SQLite3::Statement)</a><br>
+<a href="classes/SQLite3/Database/FunctionProxy.html#M000125">result= (SQLite3::Database::FunctionProxy)</a><br>
+<a href="classes/SQLite3/Driver/Native/Driver.html#M000048">result_error (SQLite3::Driver::Native::Driver)</a><br>
+<a href="classes/SQLite3/Driver/DL/Driver.html#M000057">result_text (SQLite3::Driver::DL::Driver)</a><br>
+<a href="classes/SQLite3/Driver/Native/Driver.html#M000047">result_text (SQLite3::Driver::Native::Driver)</a><br>
+<a href="classes/SQLite3/Database.html#M000122">rollback (SQLite3::Database)</a><br>
+<a href="classes/SQLite3/Pragmas.html#M000005">schema_cookie (SQLite3::Pragmas)</a><br>
+<a href="classes/SQLite3/Pragmas.html#M000006">schema_cookie= (SQLite3::Pragmas)</a><br>
+<a href="classes/SQLite3/Driver/DL/Driver.html#M000059">set_authorizer (SQLite3::Driver::DL::Driver)</a><br>
+<a href="classes/SQLite3/Driver/Native/Driver.html#M000036">set_authorizer (SQLite3::Driver::Native::Driver)</a><br>
+<a href="classes/SQLite3/Database/FunctionProxy.html#M000127">set_error (SQLite3::Database::FunctionProxy)</a><br>
+<a href="classes/DL/PtrData.html#M000144">set_object (DL::PtrData)</a><br>
+<a href="classes/SQLite3/Database/FunctionProxy.html#M000126">set_result (SQLite3::Database::FunctionProxy)</a><br>
+<a href="classes/SQLite3/Pragmas.html#M000015">synchronous (SQLite3::Pragmas)</a><br>
+<a href="classes/SQLite3/Pragmas.html#M000016">synchronous= (SQLite3::Pragmas)</a><br>
+<a href="classes/SQLite3/Pragmas.html#M000031">table_info (SQLite3::Pragmas)</a><br>
+<a href="classes/SQLite3/Pragmas.html#M000019">temp_store (SQLite3::Pragmas)</a><br>
+<a href="classes/SQLite3/Pragmas.html#M000020">temp_store= (SQLite3::Pragmas)</a><br>
+<a href="classes/SQLite3/Value.html#M000135">to_blob (SQLite3::Value)</a><br>
+<a href="classes/String.html#M000001">to_blob (String)</a><br>
+<a href="classes/SQLite3/Value.html#M000137">to_f (SQLite3::Value)</a><br>
+<a href="classes/SQLite3/Value.html#M000138">to_i (SQLite3::Value)</a><br>
+<a href="classes/SQLite3/Value.html#M000139">to_int64 (SQLite3::Value)</a><br>
+<a href="classes/DL/PtrData.html#M000143">to_object (DL::PtrData)</a><br>
+<a href="classes/Kernel.html#M000142">to_ptr (Kernel)</a><br>
+<a href="classes/SQLite3/Value.html#M000140">to_s (SQLite3::Value)</a><br>
+<a href="classes/SQLite3/Database.html#M000113">total_changes (SQLite3::Database)</a><br>
+<a href="classes/SQLite3/Driver/DL/Driver.html#M000060">trace (SQLite3::Driver::DL::Driver)</a><br>
+<a href="classes/SQLite3/Database.html#M000102">trace (SQLite3::Database)</a><br>
+<a href="classes/SQLite3/Driver/Native/Driver.html#M000037">trace (SQLite3::Driver::Native::Driver)</a><br>
+<a href="classes/SQLite3/Database.html#M000120">transaction (SQLite3::Database)</a><br>
+<a href="classes/SQLite3/Database.html#M000123">transaction_active? (SQLite3::Database)</a><br>
+<a href="classes/SQLite3/Translator.html#M000073">translate (SQLite3::Translator)</a><br>
+<a href="classes/SQLite3/Database.html#M000099">translator (SQLite3::Database)</a><br>
+<a href="classes/SQLite3/Value.html#M000141">type (SQLite3::Value)</a><br>
+<a href="classes/SQLite3/Statement.html#M000084">types (SQLite3::Statement)</a><br>
+<a href="classes/SQLite3/ResultSet.html#M000092">types (SQLite3::ResultSet)</a><br>
+<a href="classes/SQLite3/Pragmas.html#M000007">user_cookie (SQLite3::Pragmas)</a><br>
+<a href="classes/SQLite3/Pragmas.html#M000008">user_cookie= (SQLite3::Pragmas)</a><br>
+<a href="classes/SQLite3/Driver/DL/Driver.html#M000054">value_blob (SQLite3::Driver::DL::Driver)</a><br>
+<a href="classes/SQLite3/Driver/Native/Driver.html#M000046">value_text (SQLite3::Driver::Native::Driver)</a><br>
+<a href="classes/SQLite3/Driver/DL/Driver.html#M000055">value_text (SQLite3::Driver::DL::Driver)</a><br>
+<a href="classes/SQLite3/Pragmas.html#M000025">vdbe_trace (SQLite3::Pragmas)</a><br>
+<a href="classes/SQLite3/Pragmas.html#M000026">vdbe_trace= (SQLite3::Pragmas)</a><br>
+</div>
+</body></html>

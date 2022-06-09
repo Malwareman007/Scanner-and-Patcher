@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Class: SQLite3::Database::FunctionProxy</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+
+    <script language="JavaScript" type="text/javascript">
+    // <![CDATA[
+
+        function toggleSource( id )
+        {
+          var elem
+          var link
+
+          if( document.getElementById )
+          {
+            elem = document.getElementById( id )
+            link = document.getElementById( "l_" + id )
+          }
+          else if ( document.all )
+          {
+            elem = eval( "document.all." + id )
+            link = eval( "document.all.l_" + id )
+          }
+          else
+            return false;
+
+          if( elem.style.display == "block" )
+          {
+            elem.style.display = "none"
+            link.innerHTML = "show source"
+          }
+          else
+          {
+            elem.style.display = "block"
+            link.innerHTML = "hide source"
+          }
+        }
+
+        function openCode( url )
+        {
+          window.open( url, "SOURCE_CODE", "width=400,height=400,scrollbars=yes" )
+        }
+      // ]]>
+    </script>
+  </head>
+
+  <body>
+  <table width="100%" border='0' cellpadding='0' cellspacing='0' class='banner'><tr>
+  <td class="file-title"><span class="file-title-prefix">Class</span><br />SQLite3::Database::FunctionProxy</td>
+  <td align="right">
+    <table cellspacing=0 cellpadding=2>
+      <tr valign="top">
+        <td>In:</td>
+        <td>
+<a href="../../../files/lib/sqlite3/database_rb.html">lib/sqlite3/database.rb</a>
+        </td>
+      </tr>
+    <tr>
+      <td>Parent:</td>
+      <td>
+Object
+     </td>
+   </tr>
+         </table>
+        </td>
+        </tr>
+      </table>
+ <!-- banner header -->
+
+  <div id="bodyContent">
+      <div id="content">
+
+  <div class="description"><p>
+A helper class for dealing with custom functions (see create_function,
+create_aggregate, and create_aggregate_handler). It encapsulates the opaque
+function object that represents the current invocation. It also provides
+more convenient access to the API functions that operate on the function
+object.
+</p>
+<p>
+This class will almost <em>always</em> be instantiated indirectly, by
+working with the create methods mentioned above.
+</p>
+</div>
+
+
+
+  <div class="sectiontitle">Methods</div>
+  <ul>
+  <li><a href="#M000129">[]</a></li>
+  <li><a href="#M000130">[]=</a></li>
+  <li><a href="#M000128">count</a></li>
+  <li><a href="#M000124">new</a></li>
+  <li><a href="#M000125">result=</a></li>
+  <li><a href="#M000127">set_error</a></li>
+  <li><a href="#M000126">set_result</a></li>
+  </ul>
+
+
+
+
+
+
+<div class="sectiontitle">Public Class methods</div>
+<div class="method">
+  <div class="title">
+    <a name="M000124"></a><b>new</b>( driver, func, context=nil )
+  </div>
+  <div class="description">
+  <p>
+Create a <a href="FunctionProxy.html#M000124">new</a> <a
+href="FunctionProxy.html">FunctionProxy</a> that encapsulates the given
+<tt>func</tt> object. If context is non-nil, the functions context will be
+set to that. If it is non-nil, it must quack like a Hash. If it is nil,
+then none of the context functions will be available.
+</p>
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000124_source')" id="l_M000124_source">show source</a> ]</p>
+  <div id="M000124_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/sqlite3/database.rb, line 642</span>
+642:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>( <span class="ruby-identifier">driver</span>, <span class="ruby-identifier">func</span>, <span class="ruby-identifier">context</span>=<span class="ruby-keyword kw">nil</span> )
+643:         <span class="ruby-ivar">@driver</span> = <span class="ruby-identifier">driver</span>
+644:         <span class="ruby-ivar">@func</span> = <span class="ruby-identifier">func</span>
+645:         <span class="ruby-ivar">@context</span> = <span class="ruby-identifier">context</span>
+646:       <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="sectiontitle">Public Instance methods</div>
+<div class="method">
+  <div class="title">
+    <a name="M000129"></a><b>[]</b>( key )
+  </div>
+  <div class="description">
+  <p>
+Returns the value with the given key from the context. This is only
+available to aggregate functions.
+</p>
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000129_source')" id="l_M000129_source">show source</a> ]</p>
+  <div id="M000129_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/sqlite3/database.rb, line 675</span>
+675:       <span class="ruby-keyword kw">def</span> <span class="ruby-operator">[]</span>( <span class="ruby-identifier">key</span> )
+676:         <span class="ruby-identifier">ensure_aggregate!</span>
+677:         <span class="ruby-ivar">@context</span>[ <span class="ruby-identifier">key</span> ]
+678:       <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000130"></a><b>[]=</b>( key, value )
+  </div>
+  <div class="description">
+  <p>
+Sets the value with the given key in the context. This is only available to
+aggregate functions.
+</p>
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000130_source')" id="l_M000130_source">show source</a> ]</p>
+  <div id="M000130_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/sqlite3/database.rb, line 682</span>
+682:       <span class="ruby-keyword kw">def</span> <span class="ruby-operator">[]=</span>( <span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span> )
+683:         <span class="ruby-identifier">ensure_aggregate!</span>
+684:         <span class="ruby-ivar">@context</span>[ <span class="ruby-identifier">key</span> ] = <span class="ruby-identifier">value</span>
+685:       <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000128"></a><b>count</b>()
+  </div>
+  <div class="description">
+  <p>
+(Only available to aggregate functions.) Returns the number of rows that
+the aggregate has processed so far. This will include the current row, and
+so will always return at least 1.
+</p>
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000128_source')" id="l_M000128_source">show source</a> ]</p>
+  <div id="M000128_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/sqlite3/database.rb, line 668</span>
+668:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">count</span>
+669:         <span class="ruby-identifier">ensure_aggregate!</span>
+670:         <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">aggregate_count</span>( <span class="ruby-ivar">@func</span> )
+671:       <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000125"></a><b>result=</b>( result )
+  </div>
+  <div class="description">
+  <p>
+Calls <a href="FunctionProxy.html#M000126">set_result</a> to set the result
+of this function.
+</p>
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000125_source')" id="l_M000125_source">show source</a> ]</p>
+  <div id="M000125_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/sqlite3/database.rb, line 649</span>
+649:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">result=</span>( <span class="ruby-identifier">result</span> )
+650:         <span class="ruby-identifier">set_result</span>( <span class="ruby-identifier">result</span> )
+651:       <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000127"></a><b>set_error</b>( error )
+  </div>
+  <div class="description">
+  <p>
+Set the result of the function to the given error message. The function
+will then return that error.
+</p>
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000127_source')" id="l_M000127_source">show source</a> ]</p>
+  <div id="M000127_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/sqlite3/database.rb, line 661</span>
+661:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">set_error</span>( <span class="ruby-identifier">error</span> )
+662:         <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">result_error</span>( <span class="ruby-ivar">@func</span>, <span class="ruby-identifier">error</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-value">-1</span> )
+663:       <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000126"></a><b>set_result</b>( result, utf16=false )
+  </div>
+  <div class="description">
+  <p>
+Set the result of the function to the given value. The function will then
+return this value.
+</p>
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000126_source')" id="l_M000126_source">show source</a> ]</p>
+  <div id="M000126_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/sqlite3/database.rb, line 655</span>
+655:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">set_result</span>( <span class="ruby-identifier">result</span>, <span class="ruby-identifier">utf16</span>=<span class="ruby-keyword kw">false</span> )
+656:         <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">result_text</span>( <span class="ruby-ivar">@func</span>, <span class="ruby-identifier">result</span>, <span class="ruby-identifier">utf16</span> )
+657:       <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+</div>
+
+  </div>
+
+    </body>
+</html>

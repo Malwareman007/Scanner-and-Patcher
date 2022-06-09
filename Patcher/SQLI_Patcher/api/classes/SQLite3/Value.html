@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Class: SQLite3::Value</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+
+    <script language="JavaScript" type="text/javascript">
+    // <![CDATA[
+
+        function toggleSource( id )
+        {
+          var elem
+          var link
+
+          if( document.getElementById )
+          {
+            elem = document.getElementById( id )
+            link = document.getElementById( "l_" + id )
+          }
+          else if ( document.all )
+          {
+            elem = eval( "document.all." + id )
+            link = eval( "document.all.l_" + id )
+          }
+          else
+            return false;
+
+          if( elem.style.display == "block" )
+          {
+            elem.style.display = "none"
+            link.innerHTML = "show source"
+          }
+          else
+          {
+            elem.style.display = "block"
+            link.innerHTML = "hide source"
+          }
+        }
+
+        function openCode( url )
+        {
+          window.open( url, "SOURCE_CODE", "width=400,height=400,scrollbars=yes" )
+        }
+      // ]]>
+    </script>
+  </head>
+
+  <body>
+  <table width="100%" border='0' cellpadding='0' cellspacing='0' class='banner'><tr>
+  <td class="file-title"><span class="file-title-prefix">Class</span><br />SQLite3::Value</td>
+  <td align="right">
+    <table cellspacing=0 cellpadding=2>
+      <tr valign="top">
+        <td>In:</td>
+        <td>
+<a href="../../files/lib/sqlite3/value_rb.html">lib/sqlite3/value.rb</a>
+        </td>
+      </tr>
+    <tr>
+      <td>Parent:</td>
+      <td>
+Object
+     </td>
+   </tr>
+         </table>
+        </td>
+        </tr>
+      </table>
+ <!-- banner header -->
+
+  <div id="bodyContent">
+      <div id="content">
+
+
+
+
+  <div class="sectiontitle">Methods</div>
+  <ul>
+  <li><a href="#M000136">length</a></li>
+  <li><a href="#M000133">new</a></li>
+  <li><a href="#M000134">null?</a></li>
+  <li><a href="#M000135">to_blob</a></li>
+  <li><a href="#M000137">to_f</a></li>
+  <li><a href="#M000138">to_i</a></li>
+  <li><a href="#M000139">to_int64</a></li>
+  <li><a href="#M000140">to_s</a></li>
+  <li><a href="#M000141">type</a></li>
+  </ul>
+
+
+
+
+
+  <div class="sectiontitle">Attributes</div>
+  <table border='0' cellpadding='5'>
+  <tr valign='top'>
+    <td class='attr-rw'>
+[R]
+    </td>
+    <td class='attr-name'>handle</td>
+    <td class='attr-desc'></td>
+  </tr>
+  </table>
+
+<div class="sectiontitle">Public Class methods</div>
+<div class="method">
+  <div class="title">
+    <a name="M000133"></a><b>new</b>( db, handle )
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000133_source')" id="l_M000133_source">show source</a> ]</p>
+  <div id="M000133_source" class="dyn-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/sqlite3/value.rb, line 8</span>
+ 8:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>( <span class="ruby-identifier">db</span>, <span class="ruby-identifier">handle</span> )
+ 9:       <span class="ruby-ivar">@driver</span> = <span class="ruby-identifier">db</span>.<span class="ruby-identifier">driver</span>
+10:       <span class="ruby-ivar">@handle</span> = <span class="ruby-identifier">handle</span>
+11:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="sectiontitle">Public Instance methods</div>
+<div class="method">
+  <div class="title">
+    <a name="M000136"></a><b>length</b>( utf16=false )
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000136_source')" id="l_M000136_source">show source</a> ]</p>
+  <div id="M000136_source" class="dyn-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/sqlite3/value.rb, line 21</span>
+21:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">length</span>( <span class="ruby-identifier">utf16</span>=<span class="ruby-keyword kw">false</span> )
+22:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">utf16</span>
+23:         <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">value_bytes16</span>( <span class="ruby-ivar">@handle</span> )
+24:       <span class="ruby-keyword kw">else</span>
+25:         <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">value_bytes</span>( <span class="ruby-ivar">@handle</span> )
+26:       <span class="ruby-keyword kw">end</span>
+27:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000134"></a><b>null?</b>()
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000134_source')" id="l_M000134_source">show source</a> ]</p>
+  <div id="M000134_source" class="dyn-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/sqlite3/value.rb, line 13</span>
+13:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">null?</span>
+14:       <span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">:null</span>
+15:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000135"></a><b>to_blob</b>()
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000135_source')" id="l_M000135_source">show source</a> ]</p>
+  <div id="M000135_source" class="dyn-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/sqlite3/value.rb, line 17</span>
+17:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_blob</span>
+18:       <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">value_blob</span>( <span class="ruby-ivar">@handle</span> )
+19:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000137"></a><b>to_f</b>()
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000137_source')" id="l_M000137_source">show source</a> ]</p>
+  <div id="M000137_source" class="dyn-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/sqlite3/value.rb, line 29</span>
+29:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_f</span>
+30:       <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">value_double</span>( <span class="ruby-ivar">@handle</span> )
+31:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000138"></a><b>to_i</b>()
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000138_source')" id="l_M000138_source">show source</a> ]</p>
+  <div id="M000138_source" class="dyn-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/sqlite3/value.rb, line 33</span>
+33:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_i</span>
+34:       <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">value_int</span>( <span class="ruby-ivar">@handle</span> )
+35:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000139"></a><b>to_int64</b>()
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000139_source')" id="l_M000139_source">show source</a> ]</p>
+  <div id="M000139_source" class="dyn-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/sqlite3/value.rb, line 37</span>
+37:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_int64</span>
+38:       <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">value_int64</span>( <span class="ruby-ivar">@handle</span> )
+39:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000140"></a><b>to_s</b>( utf16=false )
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000140_source')" id="l_M000140_source">show source</a> ]</p>
+  <div id="M000140_source" class="dyn-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/sqlite3/value.rb, line 41</span>
+41:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_s</span>( <span class="ruby-identifier">utf16</span>=<span class="ruby-keyword kw">false</span> )
+42:       <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">value_text</span>( <span class="ruby-ivar">@handle</span>, <span class="ruby-identifier">utf16</span> )
+43:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000141"></a><b>type</b>()
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000141_source')" id="l_M000141_source">show source</a> ]</p>
+  <div id="M000141_source" class="dyn-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/sqlite3/value.rb, line 45</span>
+45:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">type</span>
+46:       <span class="ruby-keyword kw">case</span> <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">value_type</span>( <span class="ruby-ivar">@handle</span> )
+47:         <span class="ruby-keyword kw">when</span> <span class="ruby-constant">Constants</span><span class="ruby-operator">::</span><span class="ruby-constant">ColumnType</span><span class="ruby-operator">::</span><span class="ruby-constant">INTEGER</span> <span class="ruby-keyword kw">then</span> <span class="ruby-identifier">:int</span>
+48:         <span class="ruby-keyword kw">when</span> <span class="ruby-constant">Constants</span><span class="ruby-operator">::</span><span class="ruby-constant">ColumnType</span><span class="ruby-operator">::</span><span class="ruby-constant">FLOAT</span>   <span class="ruby-keyword kw">then</span> <span class="ruby-identifier">:float</span>
+49:         <span class="ruby-keyword kw">when</span> <span class="ruby-constant">Constants</span><span class="ruby-operator">::</span><span class="ruby-constant">ColumnType</span><span class="ruby-operator">::</span><span class="ruby-constant">TEXT</span>    <span class="ruby-keyword kw">then</span> <span class="ruby-identifier">:text</span>
+50:         <span class="ruby-keyword kw">when</span> <span class="ruby-constant">Constants</span><span class="ruby-operator">::</span><span class="ruby-constant">ColumnType</span><span class="ruby-operator">::</span><span class="ruby-constant">BLOB</span>    <span class="ruby-keyword kw">then</span> <span class="ruby-identifier">:blob</span>
+51:         <span class="ruby-keyword kw">when</span> <span class="ruby-constant">Constants</span><span class="ruby-operator">::</span><span class="ruby-constant">ColumnType</span><span class="ruby-operator">::</span><span class="ruby-constant">NULL</span>    <span class="ruby-keyword kw">then</span> <span class="ruby-identifier">:null</span>
+52:       <span class="ruby-keyword kw">end</span>
+53:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+</div>
+
+  </div>
+
+    </body>
+</html>

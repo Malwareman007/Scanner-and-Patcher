@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Class: SQLite3::ResultSet</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+
+    <script language="JavaScript" type="text/javascript">
+    // <![CDATA[
+
+        function toggleSource( id )
+        {
+          var elem
+          var link
+
+          if( document.getElementById )
+          {
+            elem = document.getElementById( id )
+            link = document.getElementById( "l_" + id )
+          }
+          else if ( document.all )
+          {
+            elem = eval( "document.all." + id )
+            link = eval( "document.all.l_" + id )
+          }
+          else
+            return false;
+
+          if( elem.style.display == "block" )
+          {
+            elem.style.display = "none"
+            link.innerHTML = "show source"
+          }
+          else
+          {
+            elem.style.display = "block"
+            link.innerHTML = "hide source"
+          }
+        }
+
+        function openCode( url )
+        {
+          window.open( url, "SOURCE_CODE", "width=400,height=400,scrollbars=yes" )
+        }
+      // ]]>
+    </script>
+  </head>
+
+  <body>
+  <table width="100%" border='0' cellpadding='0' cellspacing='0' class='banner'><tr>
+  <td class="file-title"><span class="file-title-prefix">Class</span><br />SQLite3::ResultSet</td>
+  <td align="right">
+    <table cellspacing=0 cellpadding=2>
+      <tr valign="top">
+        <td>In:</td>
+        <td>
+<a href="../../files/lib/sqlite3/resultset_rb.html">lib/sqlite3/resultset.rb</a>
+        </td>
+      </tr>
+    <tr>
+      <td>Parent:</td>
+      <td>
+Object
+     </td>
+   </tr>
+         </table>
+        </td>
+        </tr>
+      </table>
+ <!-- banner header -->
+
+  <div id="bodyContent">
+      <div id="content">
+
+  <div class="description"><p>
+The <a href="ResultSet.html">ResultSet</a> object encapsulates the
+enumerability of a query&#8216;s output. It is a simple cursor over the
+data that the query returns. It will very rarely (if ever) be instantiated
+directly. Instead, client&#8216;s should obtain a <a
+href="ResultSet.html">ResultSet</a> instance via <a
+href="Statement.html#M000079">Statement#execute</a>.
+</p>
+</div>
+
+
+
+  <div class="sectiontitle">Methods</div>
+  <ul>
+  <li><a href="#M000090">close</a></li>
+  <li><a href="#M000091">closed?</a></li>
+  <li><a href="#M000093">columns</a></li>
+  <li><a href="#M000089">each</a></li>
+  <li><a href="#M000087">eof?</a></li>
+  <li><a href="#M000085">new</a></li>
+  <li><a href="#M000088">next</a></li>
+  <li><a href="#M000086">reset</a></li>
+  <li><a href="#M000092">types</a></li>
+  </ul>
+
+<div class="sectiontitle">Included Modules</div>
+<ul>
+  <li>Enumerable</li>
+</ul>
+
+
+  <div class="sectiontitle">Classes and Modules</div>
+  Class <a href="ResultSet/ArrayWithTypes.html" class="link">SQLite3::ResultSet::ArrayWithTypes</a><br />
+Class <a href="ResultSet/ArrayWithTypesAndFields.html" class="link">SQLite3::ResultSet::ArrayWithTypesAndFields</a><br />
+Class <a href="ResultSet/HashWithTypes.html" class="link">SQLite3::ResultSet::HashWithTypes</a><br />
+
+
+
+
+<div class="sectiontitle">Public Class methods</div>
+<div class="method">
+  <div class="title">
+    <a name="M000085"></a><b>new</b>( db, stmt )
+  </div>
+  <div class="description">
+  <p>
+Create a <a href="ResultSet.html#M000085">new</a> <a
+href="ResultSet.html">ResultSet</a> attached to the given database, using
+the given sql text.
+</p>
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000085_source')" id="l_M000085_source">show source</a> ]</p>
+  <div id="M000085_source" class="dyn-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/sqlite3/resultset.rb, line 34</span>
+34:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>( <span class="ruby-identifier">db</span>, <span class="ruby-identifier">stmt</span> )
+35:       <span class="ruby-ivar">@db</span> = <span class="ruby-identifier">db</span>
+36:       <span class="ruby-ivar">@driver</span> = <span class="ruby-ivar">@db</span>.<span class="ruby-identifier">driver</span>
+37:       <span class="ruby-ivar">@stmt</span> = <span class="ruby-identifier">stmt</span>
+38:       <span class="ruby-identifier">commence</span>
+39:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="sectiontitle">Public Instance methods</div>
+<div class="method">
+  <div class="title">
+    <a name="M000090"></a><b>close</b>()
+  </div>
+  <div class="description">
+  <p>
+Closes the statement that spawned this result set. <em>Use with
+caution!</em> Closing a result set will automatically <a
+href="ResultSet.html#M000090">close</a> any other result sets that were
+spawned from the same statement.
+</p>
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000090_source')" id="l_M000090_source">show source</a> ]</p>
+  <div id="M000090_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/sqlite3/resultset.rb, line 155</span>
+155:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">close</span>
+156:       <span class="ruby-ivar">@stmt</span>.<span class="ruby-identifier">close</span>
+157:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000091"></a><b>closed?</b>()
+  </div>
+  <div class="description">
+  <p>
+Queries whether the underlying statement has been closed or not.
+</p>
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000091_source')" id="l_M000091_source">show source</a> ]</p>
+  <div id="M000091_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/sqlite3/resultset.rb, line 160</span>
+160:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">closed?</span>
+161:       <span class="ruby-ivar">@stmt</span>.<span class="ruby-identifier">closed?</span>
+162:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000093"></a><b>columns</b>()
+  </div>
+  <div class="description">
+  <p>
+Returns the names of the <a href="ResultSet.html#M000093">columns</a>
+returned by this result set.
+</p>
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000093_source')" id="l_M000093_source">show source</a> ]</p>
+  <div id="M000093_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/sqlite3/resultset.rb, line 170</span>
+170:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">columns</span>
+171:       <span class="ruby-ivar">@stmt</span>.<span class="ruby-identifier">columns</span>
+172:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000089"></a><b>each</b>() {|row| ...}
+  </div>
+  <div class="description">
+  <p>
+Required by the Enumerable mixin. Provides an internal iterator over the
+rows of the result set.
+</p>
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000089_source')" id="l_M000089_source">show source</a> ]</p>
+  <div id="M000089_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/sqlite3/resultset.rb, line 146</span>
+146:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">each</span>
+147:       <span class="ruby-keyword kw">while</span> <span class="ruby-identifier">row</span>=<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">next</span>
+148:         <span class="ruby-keyword kw">yield</span> <span class="ruby-identifier">row</span>
+149:       <span class="ruby-keyword kw">end</span>
+150:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000087"></a><b>eof?</b>()
+  </div>
+  <div class="description">
+  <p>
+Query whether the cursor has reached the end of the result set or not.
+</p>
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000087_source')" id="l_M000087_source">show source</a> ]</p>
+  <div id="M000087_source" class="dyn-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/sqlite3/resultset.rb, line 72</span>
+72:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">eof?</span>
+73:       <span class="ruby-ivar">@eof</span>
+74:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000088"></a><b>next</b>()
+  </div>
+  <div class="description">
+  <p>
+Obtain the <a href="ResultSet.html#M000088">next</a> row from the cursor.
+If there are no more rows to be had, this will return <tt>nil</tt>. If type
+translation is active on the corresponding database, the values in the row
+will be translated according to their <a
+href="ResultSet.html#M000092">types</a>.
+</p>
+<p>
+The returned value will be an array, unless Database#results_as_hash has
+been set to <tt>true</tt>, in which case the returned value will be a hash.
+</p>
+<p>
+For arrays, the column names are accessible via the <tt>fields</tt>
+property, and the column <a href="ResultSet.html#M000092">types</a> are
+accessible via the <tt><a href="ResultSet.html#M000092">types</a></tt>
+property.
+</p>
+<p>
+For hashes, the column names are the keys of the hash, and the column <a
+href="ResultSet.html#M000092">types</a> are accessible via the <tt><a
+href="ResultSet.html#M000092">types</a></tt> property.
+</p>
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000088_source')" id="l_M000088_source">show source</a> ]</p>
+  <div id="M000088_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/sqlite3/resultset.rb, line 89</span>
+ 89:     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">next</span>
+ 90:       <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">nil</span> <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@eof</span>
+ 91: 
+ 92:       <span class="ruby-ivar">@stmt</span>.<span class="ruby-identifier">must_be_open!</span>
+ 93: 
+ 94:       <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@first_row</span>
+ 95:         <span class="ruby-identifier">result</span> = <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">step</span>( <span class="ruby-ivar">@stmt</span>.<span class="ruby-identifier">handle</span> )
+ 96:         <span class="ruby-identifier">check</span> <span class="ruby-identifier">result</span>
+ 97:       <span class="ruby-keyword kw">end</span>
+ 98: 
+ 99:       <span class="ruby-ivar">@first_row</span> = <span class="ruby-keyword kw">false</span>
+100: 
+101:       <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@eof</span>
+102:         <span class="ruby-identifier">row</span> = []
+103:         <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">data_count</span>( <span class="ruby-ivar">@stmt</span>.<span class="ruby-identifier">handle</span> ).<span class="ruby-identifier">times</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">column</span><span class="ruby-operator">|</span>
+104:           <span class="ruby-identifier">type</span>  = <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">column_type</span>( <span class="ruby-ivar">@stmt</span>.<span class="ruby-identifier">handle</span>, <span class="ruby-identifier">column</span> )
+105: 
+106:           <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Constants</span><span class="ruby-operator">::</span><span class="ruby-constant">ColumnType</span><span class="ruby-operator">::</span><span class="ruby-constant">TEXT</span>
+107:             <span class="ruby-identifier">row</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">column_text</span>( <span class="ruby-ivar">@stmt</span>.<span class="ruby-identifier">handle</span>, <span class="ruby-identifier">column</span> )
+108:           <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Constants</span><span class="ruby-operator">::</span><span class="ruby-constant">ColumnType</span><span class="ruby-operator">::</span><span class="ruby-constant">NULL</span>
+109:             <span class="ruby-identifier">row</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-keyword kw">nil</span>
+110:           <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Constants</span><span class="ruby-operator">::</span><span class="ruby-constant">ColumnType</span><span class="ruby-operator">::</span><span class="ruby-constant">BLOB</span>
+111:             <span class="ruby-identifier">row</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">column_blob</span>( <span class="ruby-ivar">@stmt</span>.<span class="ruby-identifier">handle</span>, <span class="ruby-identifier">column</span> )
+112:           <span class="ruby-keyword kw">else</span>
+113:             <span class="ruby-identifier">row</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">column_text</span>( <span class="ruby-ivar">@stmt</span>.<span class="ruby-identifier">handle</span>, <span class="ruby-identifier">column</span> )
+114:           <span class="ruby-keyword kw">end</span>
+115:         <span class="ruby-keyword kw">end</span>
+116: 
+117:         <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@db</span>.<span class="ruby-identifier">type_translation</span>
+118:           <span class="ruby-identifier">row</span> = <span class="ruby-ivar">@stmt</span>.<span class="ruby-identifier">types</span>.<span class="ruby-identifier">zip</span>( <span class="ruby-identifier">row</span> ).<span class="ruby-identifier">map</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">type</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+119:             <span class="ruby-ivar">@db</span>.<span class="ruby-identifier">translator</span>.<span class="ruby-identifier">translate</span>( <span class="ruby-identifier">type</span>, <span class="ruby-identifier">value</span> )
+120:           <span class="ruby-keyword kw">end</span>
+121:         <span class="ruby-keyword kw">end</span>
+122: 
+123:         <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@db</span>.<span class="ruby-identifier">results_as_hash</span>
+124:           <span class="ruby-identifier">new_row</span> = <span class="ruby-constant">HashWithTypes</span>[ <span class="ruby-operator">*</span>( <span class="ruby-ivar">@stmt</span>.<span class="ruby-identifier">columns</span>.<span class="ruby-identifier">zip</span>( <span class="ruby-identifier">row</span> ).<span class="ruby-identifier">to_a</span>.<span class="ruby-identifier">flatten</span> ) ]
+125:           <span class="ruby-identifier">row</span>.<span class="ruby-identifier">each_with_index</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">value</span>,<span class="ruby-identifier">idx</span><span class="ruby-operator">|</span> <span class="ruby-identifier">new_row</span>[<span class="ruby-identifier">idx</span>] = <span class="ruby-identifier">value</span> }
+126:           <span class="ruby-identifier">row</span> = <span class="ruby-identifier">new_row</span>
+127:         <span class="ruby-keyword kw">else</span>
+128:           <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">row</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">:fields</span>)
+129:             <span class="ruby-identifier">row</span> = <span class="ruby-constant">ArrayWithTypes</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">row</span>)
+130:           <span class="ruby-keyword kw">else</span>
+131:             <span class="ruby-identifier">row</span> = <span class="ruby-constant">ArrayWithTypesAndFields</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">row</span>)
+132:           <span class="ruby-keyword kw">end</span>
+133:           <span class="ruby-identifier">row</span>.<span class="ruby-identifier">fields</span> = <span class="ruby-ivar">@stmt</span>.<span class="ruby-identifier">columns</span>
+134:         <span class="ruby-keyword kw">end</span>
+135: 
+136:         <span class="ruby-identifier">row</span>.<span class="ruby-identifier">types</span> = <span class="ruby-ivar">@stmt</span>.<span class="ruby-identifier">types</span>
+137: 
+138:         <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">row</span>
+139:       <span class="ruby-keyword kw">end</span>
+140: 
+141:       <span class="ruby-keyword kw">nil</span>
+142:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000086"></a><b>reset</b>( *bind_params )
+  </div>
+  <div class="description">
+  <p>
+Reset the cursor, so that a result set which has reached end-of-file can be
+rewound and reiterated.
+</p>
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000086_source')" id="l_M000086_source">show source</a> ]</p>
+  <div id="M000086_source" class="dyn-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/sqlite3/resultset.rb, line 62</span>
+62:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">reset</span>( <span class="ruby-operator">*</span><span class="ruby-identifier">bind_params</span> )
+63:       <span class="ruby-ivar">@stmt</span>.<span class="ruby-identifier">must_be_open!</span>
+64:       <span class="ruby-ivar">@stmt</span>.<span class="ruby-identifier">reset!</span>(<span class="ruby-keyword kw">false</span>)
+65:       <span class="ruby-ivar">@driver</span>.<span class="ruby-identifier">reset</span>( <span class="ruby-ivar">@stmt</span>.<span class="ruby-identifier">handle</span> )
+66:       <span class="ruby-ivar">@stmt</span>.<span class="ruby-identifier">bind_params</span>( <span class="ruby-operator">*</span><span class="ruby-identifier">bind_params</span> )
+67:       <span class="ruby-ivar">@eof</span> = <span class="ruby-keyword kw">false</span>
+68:       <span class="ruby-identifier">commence</span>
+69:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000092"></a><b>types</b>()
+  </div>
+  <div class="description">
+  <p>
+Returns the <a href="ResultSet.html#M000092">types</a> of the <a
+href="ResultSet.html#M000093">columns</a> returned by this result set.
+</p>
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000092_source')" id="l_M000092_source">show source</a> ]</p>
+  <div id="M000092_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/sqlite3/resultset.rb, line 165</span>
+165:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">types</span>
+166:       <span class="ruby-ivar">@stmt</span>.<span class="ruby-identifier">types</span>
+167:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+</div>
+
+  </div>
+
+    </body>
+</html>

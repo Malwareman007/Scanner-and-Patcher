@@ -1,0 +1,603 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Class: SQLite3::Driver::DL::Driver</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+
+    <script language="JavaScript" type="text/javascript">
+    // <![CDATA[
+
+        function toggleSource( id )
+        {
+          var elem
+          var link
+
+          if( document.getElementById )
+          {
+            elem = document.getElementById( id )
+            link = document.getElementById( "l_" + id )
+          }
+          else if ( document.all )
+          {
+            elem = eval( "document.all." + id )
+            link = eval( "document.all.l_" + id )
+          }
+          else
+            return false;
+
+          if( elem.style.display == "block" )
+          {
+            elem.style.display = "none"
+            link.innerHTML = "show source"
+          }
+          else
+          {
+            elem.style.display = "block"
+            link.innerHTML = "hide source"
+          }
+        }
+
+        function openCode( url )
+        {
+          window.open( url, "SOURCE_CODE", "width=400,height=400,scrollbars=yes" )
+        }
+      // ]]>
+    </script>
+  </head>
+
+  <body>
+  <table width="100%" border='0' cellpadding='0' cellspacing='0' class='banner'><tr>
+  <td class="file-title"><span class="file-title-prefix">Class</span><br />SQLite3::Driver::DL::Driver</td>
+  <td align="right">
+    <table cellspacing=0 cellpadding=2>
+      <tr valign="top">
+        <td>In:</td>
+        <td>
+<a href="../../../../files/lib/sqlite3/driver/dl/driver_rb.html">lib/sqlite3/driver/dl/driver.rb</a>
+        </td>
+      </tr>
+    <tr>
+      <td>Parent:</td>
+      <td>
+Object
+     </td>
+   </tr>
+         </table>
+        </td>
+        </tr>
+      </table>
+ <!-- banner header -->
+
+  <div id="bodyContent">
+      <div id="content">
+
+
+
+
+  <div class="sectiontitle">Methods</div>
+  <ul>
+  <li><a href="#M000062">aggregate_context</a></li>
+  <li><a href="#M000068">api_delegate</a></li>
+  <li><a href="#M000063">bind_blob</a></li>
+  <li><a href="#M000064">bind_text</a></li>
+  <li><a href="#M000058">busy_handler</a></li>
+  <li><a href="#M000056">column_blob</a></li>
+  <li><a href="#M000067">column_decltype</a></li>
+  <li><a href="#M000066">column_name</a></li>
+  <li><a href="#M000065">column_text</a></li>
+  <li><a href="#M000070">commit_hook</a></li>
+  <li><a href="#M000053">complete?</a></li>
+  <li><a href="#M000061">create_function</a></li>
+  <li><a href="#M000051">errmsg</a></li>
+  <li><a href="#M000050">open</a></li>
+  <li><a href="#M000052">prepare</a></li>
+  <li><a href="#M000069">progress_handler</a></li>
+  <li><a href="#M000057">result_text</a></li>
+  <li><a href="#M000059">set_authorizer</a></li>
+  <li><a href="#M000060">trace</a></li>
+  <li><a href="#M000054">value_blob</a></li>
+  <li><a href="#M000055">value_text</a></li>
+  </ul>
+
+
+
+
+  <div class="sectiontitle">Constants</div>
+  <table border='0' cellpadding='5'>
+  <tr valign='top'>
+    <td class="attr-name">STATIC</td>
+    <td>=</td>
+    <td class="attr-value">::DL::PtrData.new(0)</td>
+  </tr>
+  <tr valign='top'>
+    <td class="attr-name">TRANSIENT</td>
+    <td>=</td>
+    <td class="attr-value">::DL::PtrData.new(-1)</td>
+  </tr>
+  </table>
+
+
+<div class="sectiontitle">Public Class methods</div>
+<div class="method">
+  <div class="title">
+    <a name="M000068"></a><b>api_delegate</b>( name )
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000068_source')" id="l_M000068_source">show source</a> ]</p>
+  <div id="M000068_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/sqlite3/driver/dl/driver.rb, line 227</span>
+227:     <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">api_delegate</span>( <span class="ruby-identifier">name</span> )
+228:       <span class="ruby-identifier">define_method</span>( <span class="ruby-identifier">name</span> ) { <span class="ruby-operator">|</span><span class="ruby-operator">*</span><span class="ruby-identifier">args</span><span class="ruby-operator">|</span> <span class="ruby-constant">API</span>.<span class="ruby-identifier">send</span>( <span class="ruby-node">&quot;sqlite3_#{name}&quot;</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span> ) }
+229:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="sectiontitle">Public Instance methods</div>
+<div class="method">
+  <div class="title">
+    <a name="M000062"></a><b>aggregate_context</b>( context )
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000062_source')" id="l_M000062_source">show source</a> ]</p>
+  <div id="M000062_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/sqlite3/driver/dl/driver.rb, line 190</span>
+190:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">aggregate_context</span>( <span class="ruby-identifier">context</span> )
+191:       <span class="ruby-identifier">ptr</span> = <span class="ruby-constant">API</span>.<span class="ruby-identifier">sqlite3_aggregate_context</span>( <span class="ruby-identifier">context</span>, <span class="ruby-value">4</span> )
+192:       <span class="ruby-identifier">ptr</span>.<span class="ruby-identifier">free</span> = <span class="ruby-keyword kw">nil</span>
+193:       <span class="ruby-identifier">obj</span> = ( <span class="ruby-identifier">ptr</span> <span class="ruby-value">? </span><span class="ruby-identifier">ptr</span>.<span class="ruby-identifier">to_object</span> <span class="ruby-operator">:</span> <span class="ruby-keyword kw">nil</span> )
+194:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">nil?</span>
+195:         <span class="ruby-identifier">obj</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>
+196:         <span class="ruby-identifier">ptr</span>.<span class="ruby-identifier">set_object</span> <span class="ruby-identifier">obj</span>
+197:       <span class="ruby-keyword kw">end</span>
+198:       <span class="ruby-identifier">obj</span>
+199:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000063"></a><b>bind_blob</b>( stmt, index, value )
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000063_source')" id="l_M000063_source">show source</a> ]</p>
+  <div id="M000063_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/sqlite3/driver/dl/driver.rb, line 201</span>
+201:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">bind_blob</span>( <span class="ruby-identifier">stmt</span>, <span class="ruby-identifier">index</span>, <span class="ruby-identifier">value</span> )
+202:       <span class="ruby-identifier">s</span> = <span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_s</span>
+203:       <span class="ruby-constant">API</span>.<span class="ruby-identifier">sqlite3_bind_blob</span>( <span class="ruby-identifier">stmt</span>, <span class="ruby-identifier">index</span>, <span class="ruby-identifier">s</span>, <span class="ruby-identifier">s</span>.<span class="ruby-identifier">length</span>, <span class="ruby-constant">TRANSIENT</span> )
+204:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000064"></a><b>bind_text</b>( stmt, index, value, utf16=false )
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000064_source')" id="l_M000064_source">show source</a> ]</p>
+  <div id="M000064_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/sqlite3/driver/dl/driver.rb, line 206</span>
+206:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">bind_text</span>( <span class="ruby-identifier">stmt</span>, <span class="ruby-identifier">index</span>, <span class="ruby-identifier">value</span>, <span class="ruby-identifier">utf16</span>=<span class="ruby-keyword kw">false</span> )
+207:       <span class="ruby-identifier">s</span> = <span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_s</span>
+208:       <span class="ruby-identifier">method</span> = ( <span class="ruby-identifier">utf16</span> <span class="ruby-value">? </span><span class="ruby-operator">:</span><span class="ruby-identifier">sqlite3_bind_text16</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">:sqlite3_bind_text</span> )
+209:       <span class="ruby-constant">API</span>.<span class="ruby-identifier">send</span>( <span class="ruby-identifier">method</span>, <span class="ruby-identifier">stmt</span>, <span class="ruby-identifier">index</span>, <span class="ruby-identifier">s</span>, <span class="ruby-identifier">s</span>.<span class="ruby-identifier">length</span>, <span class="ruby-constant">TRANSIENT</span> )
+210:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000058"></a><b>busy_handler</b>( db, data=nil, &amp;block )
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000058_source')" id="l_M000058_source">show source</a> ]</p>
+  <div id="M000058_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/sqlite3/driver/dl/driver.rb, line 113</span>
+113:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">busy_handler</span>( <span class="ruby-identifier">db</span>, <span class="ruby-identifier">data</span>=<span class="ruby-keyword kw">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span> )
+114:       <span class="ruby-ivar">@busy_handler</span> = <span class="ruby-identifier">block</span>
+115: 
+116:       <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@busy_handler_callback</span>
+117:         <span class="ruby-ivar">@busy_handler_callback</span> = <span class="ruby-operator">::</span><span class="ruby-constant">DL</span>.<span class="ruby-identifier">callback</span>( <span class="ruby-value str">&quot;IPI&quot;</span> ) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">cookie</span>, <span class="ruby-identifier">timeout</span><span class="ruby-operator">|</span>
+118:           <span class="ruby-ivar">@busy_handler</span>.<span class="ruby-identifier">call</span>( <span class="ruby-identifier">cookie</span>, <span class="ruby-identifier">timeout</span> ) <span class="ruby-operator">||</span> <span class="ruby-value">0</span>
+119:         <span class="ruby-keyword kw">end</span>
+120:       <span class="ruby-keyword kw">end</span>
+121: 
+122:       <span class="ruby-constant">API</span>.<span class="ruby-identifier">sqlite3_busy_handler</span>( <span class="ruby-identifier">db</span>, <span class="ruby-identifier">block</span><span class="ruby-operator">&amp;&amp;</span><span class="ruby-ivar">@busy_handler_callback</span>, <span class="ruby-identifier">data</span> )
+123:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000056"></a><b>column_blob</b>( stmt, column )
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000056_source')" id="l_M000056_source">show source</a> ]</p>
+  <div id="M000056_source" class="dyn-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/sqlite3/driver/dl/driver.rb, line 95</span>
+95:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">column_blob</span>( <span class="ruby-identifier">stmt</span>, <span class="ruby-identifier">column</span> )
+96:       <span class="ruby-identifier">blob</span> = <span class="ruby-constant">API</span>.<span class="ruby-identifier">sqlite3_column_blob</span>( <span class="ruby-identifier">stmt</span>, <span class="ruby-identifier">column</span> )
+97:       <span class="ruby-identifier">blob</span>.<span class="ruby-identifier">free</span> = <span class="ruby-keyword kw">nil</span>
+98:       <span class="ruby-identifier">blob</span>.<span class="ruby-identifier">to_s</span>( <span class="ruby-constant">API</span>.<span class="ruby-identifier">sqlite3_column_bytes</span>( <span class="ruby-identifier">stmt</span>, <span class="ruby-identifier">column</span> ) )
+99:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000067"></a><b>column_decltype</b>( stmt, column )
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000067_source')" id="l_M000067_source">show source</a> ]</p>
+  <div id="M000067_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/sqlite3/driver/dl/driver.rb, line 222</span>
+222:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">column_decltype</span>( <span class="ruby-identifier">stmt</span>, <span class="ruby-identifier">column</span> )
+223:       <span class="ruby-identifier">result</span> = <span class="ruby-constant">API</span>.<span class="ruby-identifier">sqlite3_column_decltype</span>( <span class="ruby-identifier">stmt</span>, <span class="ruby-identifier">column</span> )
+224:       <span class="ruby-identifier">result</span> <span class="ruby-value">? </span><span class="ruby-identifier">result</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">:</span> <span class="ruby-keyword kw">nil</span>
+225:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000066"></a><b>column_name</b>( stmt, column )
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000066_source')" id="l_M000066_source">show source</a> ]</p>
+  <div id="M000066_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/sqlite3/driver/dl/driver.rb, line 217</span>
+217:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">column_name</span>( <span class="ruby-identifier">stmt</span>, <span class="ruby-identifier">column</span> )
+218:       <span class="ruby-identifier">result</span> = <span class="ruby-constant">API</span>.<span class="ruby-identifier">sqlite3_column_name</span>( <span class="ruby-identifier">stmt</span>, <span class="ruby-identifier">column</span> )
+219:       <span class="ruby-identifier">result</span> <span class="ruby-value">? </span><span class="ruby-identifier">result</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">:</span> <span class="ruby-keyword kw">nil</span>
+220:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000065"></a><b>column_text</b>( stmt, column )
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000065_source')" id="l_M000065_source">show source</a> ]</p>
+  <div id="M000065_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/sqlite3/driver/dl/driver.rb, line 212</span>
+212:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">column_text</span>( <span class="ruby-identifier">stmt</span>, <span class="ruby-identifier">column</span> )
+213:       <span class="ruby-identifier">result</span> = <span class="ruby-constant">API</span>.<span class="ruby-identifier">sqlite3_column_text</span>( <span class="ruby-identifier">stmt</span>, <span class="ruby-identifier">column</span> )
+214:       <span class="ruby-identifier">result</span> <span class="ruby-value">? </span><span class="ruby-identifier">result</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">:</span> <span class="ruby-keyword kw">nil</span>
+215:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000070"></a><b>commit_hook</b>( db, data=nil, &amp;block )
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000070_source')" id="l_M000070_source">show source</a> ]</p>
+  <div id="M000070_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/sqlite3/driver/dl/driver.rb, line 280</span>
+280:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">commit_hook</span>( <span class="ruby-identifier">db</span>, <span class="ruby-identifier">data</span>=<span class="ruby-keyword kw">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span> )
+281:         <span class="ruby-ivar">@commit_hook_handler</span> = <span class="ruby-identifier">block</span>
+282: 
+283:         <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@commit_hook_handler_callback</span>
+284:           <span class="ruby-ivar">@commit_hook_handler_callback</span> = <span class="ruby-operator">::</span><span class="ruby-constant">DL</span>.<span class="ruby-identifier">callback</span>( <span class="ruby-value str">&quot;IP&quot;</span> ) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">cookie</span><span class="ruby-operator">|</span>
+285:             <span class="ruby-ivar">@commit_hook_handler</span>.<span class="ruby-identifier">call</span>( <span class="ruby-identifier">cookie</span> )
+286:           <span class="ruby-keyword kw">end</span>
+287:         <span class="ruby-keyword kw">end</span>
+288: 
+289:         <span class="ruby-constant">API</span>.<span class="ruby-identifier">sqlite3_commit_hook</span>( <span class="ruby-identifier">db</span>, <span class="ruby-identifier">block</span><span class="ruby-operator">&amp;&amp;</span><span class="ruby-ivar">@commit_hook_handler_callback</span>,
+290:           <span class="ruby-identifier">data</span> )
+291:       <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000053"></a><b>complete?</b>( sql, utf16=false )
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000053_source')" id="l_M000053_source">show source</a> ]</p>
+  <div id="M000053_source" class="dyn-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/sqlite3/driver/dl/driver.rb, line 67</span>
+67:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">complete?</span>( <span class="ruby-identifier">sql</span>, <span class="ruby-identifier">utf16</span>=<span class="ruby-keyword kw">false</span> )
+68:       <span class="ruby-constant">API</span>.<span class="ruby-identifier">send</span>( <span class="ruby-identifier">utf16</span> <span class="ruby-value">? </span><span class="ruby-operator">:</span><span class="ruby-identifier">sqlite3_complete16</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">:sqlite3_complete</span>, <span class="ruby-identifier">sql</span><span class="ruby-operator">+</span><span class="ruby-value str">&quot;\0&quot;</span> )
+69:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000061"></a><b>create_function</b>( db, name, args, text, cookie, func, step, final )
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000061_source')" id="l_M000061_source">show source</a> ]</p>
+  <div id="M000061_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/sqlite3/driver/dl/driver.rb, line 152</span>
+152:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">create_function</span>( <span class="ruby-identifier">db</span>, <span class="ruby-identifier">name</span>, <span class="ruby-identifier">args</span>, <span class="ruby-identifier">text</span>, <span class="ruby-identifier">cookie</span>,
+153:       <span class="ruby-identifier">func</span>, <span class="ruby-identifier">step</span>, <span class="ruby-identifier">final</span> )
+154:     <span class="ruby-comment cmt"># begin</span>
+155:       <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@func_handler_callback</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">func</span>
+156:         <span class="ruby-ivar">@func_handler_callback</span> = <span class="ruby-operator">::</span><span class="ruby-constant">DL</span>.<span class="ruby-identifier">callback</span>( <span class="ruby-value str">&quot;0PIP&quot;</span> ) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">context</span>,<span class="ruby-identifier">nargs</span>,<span class="ruby-identifier">args</span><span class="ruby-operator">|</span>
+157:           <span class="ruby-identifier">args</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">to_s</span>(<span class="ruby-identifier">nargs</span><span class="ruby-operator">*</span><span class="ruby-value">4</span>).<span class="ruby-identifier">unpack</span>(<span class="ruby-value str">&quot;L*&quot;</span>).<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-operator">::</span><span class="ruby-constant">DL</span><span class="ruby-operator">::</span><span class="ruby-constant">PtrData</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">i</span>)}
+158:           <span class="ruby-identifier">data</span> = <span class="ruby-constant">API</span>.<span class="ruby-identifier">sqlite3_user_data</span>( <span class="ruby-identifier">context</span> ).<span class="ruby-identifier">to_object</span>
+159:           <span class="ruby-identifier">data</span>[<span class="ruby-identifier">:func</span>].<span class="ruby-identifier">call</span>( <span class="ruby-identifier">context</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span> )
+160:         <span class="ruby-keyword kw">end</span>
+161:       <span class="ruby-keyword kw">end</span>
+162: 
+163:       <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@step_handler_callback</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">step</span>
+164:         <span class="ruby-ivar">@step_handler_callback</span> = <span class="ruby-operator">::</span><span class="ruby-constant">DL</span>.<span class="ruby-identifier">callback</span>( <span class="ruby-value str">&quot;0PIP&quot;</span> ) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">context</span>,<span class="ruby-identifier">nargs</span>,<span class="ruby-identifier">args</span><span class="ruby-operator">|</span>
+165:           <span class="ruby-identifier">args</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">to_s</span>(<span class="ruby-identifier">nargs</span><span class="ruby-operator">*</span><span class="ruby-value">4</span>).<span class="ruby-identifier">unpack</span>(<span class="ruby-value str">&quot;L*&quot;</span>).<span class="ruby-identifier">map</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-operator">::</span><span class="ruby-constant">DL</span><span class="ruby-operator">::</span><span class="ruby-constant">PtrData</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">i</span>)}
+166:           <span class="ruby-identifier">data</span> = <span class="ruby-constant">API</span>.<span class="ruby-identifier">sqlite3_user_data</span>( <span class="ruby-identifier">context</span> ).<span class="ruby-identifier">to_object</span>
+167:           <span class="ruby-identifier">data</span>[<span class="ruby-identifier">:step</span>].<span class="ruby-identifier">call</span>( <span class="ruby-identifier">context</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span> )
+168:         <span class="ruby-keyword kw">end</span>
+169:       <span class="ruby-keyword kw">end</span>
+170: 
+171:       <span class="ruby-keyword kw">if</span> <span class="ruby-ivar">@final_handler_callback</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">final</span>
+172:         <span class="ruby-ivar">@final_handler_callback</span> = <span class="ruby-operator">::</span><span class="ruby-constant">DL</span>.<span class="ruby-identifier">callback</span>( <span class="ruby-value str">&quot;0P&quot;</span> ) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">context</span><span class="ruby-operator">|</span>
+173:           <span class="ruby-identifier">data</span> = <span class="ruby-constant">API</span>.<span class="ruby-identifier">sqlite3_user_data</span>( <span class="ruby-identifier">context</span> ).<span class="ruby-identifier">to_object</span>
+174:           <span class="ruby-identifier">data</span>[<span class="ruby-identifier">:final</span>].<span class="ruby-identifier">call</span>( <span class="ruby-identifier">context</span> )
+175:         <span class="ruby-keyword kw">end</span>
+176:       <span class="ruby-keyword kw">end</span>
+177: 
+178:       <span class="ruby-identifier">data</span> = { <span class="ruby-identifier">:cookie</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">cookie</span>,
+179:                <span class="ruby-identifier">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">name</span>,
+180:                <span class="ruby-identifier">:func</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">func</span>,
+181:                <span class="ruby-identifier">:step</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">step</span>,
+182:                <span class="ruby-identifier">:final</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">final</span> }
+183: 
+184:       <span class="ruby-constant">API</span>.<span class="ruby-identifier">sqlite3_create_function</span>( <span class="ruby-identifier">db</span>, <span class="ruby-identifier">name</span>, <span class="ruby-identifier">args</span>, <span class="ruby-identifier">text</span>, <span class="ruby-identifier">data</span>,
+185:         ( <span class="ruby-identifier">func</span> <span class="ruby-value">? </span><span class="ruby-ivar">@func_handler_callback</span> <span class="ruby-operator">:</span> <span class="ruby-keyword kw">nil</span> ),
+186:         ( <span class="ruby-identifier">step</span> <span class="ruby-value">? </span><span class="ruby-ivar">@step_handler_callback</span> <span class="ruby-operator">:</span> <span class="ruby-keyword kw">nil</span> ),
+187:         ( <span class="ruby-identifier">final</span> <span class="ruby-value">? </span><span class="ruby-ivar">@final_handler_callback</span> <span class="ruby-operator">:</span> <span class="ruby-keyword kw">nil</span> ) )
+188:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000051"></a><b>errmsg</b>( db, utf16=false )
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000051_source')" id="l_M000051_source">show source</a> ]</p>
+  <div id="M000051_source" class="dyn-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/sqlite3/driver/dl/driver.rb, line 44</span>
+44:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">errmsg</span>( <span class="ruby-identifier">db</span>, <span class="ruby-identifier">utf16</span>=<span class="ruby-keyword kw">false</span> )
+45:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">utf16</span>
+46:         <span class="ruby-identifier">msg</span> = <span class="ruby-constant">API</span>.<span class="ruby-identifier">sqlite3_errmsg16</span>( <span class="ruby-identifier">db</span> )
+47:         <span class="ruby-identifier">msg</span>.<span class="ruby-identifier">free</span> = <span class="ruby-keyword kw">nil</span>
+48:         <span class="ruby-identifier">msg</span>.<span class="ruby-identifier">to_s</span>(<span class="ruby-identifier">utf16_length</span>(<span class="ruby-identifier">msg</span>))
+49:       <span class="ruby-keyword kw">else</span>
+50:         <span class="ruby-constant">API</span>.<span class="ruby-identifier">sqlite3_errmsg</span>( <span class="ruby-identifier">db</span> )
+51:       <span class="ruby-keyword kw">end</span>
+52:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000050"></a><b>open</b>( filename, utf16=false )
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000050_source')" id="l_M000050_source">show source</a> ]</p>
+  <div id="M000050_source" class="dyn-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/sqlite3/driver/dl/driver.rb, line 37</span>
+37:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">open</span>( <span class="ruby-identifier">filename</span>, <span class="ruby-identifier">utf16</span>=<span class="ruby-keyword kw">false</span> )
+38:       <span class="ruby-identifier">handle</span> = <span class="ruby-operator">::</span><span class="ruby-constant">DL</span><span class="ruby-operator">::</span><span class="ruby-constant">PtrData</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">0</span>)
+39:       <span class="ruby-identifier">result</span> = <span class="ruby-constant">API</span>.<span class="ruby-identifier">send</span>( ( <span class="ruby-identifier">utf16</span> <span class="ruby-value">? </span><span class="ruby-operator">:</span><span class="ruby-identifier">sqlite3_open16</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">:sqlite3_open</span> ),
+40:         <span class="ruby-identifier">filename</span><span class="ruby-operator">+</span><span class="ruby-value str">&quot;\0&quot;</span>, <span class="ruby-identifier">handle</span>.<span class="ruby-identifier">ref</span> )
+41:       [ <span class="ruby-identifier">result</span>, <span class="ruby-identifier">handle</span> ]
+42:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000052"></a><b>prepare</b>( db, sql, utf16=false )
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000052_source')" id="l_M000052_source">show source</a> ]</p>
+  <div id="M000052_source" class="dyn-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/sqlite3/driver/dl/driver.rb, line 54</span>
+54:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">prepare</span>( <span class="ruby-identifier">db</span>, <span class="ruby-identifier">sql</span>, <span class="ruby-identifier">utf16</span>=<span class="ruby-keyword kw">false</span> )
+55:       <span class="ruby-identifier">handle</span> = <span class="ruby-operator">::</span><span class="ruby-constant">DL</span><span class="ruby-operator">::</span><span class="ruby-constant">PtrData</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">0</span>)
+56:       <span class="ruby-identifier">remainder</span> = <span class="ruby-operator">::</span><span class="ruby-constant">DL</span><span class="ruby-operator">::</span><span class="ruby-constant">PtrData</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">0</span>)
+57: 
+58:       <span class="ruby-identifier">result</span> = <span class="ruby-constant">API</span>.<span class="ruby-identifier">send</span>( ( <span class="ruby-identifier">utf16</span> <span class="ruby-value">? </span><span class="ruby-operator">:</span><span class="ruby-identifier">sqlite3_prepare16</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">:sqlite3_prepare</span> ),
+59:          <span class="ruby-identifier">db</span>, <span class="ruby-identifier">sql</span><span class="ruby-operator">+</span><span class="ruby-value str">&quot;\0&quot;</span>, <span class="ruby-identifier">sql</span>.<span class="ruby-identifier">length</span>, <span class="ruby-identifier">handle</span>.<span class="ruby-identifier">ref</span>, <span class="ruby-identifier">remainder</span>.<span class="ruby-identifier">ref</span> )
+60: 
+61:       <span class="ruby-identifier">args</span> = <span class="ruby-identifier">utf16</span> <span class="ruby-value">? </span>[ <span class="ruby-identifier">utf16_length</span>(<span class="ruby-identifier">remainder</span>) ] <span class="ruby-operator">:</span> []
+62:       <span class="ruby-identifier">remainder</span> = <span class="ruby-identifier">remainder</span>.<span class="ruby-identifier">to_s</span>( <span class="ruby-operator">*</span><span class="ruby-identifier">args</span> )
+63: 
+64:       [ <span class="ruby-identifier">result</span>, <span class="ruby-identifier">handle</span>, <span class="ruby-identifier">remainder</span> ]
+65:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000069"></a><b>progress_handler</b>( db, n, data=nil, &amp;block )
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000069_source')" id="l_M000069_source">show source</a> ]</p>
+  <div id="M000069_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/sqlite3/driver/dl/driver.rb, line 267</span>
+267:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">progress_handler</span>( <span class="ruby-identifier">db</span>, <span class="ruby-identifier">n</span>, <span class="ruby-identifier">data</span>=<span class="ruby-keyword kw">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span> )
+268:         <span class="ruby-ivar">@progress_handler</span> = <span class="ruby-identifier">block</span>
+269: 
+270:         <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@progress_handler_callback</span>
+271:           <span class="ruby-ivar">@progress_handler_callback</span> = <span class="ruby-operator">::</span><span class="ruby-constant">DL</span>.<span class="ruby-identifier">callback</span>( <span class="ruby-value str">&quot;IP&quot;</span> ) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">cookie</span><span class="ruby-operator">|</span>
+272:             <span class="ruby-ivar">@progress_handler</span>.<span class="ruby-identifier">call</span>( <span class="ruby-identifier">cookie</span> )
+273:           <span class="ruby-keyword kw">end</span>
+274:         <span class="ruby-keyword kw">end</span>
+275: 
+276:         <span class="ruby-constant">API</span>.<span class="ruby-identifier">sqlite3_progress_handler</span>( <span class="ruby-identifier">db</span>, <span class="ruby-identifier">n</span>, <span class="ruby-identifier">block</span><span class="ruby-operator">&amp;&amp;</span><span class="ruby-ivar">@progress_handler_callback</span>,
+277:           <span class="ruby-identifier">data</span> )
+278:       <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000057"></a><b>result_text</b>( func, text, utf16=false )
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000057_source')" id="l_M000057_source">show source</a> ]</p>
+  <div id="M000057_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/sqlite3/driver/dl/driver.rb, line 101</span>
+101:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">result_text</span>( <span class="ruby-identifier">func</span>, <span class="ruby-identifier">text</span>, <span class="ruby-identifier">utf16</span>=<span class="ruby-keyword kw">false</span> )
+102:       <span class="ruby-identifier">method</span> = <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">utf16</span>
+103:         <span class="ruby-keyword kw">when</span> <span class="ruby-keyword kw">false</span>, <span class="ruby-keyword kw">nil</span> <span class="ruby-keyword kw">then</span> <span class="ruby-identifier">:sqlite3_result_text</span>
+104:         <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:le</span> <span class="ruby-keyword kw">then</span> <span class="ruby-identifier">:sqlite3_result_text16le</span>
+105:         <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:be</span> <span class="ruby-keyword kw">then</span> <span class="ruby-identifier">:sqlite3_result_text16be</span>
+106:         <span class="ruby-keyword kw">else</span> <span class="ruby-identifier">:sqlite3_result_text16</span>
+107:       <span class="ruby-keyword kw">end</span>
+108: 
+109:       <span class="ruby-identifier">s</span> = <span class="ruby-identifier">text</span>.<span class="ruby-identifier">to_s</span>
+110:       <span class="ruby-constant">API</span>.<span class="ruby-identifier">send</span>( <span class="ruby-identifier">method</span>, <span class="ruby-identifier">func</span>, <span class="ruby-identifier">s</span>, <span class="ruby-identifier">s</span>.<span class="ruby-identifier">length</span>, <span class="ruby-constant">TRANSIENT</span> )
+111:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000059"></a><b>set_authorizer</b>( db, data=nil, &amp;block )
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000059_source')" id="l_M000059_source">show source</a> ]</p>
+  <div id="M000059_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/sqlite3/driver/dl/driver.rb, line 125</span>
+125:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">set_authorizer</span>( <span class="ruby-identifier">db</span>, <span class="ruby-identifier">data</span>=<span class="ruby-keyword kw">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span> )
+126:       <span class="ruby-ivar">@authorizer_handler</span> = <span class="ruby-identifier">block</span>
+127: 
+128:       <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@authorizer_handler_callback</span>
+129:         <span class="ruby-ivar">@authorizer_handler_callback</span> = <span class="ruby-operator">::</span><span class="ruby-constant">DL</span>.<span class="ruby-identifier">callback</span>( <span class="ruby-value str">&quot;IPIPPPP&quot;</span>
+130:         ) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">cookie</span>,<span class="ruby-identifier">mode</span>,<span class="ruby-identifier">a</span>,<span class="ruby-identifier">b</span>,<span class="ruby-identifier">c</span>,<span class="ruby-identifier">d</span><span class="ruby-operator">|</span>
+131:           <span class="ruby-ivar">@authorizer_handler</span>.<span class="ruby-identifier">call</span>( <span class="ruby-identifier">cookie</span>, <span class="ruby-identifier">mode</span>,
+132:             <span class="ruby-identifier">a</span><span class="ruby-operator">&amp;&amp;</span><span class="ruby-identifier">a</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">b</span><span class="ruby-operator">&amp;&amp;</span><span class="ruby-identifier">b</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">c</span><span class="ruby-operator">&amp;&amp;</span><span class="ruby-identifier">c</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">d</span><span class="ruby-operator">&amp;&amp;</span><span class="ruby-identifier">d</span>.<span class="ruby-identifier">to_s</span> ) <span class="ruby-operator">||</span> <span class="ruby-value">0</span>
+133:         <span class="ruby-keyword kw">end</span>
+134:       <span class="ruby-keyword kw">end</span>
+135: 
+136:       <span class="ruby-constant">API</span>.<span class="ruby-identifier">sqlite3_set_authorizer</span>( <span class="ruby-identifier">db</span>, <span class="ruby-identifier">block</span><span class="ruby-operator">&amp;&amp;</span><span class="ruby-ivar">@authorizer_handler_callback</span>,
+137:         <span class="ruby-identifier">data</span> )
+138:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000060"></a><b>trace</b>( db, data=nil, &amp;block )
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000060_source')" id="l_M000060_source">show source</a> ]</p>
+  <div id="M000060_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/sqlite3/driver/dl/driver.rb, line 140</span>
+140:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">trace</span>( <span class="ruby-identifier">db</span>, <span class="ruby-identifier">data</span>=<span class="ruby-keyword kw">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span> )
+141:       <span class="ruby-ivar">@trace_handler</span> = <span class="ruby-identifier">block</span>
+142: 
+143:       <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@trace_handler_callback</span>
+144:         <span class="ruby-ivar">@trace_handler_callback</span> = <span class="ruby-operator">::</span><span class="ruby-constant">DL</span>.<span class="ruby-identifier">callback</span>( <span class="ruby-value str">&quot;IPS&quot;</span> ) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">cookie</span>,<span class="ruby-identifier">sql</span><span class="ruby-operator">|</span>
+145:           <span class="ruby-ivar">@trace_handler</span>.<span class="ruby-identifier">call</span>( <span class="ruby-identifier">cookie</span> <span class="ruby-value">? </span><span class="ruby-identifier">cookie</span>.<span class="ruby-identifier">to_object</span> <span class="ruby-operator">:</span> <span class="ruby-keyword kw">nil</span>, <span class="ruby-identifier">sql</span> ) <span class="ruby-operator">||</span> <span class="ruby-value">0</span>
+146:         <span class="ruby-keyword kw">end</span>
+147:       <span class="ruby-keyword kw">end</span>
+148: 
+149:       <span class="ruby-constant">API</span>.<span class="ruby-identifier">sqlite3_trace</span>( <span class="ruby-identifier">db</span>, <span class="ruby-identifier">block</span><span class="ruby-operator">&amp;&amp;</span><span class="ruby-ivar">@trace_handler_callback</span>, <span class="ruby-identifier">data</span> )
+150:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000054"></a><b>value_blob</b>( value )
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000054_source')" id="l_M000054_source">show source</a> ]</p>
+  <div id="M000054_source" class="dyn-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/sqlite3/driver/dl/driver.rb, line 71</span>
+71:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">value_blob</span>( <span class="ruby-identifier">value</span> )
+72:       <span class="ruby-identifier">blob</span> = <span class="ruby-constant">API</span>.<span class="ruby-identifier">sqlite3_value_blob</span>( <span class="ruby-identifier">value</span> )
+73:       <span class="ruby-identifier">blob</span>.<span class="ruby-identifier">free</span> = <span class="ruby-keyword kw">nil</span>
+74:       <span class="ruby-identifier">blob</span>.<span class="ruby-identifier">to_s</span>( <span class="ruby-constant">API</span>.<span class="ruby-identifier">sqlite3_value_bytes</span>( <span class="ruby-identifier">value</span> ) )
+75:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000055"></a><b>value_text</b>( value, utf16=false )
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000055_source')" id="l_M000055_source">show source</a> ]</p>
+  <div id="M000055_source" class="dyn-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/sqlite3/driver/dl/driver.rb, line 77</span>
+77:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">value_text</span>( <span class="ruby-identifier">value</span>, <span class="ruby-identifier">utf16</span>=<span class="ruby-keyword kw">false</span> )
+78:       <span class="ruby-identifier">method</span> = <span class="ruby-keyword kw">case</span> <span class="ruby-identifier">utf16</span>
+79:         <span class="ruby-keyword kw">when</span> <span class="ruby-keyword kw">nil</span>, <span class="ruby-keyword kw">false</span> <span class="ruby-keyword kw">then</span> <span class="ruby-identifier">:sqlite3_value_text</span>
+80:         <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:le</span> <span class="ruby-keyword kw">then</span> <span class="ruby-identifier">:sqlite3_value_text16le</span>
+81:         <span class="ruby-keyword kw">when</span> <span class="ruby-identifier">:be</span> <span class="ruby-keyword kw">then</span> <span class="ruby-identifier">:sqlite3_value_text16be</span>
+82:         <span class="ruby-keyword kw">else</span> <span class="ruby-identifier">:sqlite3_value_text16</span>
+83:       <span class="ruby-keyword kw">end</span>
+84: 
+85:       <span class="ruby-identifier">result</span> = <span class="ruby-constant">API</span>.<span class="ruby-identifier">send</span>( <span class="ruby-identifier">method</span>, <span class="ruby-identifier">value</span> )
+86:       <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">utf16</span>
+87:         <span class="ruby-identifier">result</span>.<span class="ruby-identifier">free</span> = <span class="ruby-keyword kw">nil</span>
+88:         <span class="ruby-identifier">size</span> = <span class="ruby-constant">API</span>.<span class="ruby-identifier">sqlite3_value_bytes</span>( <span class="ruby-identifier">value</span> )
+89:         <span class="ruby-identifier">result</span> = <span class="ruby-identifier">result</span>.<span class="ruby-identifier">to_s</span>( <span class="ruby-identifier">size</span> )
+90:       <span class="ruby-keyword kw">end</span>
+91: 
+92:       <span class="ruby-identifier">result</span>
+93:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+</div>
+
+  </div>
+
+    </body>
+</html>

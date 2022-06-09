@@ -1,0 +1,668 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Module: SQLite3::Pragmas</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+
+    <script language="JavaScript" type="text/javascript">
+    // <![CDATA[
+
+        function toggleSource( id )
+        {
+          var elem
+          var link
+
+          if( document.getElementById )
+          {
+            elem = document.getElementById( id )
+            link = document.getElementById( "l_" + id )
+          }
+          else if ( document.all )
+          {
+            elem = eval( "document.all." + id )
+            link = eval( "document.all.l_" + id )
+          }
+          else
+            return false;
+
+          if( elem.style.display == "block" )
+          {
+            elem.style.display = "none"
+            link.innerHTML = "show source"
+          }
+          else
+          {
+            elem.style.display = "block"
+            link.innerHTML = "hide source"
+          }
+        }
+
+        function openCode( url )
+        {
+          window.open( url, "SOURCE_CODE", "width=400,height=400,scrollbars=yes" )
+        }
+      // ]]>
+    </script>
+  </head>
+
+  <body>
+  <table width="100%" border='0' cellpadding='0' cellspacing='0' class='banner'><tr>
+  <td class="file-title"><span class="file-title-prefix">Module</span><br />SQLite3::Pragmas</td>
+  <td align="right">
+    <table cellspacing=0 cellpadding=2>
+      <tr valign="top">
+        <td>In:</td>
+        <td>
+<a href="../../files/lib/sqlite3/pragmas_rb.html">lib/sqlite3/pragmas.rb</a>
+        </td>
+      </tr>
+         </table>
+        </td>
+        </tr>
+      </table>
+ <!-- banner header -->
+
+  <div id="bodyContent">
+      <div id="content">
+
+  <div class="description"><p>
+This module is intended for inclusion solely by the <a
+href="Database.html">Database</a> class. It defines convenience methods for
+the various pragmas supported by <a href="../SQLite3.html">SQLite3</a>.
+</p>
+<p>
+For a detailed description of these pragmas, see the <a
+href="../SQLite3.html">SQLite3</a> documentation at <a
+href="http://sqlite.org/pragma.html">sqlite.org/pragma.html</a>.
+</p>
+</div>
+
+
+
+  <div class="sectiontitle">Methods</div>
+  <ul>
+  <li><a href="#M000003">auto_vacuum</a></li>
+  <li><a href="#M000004">auto_vacuum=</a></li>
+  <li><a href="#M000009">cache_size</a></li>
+  <li><a href="#M000010">cache_size=</a></li>
+  <li><a href="#M000027">database_list</a></li>
+  <li><a href="#M000011">default_cache_size</a></li>
+  <li><a href="#M000012">default_cache_size=</a></li>
+  <li><a href="#M000013">default_synchronous</a></li>
+  <li><a href="#M000014">default_synchronous=</a></li>
+  <li><a href="#M000017">default_temp_store</a></li>
+  <li><a href="#M000018">default_temp_store=</a></li>
+  <li><a href="#M000028">foreign_key_list</a></li>
+  <li><a href="#M000021">full_column_names</a></li>
+  <li><a href="#M000022">full_column_names=</a></li>
+  <li><a href="#M000029">index_info</a></li>
+  <li><a href="#M000030">index_list</a></li>
+  <li><a href="#M000002">integrity_check</a></li>
+  <li><a href="#M000023">parser_trace</a></li>
+  <li><a href="#M000024">parser_trace=</a></li>
+  <li><a href="#M000005">schema_cookie</a></li>
+  <li><a href="#M000006">schema_cookie=</a></li>
+  <li><a href="#M000015">synchronous</a></li>
+  <li><a href="#M000016">synchronous=</a></li>
+  <li><a href="#M000031">table_info</a></li>
+  <li><a href="#M000019">temp_store</a></li>
+  <li><a href="#M000020">temp_store=</a></li>
+  <li><a href="#M000007">user_cookie</a></li>
+  <li><a href="#M000008">user_cookie=</a></li>
+  <li><a href="#M000025">vdbe_trace</a></li>
+  <li><a href="#M000026">vdbe_trace=</a></li>
+  </ul>
+
+
+
+
+  <div class="sectiontitle">Constants</div>
+  <table border='0' cellpadding='5'>
+  <tr valign='top'>
+    <td class="attr-name">SYNCHRONOUS_MODES</td>
+    <td>=</td>
+    <td class="attr-value">[ [ 'full', 2 ], [ 'normal', 1 ], [ 'off', 0 ] ]</td>
+  </tr>
+  <tr valign='top'>
+    <td>&nbsp;</td>
+    <td colspan="2" class="attr-desc">
+The enumeration of valid <a href="Pragmas.html#M000015">synchronous</a>
+modes.
+
+</td>
+  </tr>
+  <tr valign='top'>
+    <td class="attr-name">TEMP_STORE_MODES</td>
+    <td>=</td>
+    <td class="attr-value">[ [ 'default', 0 ], [ 'file', 1 ], [ 'memory', 2 ] ]</td>
+  </tr>
+  <tr valign='top'>
+    <td>&nbsp;</td>
+    <td colspan="2" class="attr-desc">
+The enumeration of valid temp store modes.
+
+</td>
+  </tr>
+  </table>
+
+
+<div class="sectiontitle">Public Instance methods</div>
+<div class="method">
+  <div class="title">
+    <a name="M000003"></a><b>auto_vacuum</b>()
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000003_source')" id="l_M000003_source">show source</a> ]</p>
+  <div id="M000003_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/sqlite3/pragmas.rb, line 104</span>
+104:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">auto_vacuum</span>
+105:       <span class="ruby-identifier">get_boolean_pragma</span> <span class="ruby-value str">&quot;auto_vacuum&quot;</span>
+106:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000004"></a><b>auto_vacuum=</b>( mode )
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000004_source')" id="l_M000004_source">show source</a> ]</p>
+  <div id="M000004_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/sqlite3/pragmas.rb, line 108</span>
+108:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">auto_vacuum=</span>( <span class="ruby-identifier">mode</span> )
+109:       <span class="ruby-identifier">set_boolean_pragma</span> <span class="ruby-value str">&quot;auto_vacuum&quot;</span>, <span class="ruby-identifier">mode</span>
+110:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000009"></a><b>cache_size</b>()
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000009_source')" id="l_M000009_source">show source</a> ]</p>
+  <div id="M000009_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/sqlite3/pragmas.rb, line 128</span>
+128:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">cache_size</span>
+129:       <span class="ruby-identifier">get_int_pragma</span> <span class="ruby-value str">&quot;cache_size&quot;</span>
+130:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000010"></a><b>cache_size=</b>( size )
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000010_source')" id="l_M000010_source">show source</a> ]</p>
+  <div id="M000010_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/sqlite3/pragmas.rb, line 132</span>
+132:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">cache_size=</span>( <span class="ruby-identifier">size</span> )
+133:       <span class="ruby-identifier">set_int_pragma</span> <span class="ruby-value str">&quot;cache_size&quot;</span>, <span class="ruby-identifier">size</span>
+134:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000027"></a><b>database_list</b>( ) {|row| ...}
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000027_source')" id="l_M000027_source">show source</a> ]</p>
+  <div id="M000027_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/sqlite3/pragmas.rb, line 200</span>
+200:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">database_list</span>( <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span> ) <span class="ruby-comment cmt"># :yields: row</span>
+201:       <span class="ruby-identifier">get_query_pragma</span> <span class="ruby-value str">&quot;database_list&quot;</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>
+202:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000011"></a><b>default_cache_size</b>()
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000011_source')" id="l_M000011_source">show source</a> ]</p>
+  <div id="M000011_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/sqlite3/pragmas.rb, line 136</span>
+136:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">default_cache_size</span>
+137:       <span class="ruby-identifier">get_int_pragma</span> <span class="ruby-value str">&quot;default_cache_size&quot;</span>
+138:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000012"></a><b>default_cache_size=</b>( size )
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000012_source')" id="l_M000012_source">show source</a> ]</p>
+  <div id="M000012_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/sqlite3/pragmas.rb, line 140</span>
+140:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">default_cache_size=</span>( <span class="ruby-identifier">size</span> )
+141:       <span class="ruby-identifier">set_int_pragma</span> <span class="ruby-value str">&quot;default_cache_size&quot;</span>, <span class="ruby-identifier">size</span>
+142:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000013"></a><b>default_synchronous</b>()
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000013_source')" id="l_M000013_source">show source</a> ]</p>
+  <div id="M000013_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/sqlite3/pragmas.rb, line 144</span>
+144:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">default_synchronous</span>
+145:       <span class="ruby-identifier">get_enum_pragma</span> <span class="ruby-value str">&quot;default_synchronous&quot;</span>
+146:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000014"></a><b>default_synchronous=</b>( mode )
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000014_source')" id="l_M000014_source">show source</a> ]</p>
+  <div id="M000014_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/sqlite3/pragmas.rb, line 148</span>
+148:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">default_synchronous=</span>( <span class="ruby-identifier">mode</span> )
+149:       <span class="ruby-identifier">set_enum_pragma</span> <span class="ruby-value str">&quot;default_synchronous&quot;</span>, <span class="ruby-identifier">mode</span>, <span class="ruby-constant">SYNCHRONOUS_MODES</span>
+150:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000017"></a><b>default_temp_store</b>()
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000017_source')" id="l_M000017_source">show source</a> ]</p>
+  <div id="M000017_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/sqlite3/pragmas.rb, line 160</span>
+160:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">default_temp_store</span>
+161:       <span class="ruby-identifier">get_enum_pragma</span> <span class="ruby-value str">&quot;default_temp_store&quot;</span>
+162:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000018"></a><b>default_temp_store=</b>( mode )
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000018_source')" id="l_M000018_source">show source</a> ]</p>
+  <div id="M000018_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/sqlite3/pragmas.rb, line 164</span>
+164:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">default_temp_store=</span>( <span class="ruby-identifier">mode</span> )
+165:       <span class="ruby-identifier">set_enum_pragma</span> <span class="ruby-value str">&quot;default_temp_store&quot;</span>, <span class="ruby-identifier">mode</span>, <span class="ruby-constant">TEMP_STORE_MODES</span>
+166:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000028"></a><b>foreign_key_list</b>( table ) {|row| ...}
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000028_source')" id="l_M000028_source">show source</a> ]</p>
+  <div id="M000028_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/sqlite3/pragmas.rb, line 204</span>
+204:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">foreign_key_list</span>( <span class="ruby-identifier">table</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span> ) <span class="ruby-comment cmt"># :yields: row</span>
+205:       <span class="ruby-identifier">get_query_pragma</span> <span class="ruby-value str">&quot;foreign_key_list&quot;</span>, <span class="ruby-identifier">table</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>
+206:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000021"></a><b>full_column_names</b>()
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000021_source')" id="l_M000021_source">show source</a> ]</p>
+  <div id="M000021_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/sqlite3/pragmas.rb, line 176</span>
+176:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">full_column_names</span>
+177:       <span class="ruby-identifier">get_boolean_pragma</span> <span class="ruby-value str">&quot;full_column_names&quot;</span>
+178:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000022"></a><b>full_column_names=</b>( mode )
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000022_source')" id="l_M000022_source">show source</a> ]</p>
+  <div id="M000022_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/sqlite3/pragmas.rb, line 180</span>
+180:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">full_column_names=</span>( <span class="ruby-identifier">mode</span> )
+181:       <span class="ruby-identifier">set_boolean_pragma</span> <span class="ruby-value str">&quot;full_column_names&quot;</span>, <span class="ruby-identifier">mode</span>
+182:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000029"></a><b>index_info</b>( index ) {|row| ...}
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000029_source')" id="l_M000029_source">show source</a> ]</p>
+  <div id="M000029_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/sqlite3/pragmas.rb, line 208</span>
+208:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">index_info</span>( <span class="ruby-identifier">index</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span> ) <span class="ruby-comment cmt"># :yields: row</span>
+209:       <span class="ruby-identifier">get_query_pragma</span> <span class="ruby-value str">&quot;index_info&quot;</span>, <span class="ruby-identifier">index</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>
+210:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000030"></a><b>index_list</b>( table ) {|row| ...}
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000030_source')" id="l_M000030_source">show source</a> ]</p>
+  <div id="M000030_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/sqlite3/pragmas.rb, line 212</span>
+212:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">index_list</span>( <span class="ruby-identifier">table</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span> ) <span class="ruby-comment cmt"># :yields: row</span>
+213:       <span class="ruby-identifier">get_query_pragma</span> <span class="ruby-value str">&quot;index_list&quot;</span>, <span class="ruby-identifier">table</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>
+214:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000002"></a><b>integrity_check</b>()
+  </div>
+  <div class="description">
+  <p>
+Does an integrity check on the database. If the check fails, a <a
+href="Exception.html">SQLite3::Exception</a> will be raised. Otherwise it
+returns silently.
+</p>
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000002_source')" id="l_M000002_source">show source</a> ]</p>
+  <div id="M000002_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/sqlite3/pragmas.rb, line 98</span>
+ 98:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">integrity_check</span>
+ 99:       <span class="ruby-identifier">execute</span>( <span class="ruby-value str">&quot;PRAGMA integrity_check&quot;</span> ) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
+100:         <span class="ruby-identifier">raise</span> <span class="ruby-constant">Exception</span>, <span class="ruby-identifier">row</span>[<span class="ruby-value">0</span>] <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">row</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">!=</span> <span class="ruby-value str">&quot;ok&quot;</span>
+101:       <span class="ruby-keyword kw">end</span>
+102:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000023"></a><b>parser_trace</b>()
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000023_source')" id="l_M000023_source">show source</a> ]</p>
+  <div id="M000023_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/sqlite3/pragmas.rb, line 184</span>
+184:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">parser_trace</span>
+185:       <span class="ruby-identifier">get_boolean_pragma</span> <span class="ruby-value str">&quot;parser_trace&quot;</span>
+186:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000024"></a><b>parser_trace=</b>( mode )
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000024_source')" id="l_M000024_source">show source</a> ]</p>
+  <div id="M000024_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/sqlite3/pragmas.rb, line 188</span>
+188:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">parser_trace=</span>( <span class="ruby-identifier">mode</span> )
+189:       <span class="ruby-identifier">set_boolean_pragma</span> <span class="ruby-value str">&quot;parser_trace&quot;</span>, <span class="ruby-identifier">mode</span>
+190:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000005"></a><b>schema_cookie</b>()
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000005_source')" id="l_M000005_source">show source</a> ]</p>
+  <div id="M000005_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/sqlite3/pragmas.rb, line 112</span>
+112:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">schema_cookie</span>
+113:       <span class="ruby-identifier">get_int_pragma</span> <span class="ruby-value str">&quot;schema_cookie&quot;</span>
+114:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000006"></a><b>schema_cookie=</b>( cookie )
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000006_source')" id="l_M000006_source">show source</a> ]</p>
+  <div id="M000006_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/sqlite3/pragmas.rb, line 116</span>
+116:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">schema_cookie=</span>( <span class="ruby-identifier">cookie</span> )
+117:       <span class="ruby-identifier">set_int_pragma</span> <span class="ruby-value str">&quot;schema_cookie&quot;</span>, <span class="ruby-identifier">cookie</span>
+118:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000015"></a><b>synchronous</b>()
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000015_source')" id="l_M000015_source">show source</a> ]</p>
+  <div id="M000015_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/sqlite3/pragmas.rb, line 152</span>
+152:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">synchronous</span>
+153:       <span class="ruby-identifier">get_enum_pragma</span> <span class="ruby-value str">&quot;synchronous&quot;</span>
+154:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000016"></a><b>synchronous=</b>( mode )
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000016_source')" id="l_M000016_source">show source</a> ]</p>
+  <div id="M000016_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/sqlite3/pragmas.rb, line 156</span>
+156:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">synchronous=</span>( <span class="ruby-identifier">mode</span> )
+157:       <span class="ruby-identifier">set_enum_pragma</span> <span class="ruby-value str">&quot;synchronous&quot;</span>, <span class="ruby-identifier">mode</span>, <span class="ruby-constant">SYNCHRONOUS_MODES</span>
+158:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000031"></a><b>table_info</b>( table ) {|row| ...}
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000031_source')" id="l_M000031_source">show source</a> ]</p>
+  <div id="M000031_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/sqlite3/pragmas.rb, line 216</span>
+216:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">table_info</span>( <span class="ruby-identifier">table</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span> ) <span class="ruby-comment cmt"># :yields: row</span>
+217:       <span class="ruby-identifier">columns</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">rows</span> = <span class="ruby-identifier">execute2</span>(<span class="ruby-node">&quot;PRAGMA table_info(#{table})&quot;</span>)
+218: 
+219:       <span class="ruby-identifier">needs_tweak_default</span> = <span class="ruby-identifier">version_compare</span>(<span class="ruby-identifier">driver</span>.<span class="ruby-identifier">libversion</span>, <span class="ruby-value str">&quot;3.3.7&quot;</span>) <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+220: 
+221:       <span class="ruby-identifier">result</span> = [] <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">block_given?</span>
+222:       <span class="ruby-identifier">rows</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
+223:         <span class="ruby-identifier">new_row</span> = {}
+224:         <span class="ruby-identifier">columns</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">name</span>, <span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
+225:           <span class="ruby-identifier">new_row</span>[<span class="ruby-identifier">name</span>] = <span class="ruby-identifier">row</span>[<span class="ruby-identifier">index</span>]
+226:         <span class="ruby-keyword kw">end</span>
+227: 
+228:         <span class="ruby-identifier">tweak_default</span>(<span class="ruby-identifier">new_row</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">needs_tweak_default</span>
+229: 
+230:         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">block_given?</span>
+231:           <span class="ruby-keyword kw">yield</span> <span class="ruby-identifier">new_row</span>
+232:         <span class="ruby-keyword kw">else</span>
+233:           <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">new_row</span>
+234:         <span class="ruby-keyword kw">end</span>
+235:       <span class="ruby-keyword kw">end</span>
+236: 
+237:       <span class="ruby-identifier">result</span>
+238:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000019"></a><b>temp_store</b>()
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000019_source')" id="l_M000019_source">show source</a> ]</p>
+  <div id="M000019_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/sqlite3/pragmas.rb, line 168</span>
+168:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">temp_store</span>
+169:       <span class="ruby-identifier">get_enum_pragma</span> <span class="ruby-value str">&quot;temp_store&quot;</span>
+170:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000020"></a><b>temp_store=</b>( mode )
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000020_source')" id="l_M000020_source">show source</a> ]</p>
+  <div id="M000020_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/sqlite3/pragmas.rb, line 172</span>
+172:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">temp_store=</span>( <span class="ruby-identifier">mode</span> )
+173:       <span class="ruby-identifier">set_enum_pragma</span> <span class="ruby-value str">&quot;temp_store&quot;</span>, <span class="ruby-identifier">mode</span>, <span class="ruby-constant">TEMP_STORE_MODES</span>
+174:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000007"></a><b>user_cookie</b>()
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000007_source')" id="l_M000007_source">show source</a> ]</p>
+  <div id="M000007_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/sqlite3/pragmas.rb, line 120</span>
+120:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">user_cookie</span>
+121:       <span class="ruby-identifier">get_int_pragma</span> <span class="ruby-value str">&quot;user_cookie&quot;</span>
+122:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000008"></a><b>user_cookie=</b>( cookie )
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000008_source')" id="l_M000008_source">show source</a> ]</p>
+  <div id="M000008_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/sqlite3/pragmas.rb, line 124</span>
+124:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">user_cookie=</span>( <span class="ruby-identifier">cookie</span> )
+125:       <span class="ruby-identifier">set_int_pragma</span> <span class="ruby-value str">&quot;user_cookie&quot;</span>, <span class="ruby-identifier">cookie</span>
+126:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000025"></a><b>vdbe_trace</b>()
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000025_source')" id="l_M000025_source">show source</a> ]</p>
+  <div id="M000025_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/sqlite3/pragmas.rb, line 192</span>
+192:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">vdbe_trace</span>
+193:       <span class="ruby-identifier">get_boolean_pragma</span> <span class="ruby-value str">&quot;vdbe_trace&quot;</span>
+194:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+<div class="method">
+  <div class="title">
+    <a name="M000026"></a><b>vdbe_trace=</b>( mode )
+  </div>
+<div class="sourcecode">
+  <p class="source-link">[ <a href="javascript:toggleSource('M000026_source')" id="l_M000026_source">show source</a> ]</p>
+  <div id="M000026_source" class="dyn-source">
+<pre>
+     <span class="ruby-comment cmt"># File lib/sqlite3/pragmas.rb, line 196</span>
+196:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">vdbe_trace=</span>( <span class="ruby-identifier">mode</span> )
+197:       <span class="ruby-identifier">set_boolean_pragma</span> <span class="ruby-value str">&quot;vdbe_trace&quot;</span>, <span class="ruby-identifier">mode</span>
+198:     <span class="ruby-keyword kw">end</span>
+</pre>
+  </div>
+</div>
+</div>
+</div>
+
+  </div>
+
+    </body>
+</html>
