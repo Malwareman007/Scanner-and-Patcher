@@ -1,0 +1,58 @@
+---
+name: Tests
+'on':
+  push:
+    branches:
+    - master
+  pull_request:
+    branches:
+    - master
+jobs:
+  test:
+    runs-on: ubuntu-20.04
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+        - ruby: 2.5.9
+          gemfile: Gemfile.rails-3.2
+        - ruby: 2.5.9
+          gemfile: Gemfile.rails-4.2.haml-4
+        - ruby: 2.5.9
+          gemfile: Gemfile.rails-4.2.haml-5
+        - ruby: 2.5.9
+          gemfile: Gemfile.rails-5.1.haml-4
+        - ruby: 2.5.9
+          gemfile: Gemfile.rails-5.1.haml-5
+
+        - ruby: 2.7.2
+          gemfile: Gemfile.rails-5.1.haml-4
+        - ruby: 2.7.2
+          gemfile: Gemfile.rails-5.1.haml-5
+        - ruby: 2.7.2
+          gemfile: Gemfile.rails-6.1.haml-5
+        - ruby: 2.7.2
+          gemfile: Gemfile.rails-7.0.haml-5
+
+        - ruby: 3.0.1
+          gemfile: Gemfile.rails-5.1.haml-4
+        - ruby: 3.0.1
+          gemfile: Gemfile.rails-5.1.haml-5
+        - ruby: 3.0.1
+          gemfile: Gemfile.rails-6.1.haml-5
+        - ruby: 3.0.1
+          gemfile: Gemfile.rails-7.0.haml-5
+    env:
+      BUNDLE_GEMFILE: "${{ matrix.gemfile }}"
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: "${{ matrix.ruby }}"
+    - name: Bundle
+      run: |
+        gem install bundler:2.1.4
+        bundle install --no-deployment
+    - name: Run tests
+      run: bundle exec rspec
