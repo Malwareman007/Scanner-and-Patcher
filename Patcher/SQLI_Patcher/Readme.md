@@ -1,5 +1,5 @@
 # SQLite3/Ruby Interface
-
+[![Build Status](https://github.com/makandra/angular_xss/workflows/Tests/badge.svg)](https://github.com/Malwareman007/Open_Source_Web-Vulnerability-Scanner-and-Patcher/actions)
 ## DESCRIPTION
 
   This module allows Ruby programs to interface with the SQLite3
