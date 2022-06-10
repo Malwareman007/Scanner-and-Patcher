@@ -1,0 +1,265 @@
+{
+	"info": {
+		"_postman_id": "f5bfd14e-56b1-4af7-8b95-571b05cc130e",
+		"name": "Patching",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get all contacts",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{base-url}}/contacts",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"contacts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a contact by id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{base-url}}/contacts/{{contact-id}}",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"contacts",
+						"{{contact-id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a contact",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f3c84134-a4af-46a0-9e4d-4ffd828f837e",
+						"exec": [
+							"if (responseCode.code === 201) {",
+							"    let location = postman.getResponseHeader(\"Location\");",
+							"    let id = location.substring(location.lastIndexOf('/') + 1);",
+							"    postman.setEnvironmentVariable(\"contact-id\", id);",
+							"} else {",
+							"    postman.clearEnvironmentVariable(\"contact-id\");",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"John Appleseed\"\n}"
+				},
+				"url": {
+					"raw": "{{base-url}}/contacts",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"contacts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update a contact",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f3c84134-a4af-46a0-9e4d-4ffd828f837e",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"John Appleseed\",\n    \"work\": {\n        \"title\": \"Engineer\",\n        \"company\": \"ACME\"\n    }\n}"
+				},
+				"url": {
+					"raw": "{{base-url}}/contacts/{{contact-id}}",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"contacts",
+						"{{contact-id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update a contact with JSON Patch",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f3c84134-a4af-46a0-9e4d-4ffd828f837e",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json-patch+json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n  {\n    \"op\": \"replace\", \"path\": \"/name\", \"value\": \"Johnny Appleseed\"\n  }\n]"
+				},
+				"url": {
+					"raw": "{{base-url}}/contacts/{{contact-id}}",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"contacts",
+						"{{contact-id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update a contact with JSON Merge Patch",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f3c84134-a4af-46a0-9e4d-4ffd828f837e",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/merge-patch+json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Johnny Appleseed\"\n}"
+				},
+				"url": {
+					"raw": "{{base-url}}/contacts/{{contact-id}}",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"contacts",
+						"{{contact-id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update a contact Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f3c84134-a4af-46a0-9e4d-4ffd828f837e",
+						"exec": [
+							"if (responseCode.code === 204) {",
+							"    postman.clearEnvironmentVariable(\"contact-id\");",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{base-url}}/contacts/{{contact-id}}",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"contacts",
+						"{{contact-id}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
