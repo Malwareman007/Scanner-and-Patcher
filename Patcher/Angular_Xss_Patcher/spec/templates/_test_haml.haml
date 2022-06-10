@@ -1,0 +1,37 @@
+= "{{unsafe}}"
+#{'{{unsafe}}'}
+= "{{safe}}".html_safe
+
+{{safe}}
+
+= content_tag(:span, '{{unsafe}}')
+= content_tag(:span, '{{safe}}'.html_safe)
+
+= '{&lcub;unsafe}}'
+= '{&lbrace;unsafe}}'
+= '{&#x7b;unsafe}}'
+= '{&#X7B;unsafe}}'
+= '{&#x000007b;unsafe}}'
+= '{&#x000000000007b;unsafe}}'
+= '{&#123;unsafe}}'
+= '{&#000000123;unsafe}}'
+= '{&#0000000000000123;unsafe}}'
+= '&lcub;&#x7b;unsafe}}'
+
+-# HTML attributes in Haml work in different ways:
+-# 1. Under certain conditions, attributes are precompiled.
+-#    We never have to escape those because they can not contain user input.
+-# 2. Whenever there is a Ruby call on attributes, Haml will have to evaluate
+-#    them at runtime. Since they can contain user input, XSS logic applies.
+
+-# Precompiled:
+%div(foo='{{safe}}')
+%div{:class => '{{safe}}', :id => '{{safe}}'}
+
+-# Compiled at runtime:
+- unsafe = '{{unsafe}}'
+- safe = '{{safe}}'.html_safe
+%div{:class => unsafe, :id => unsafe}
+%div(bar="#{unsafe}")
+  %div{:foo => safe, :bar => unsafe}
+  {{safe}}

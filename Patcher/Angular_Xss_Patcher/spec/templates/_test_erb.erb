@@ -1,0 +1,22 @@
+<%= "{{unsafe}}" %>
+<%= "{{safe}}".html_safe %>
+
+{{safe}}
+
+<div foo="{{safe}}" bar="<%= '{{unsafe}}' %>">
+  {{safe}}
+</div>
+
+<%= content_tag(:span, '{{unsafe}}') %>
+<%= content_tag(:span, '{{safe}}'.html_safe) %>
+
+<%= '{&lcub;unsafe}}' %>
+<%= '{&lbrace;unsafe}}' %>
+<%= '{&#x7b;unsafe}}' %>
+<%= '{&#X7B;unsafe}}' %>
+<%= '{&#x000007b;unsafe}}' %>
+<%= '{&#x000000000007b;unsafe}}' %>
+<%= '{&#123;unsafe}}' %>
+<%= '{&#000000123;unsafe}}' %>
+<%= '{&#0000000000000123;unsafe}}' %>
+<%= '&lcub;&#x7b;unsafe}}' %>
