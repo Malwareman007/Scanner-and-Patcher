@@ -1,0 +1,15 @@
+{
+    "validthis": true,
+    "laxcomma" : true,
+    "laxbreak" : true,
+    "eqeqeq"   : false,
+    "eqnull"   : true,
+    "debug"    : true,
+    "devel"    : true,
+    "curly"    : true,
+    "boss"     : true,
+    "expr"     : true,
+    "node"     : true,
+    "asi"      : true,
+    "indent"   : 4
+}
