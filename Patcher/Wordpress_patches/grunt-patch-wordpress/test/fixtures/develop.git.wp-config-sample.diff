@@ -1,0 +1,11 @@
+diff --git wp-config-sample.php wp-config-sample.php
+index e47e1b5..50f9b6f 100644
+--- wp-config-sample.php
++++ wp-config-sample.php
+@@ -1,4 +1,6 @@
+ <?php
++
++
+ /**
+  * The base configurations of the WordPress.
+  *

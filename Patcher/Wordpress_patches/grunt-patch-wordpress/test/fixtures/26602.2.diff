@@ -1,0 +1,27 @@
+Index: src/wp-admin/themes.php
+===================================================================
+--- src/wp-admin/themes.php	(revision 26958)
++++ src/wp-admin/themes.php	(working copy)
+@@ -192,7 +192,7 @@
+  */
+ 
+ foreach ( $themes as $theme ) : ?>
+-<div class="theme<?php if ( $theme['active'] ) echo ' active'; ?>" tabindex="0">
++<div class="theme<?php if ( $theme['active'] ) echo ' active'; ?>" tabindex="0" aria-describedby="<?php echo $theme['id']; ?>-action <?php echo $theme['id']; ?>-name">
+ 	<?php if ( ! empty( $theme['screenshot'][0] ) ) { ?>
+ 		<div class="theme-screenshot">
+ 			<img src="<?php echo $theme['screenshot'][0]; ?>" alt="" />
+@@ -200,11 +200,11 @@
+ 	<?php } else { ?>
+ 		<div class="theme-screenshot blank"></div>
+ 	<?php } ?>
+-	<span class="more-details"><?php _e( 'Theme Details' ); ?></span>
++	<span class="more-details" id="<?php echo $theme['id']; ?>-action"><?php _e( 'Theme Details' ); ?></span>
+ 	<div class="theme-author"><?php printf( __( 'By %s' ), $theme['author'] ); ?></div>
+ 
+ 	<?php if ( $theme['active'] ) { ?>
+-		<h3 class="theme-name"><span><?php _ex( 'Active:', 'theme' ); ?></span> <?php echo $theme['name']; ?></h3>
++		<h3 class="theme-name" id="<?php echo $theme['id']; ?>-name"><span><?php _ex( 'Active:', 'theme' ); ?></span> <?php echo $theme['name']; ?></h3>
+ 	<?php } else { ?>
+ 		<h3 class="theme-name"><?php echo $theme['name']; ?></h3>
+ 	<?php } ?>

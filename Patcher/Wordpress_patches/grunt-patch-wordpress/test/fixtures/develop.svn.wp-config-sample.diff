@@ -1,0 +1,11 @@
+Index: wp-config-sample.php
+===================================================================
+--- wp-config-sample.php	(revision 27349)
++++ wp-config-sample.php	(working copy)
+@@ -1,4 +1,6 @@
+ <?php
++
++
+ /**
+  * The base configurations of the WordPress.
+  *

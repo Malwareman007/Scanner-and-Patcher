@@ -1,0 +1,36 @@
+diff --git src/wp-admin/js/color-picker.js src/js/_enqueues/lib/color-picker.js
+index a3bca29df8..52eb36036e 100644
+--- src/js/_enqueues/lib/color-picker.js
++++ src/js/_enqueues/lib/color-picker.js
+@@ -1,6 +1,6 @@
+ /* global wpColorPickerL10n */
+ ( function( $, undef ) {
+-
++// Very fancy patch file.
+ 	var ColorPicker,
+ 		_before = '<button type="button" class="button wp-color-result" aria-expanded="false"><span class="wp-color-result-text"></span></button>',
+ 		_after = '<div class="wp-picker-holder" />',
+diff --git src/js/_enqueues/lib/color-picker.js src/js/_enqueues/lib/color-picker.js
+index a3bca29df8..52eb36036e 100644
+--- src/js/_enqueues/lib/color-picker.js
++++ src/js/_enqueues/lib/color-picker.js
+@@ -1,6 +1,6 @@
+ /* global wpColorPickerL10n */
+ ( function( $, undef ) {
+-
++// Very fancy patch file.
+ 	var ColorPicker,
+ 		_before = '<button type="button" class="button wp-color-result" aria-expanded="false"><span class="wp-color-result-text"></span></button>',
+ 		_after = '<div class="wp-picker-holder" />',
+diff --git src/wp-admin/js/nice-file.js src/wp-admin/js/nice-file.js
+index a3bca29df8..52eb36036e 100644
+--- src/wp-admin/js/nice-file.js
++++ src/wp-admin/js/nice-file.js
+@@ -1,6 +1,6 @@
+ /* global wpColorPickerL10n */
+ ( function( $, undef ) {
+-
++// Very fancy patch file.
+ 	var ColorPicker,
+ 		_before = '<button type="button" class="button wp-color-result" aria-expanded="false"><span class="wp-color-result-text"></span></button>',
+ 		_after = '<div class="wp-picker-holder" />',

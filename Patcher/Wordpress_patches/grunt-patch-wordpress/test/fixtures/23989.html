@@ -1,0 +1,255 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  
+  
+
+  
+
+
+
+
+  <head>
+    <title>
+      Ticket #23989 – Attachments
+     – WordPress Trac
+    </title>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!--[if IE]><script type="text/javascript">
+      if (/^#__msie303:/.test(window.location.hash))
+        window.location.replace(window.location.hash.replace(/^#__msie303:/, '#'));
+    </script><![endif]-->
+        <link rel="search" href="/search" />
+        <link rel="help" href="/wiki/TracGuide" />
+        <link rel="up" href="/ticket/23989" title="Ticket #23989" />
+        <link rel="start" href="/wiki" />
+        <link rel="stylesheet" href="/chrome/common/css/trac.css" type="text/css" />
+        <link rel="shortcut icon" href="/chrome/common/trac.ico" type="image/x-icon" />
+        <link rel="icon" href="/chrome/common/trac.ico" type="image/x-icon" />
+      <link type="application/opensearchdescription+xml" rel="search" href="/search/opensearch" title="Search WordPress Trac" />
+      <script type="text/javascript" charset="utf-8" src="/chrome/common/js/jquery.js"></script>
+      <script type="text/javascript" charset="utf-8" src="/chrome/common/js/babel.js"></script>
+      <script type="text/javascript" charset="utf-8" src="/chrome/common/js/trac.js"></script>
+      <script type="text/javascript" charset="utf-8" src="/chrome/common/js/search.js"></script>
+	<link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,400,300,600&amp;subset=latin,cyrillic-ext,greek-ext,greek,vietnamese,latin-ext,cyrillic" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="//s.w.org/style/wp4.css?4" />
+	<!--[if lte IE 8]>
+	<style type="text/css">
+	@import url("//s.w.org/style/ie.css?1");
+	</style>
+	<![endif]-->
+	<meta name="viewport" content="width=device-width" />
+	<link rel="stylesheet" href="//s.w.org/wp-includes/css/dashicons.min.css?20140130" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="//wordpress.org/style/trac/wp-trac.css?38a" />
+	<link rel="stylesheet" type="text/css" href="//openatd.svn.wordpress.org/atd-jquery/css/atd.css" media="screen" />
+<link rel="stylesheet" href="//make.wordpress.org/core/wp-content/plugins/trac-notifications/make-core.css?ver=3" />
+</head>
+  <body id="wordpress-org" class="core trac wporg-make make-core">
+<div id="wporg-header">
+    <div class="wrapper">
+        <a id="mobile-menu-button" class="" href="#" onclick="toggleMenu();"></a>
+        <h1><a href="//wordpress.org">WordPress.org</a></h1>
+        <div id="head-search">
+            <form action="//wordpress.org/search/do-search.php" method="get">
+				<input class="text" name="search" type="text" value="" maxlength="150" placeholder="Search WordPress.org" />
+				<input type="submit" class="button" value="" />
+            </form>
+        </div>
+        <div style="clear:both"></div>
+        <ul id="wporg-header-menu">
+            <li><a href="//wordpress.org/showcase/" title="See some of the sites built on WordPress.">Showcase</a></li>
+            <li><a href="//wordpress.org/themes/" title="Find just the right look for your website.">Themes</a></li>
+            <li><a href="//wordpress.org/plugins/" title="Plugins can extend WordPress to do almost anything you can imagine.">Plugins</a>
+                <div class="uparrow"></div>
+            </li>
+            <li><a href="//wordpress.org/mobile/" title="Take your website on the go!">Mobile</a></li>
+            <li><a href="//wordpress.org/support/" title="Forums, documentation, help.">Support</a>
+                <ul class="nav-submenu">
+                    <li><a href="//wordpress.org/support/" title="Support and discussion forums.">Forums</a></li>
+                    <li><a href="//codex.wordpress.org/Main_Page" title="Documentation, tutorials, best practices.">Documentation</a></li>
+                </ul>
+                <div class="uparrow"></div>
+            </li>
+            <li><a href="//make.wordpress.org/" title="Contribute your knowledge." class="current">Get Involved</a>
+                <ul class="nav-submenu">
+                    <li><a href="//make.wordpress.org/core/" title="Write the code.">Core</a></li>
+                    <li><a href="//make.wordpress.org/ui/" title="Improve the interface.">UI</a></li>
+                    <li><a href="//make.wordpress.org/accessibility/" title="Create a better experience.">Accessibility</a></li>
+                    <li><a href="//make.wordpress.org/plugins/" title="Extend the system.">Plugins</a></li>
+                    <li><a href="//make.wordpress.org/themes/" title="Beautify the web.">Themes</a></li>
+                    <li><a href="//make.wordpress.org/support/" title="Help the users.">Support</a></li>
+                    <li><a href="//make.wordpress.org/polyglots/" title="Translate for the world.">Polyglots</a></li>
+                    <li><a href="//make.wordpress.org/mobile/" title="On the go.">Mobile</a></li>
+                </ul>
+                <div class="uparrow"></div>
+            </li>
+            <li><a href="//wordpress.org/about/" title="About the WordPress Organization, and where we're going.">About</a></li>
+            <li><a href="//wordpress.org/news/" title="Come here for the latest scoop.">Blog</a></li>
+            <li><a href="//wordpress.org/hosting/" title="Find a home for your blog.">Hosting</a></li>
+            <li id="download" class="button download-button"><a href="//wordpress.org/download/" title="Get it. Got it? Good.">Download WordPress</a></li>
+        </ul>
+        <div style="clear:both"></div>
+    </div>
+</div>
+	<div id="headline">
+		<div class="wrapper">
+			<h2><a href="//make.wordpress.org/core/">Make WordPress Core</a></h2>
+			<div class="menu-container"><ul class="menu">
+				<li><a href="http://make.wordpress.org/core/">Blog</a></li>
+				<li><a href="http://make.wordpress.org/core/handbook/">Handbook</a></li>
+				<li><a class="open-ticket-report" href="http://make.wordpress.org/core/reports/">Tickets</a></li>
+				<li><a href="http://make.wordpress.org/core/components/">Components</a></li>
+				<li class="icon browser"><a title="Browse Source" href="//core.trac.wordpress.org/browser">Browse Source</a></li>
+				<li class="icon timeline"><a title="Trac Timeline" href="//core.trac.wordpress.org/timeline">Trac Timeline</a></li>
+				<li class="icon newticket"><a title="Create a New Ticket" href="//wordpress.org/support/bb-login.php?redirect_to=https://core.trac.wordpress.org/newticket">Create a New Ticket</a></li>
+			</ul></div>
+		</div>
+	</div>
+    <div id="banner">
+      <form id="search" action="/search" method="get">
+        <div>
+          <label for="proj-search">Search:</label>
+          <input type="text" id="proj-search" name="q" size="18" value="" />
+          <input type="submit" value="Search" />
+        </div>
+      </form>
+      <div id="metanav" class="nav">
+    <ul>
+      <li class="first"><a href="/login">Login</a></li><li class="last"><a href="https://make.wordpress.org/core/notifications/">Notifications</a></li>
+    </ul>
+  </div>
+    </div>
+    <div id="mainnav" class="nav">
+  </div>
+    <div id="main">
+      <div id="ctxtnav" class="nav">
+        <h2>Context Navigation</h2>
+        <ul>
+          <li class="last first"><a href="/ticket/23989">Back to Ticket #23989</a></li>
+        </ul>
+        <hr />
+      </div>
+    <div id="content" class="attachment">
+        <h1><a href="/ticket/23989">Ticket #23989</a></h1>
+          
+    <div id="attachments">
+        <h3>Attachments <span class="trac-count">(1)</span></h3>
+        <div class="attachments">
+          <dl class="attachments">
+              <dt>
+    <a href="/attachment/ticket/23989/long-button-text.png" title="View attachment">long-button-text.png</a><a href="/raw-attachment/ticket/23989/long-button-text.png" class="trac-rawlink" title="Download">​</a>
+       (<span title="91482 bytes">89.3 KB</span>) -
+      added by <em>MikeHansenMe</em> <a class="timeline" href="/timeline?from=2013-04-08T18%3A21%3A49Z&amp;precision=second" title="See timeline at 04/08/13 18:21:49">10 months ago</a>.
+  </dt>
+              <dd>
+                long button text
+              </dd>
+          </dl>
+          <p>
+            Download all attachments as: <a rel="nofollow" href="/zip-attachment/ticket/23989/">.zip</a>
+          </p>
+          
+        </div>
+    </div>
+
+    </div>
+    </div>
+<div id="wporg-footer">
+	<div class="wrapper">
+		<ul>
+			<li><a href="//wordpress.org/about/" title="An introduction to the WordPress project">About</a></li>
+			<li><a href="//wordpress.org/news/" title="News and Updates">Blog</a></li>
+			<li><a href="//wordpress.org/hosting/" title="Recommended web hosting providers">Hosting</a></li>
+			<li><a href="http://jobs.wordpress.net/" title="Find or post WordPress jobs">Jobs</a></li>
+		</ul>
+		<ul>
+			<li><a href="//wordpress.org/support/" title="Forums, documentation, and other resources">Support</a></li>
+			<li><a href="//make.wordpress.org/" title="Give back to WordPress through code, support, translation and more">Get Involved</a></li>
+			<li><a href="//learn.wordpress.org/" title="Workshops and training materials">Learn</a></li>
+		</ul>
+		<ul>
+			<li><a href="//wordpress.org/showcase/" title="Some of the best WordPress sites on the Web">Showcase</a></li>
+			<li><a href="//wordpress.org/plugins/" title="Add extra functionality to WordPress">Plugins</a></li>
+			<li><a href="//wordpress.org/themes/" title="Make your WordPress pretty">Themes</a></li>
+			<li><a href="//wordpress.org/ideas/" title="Share your ideas for improving WordPress">Ideas</a></li>
+		</ul>
+		<ul>
+			<li><a href="http://central.wordcamp.org/" title="Find a WordPress event near you">WordCamp</a></li>
+			<li><a href="http://wordpress.tv/" title="Videos, tutorials, and WordCamp sessions">WordPress.TV</a></li>
+			<li><a href="//buddypress.org/" title="A set of plugins to transform your WordPress into a social network">BuddyPress</a></li>
+			<li><a href="//bbpress.org/" title="Fast, slick forums built on WordPress">bbPress</a></li>
+		</ul>
+		<ul>
+			<li><a href="http://wordpress.com/?ref=wporg-footer" title="Hassle-free WordPress hosting">WordPress.com</a></li>
+			<li><a href="http://ma.tt/" title="Co-founder of WordPress, an example of what WordPress can do">Matt</a></li>
+			<li><a href="//wordpress.org/about/privacy/" title="WordPress.org Privacy Policy">Privacy</a></li>
+			<li><a href="//wordpress.org/about/license/" title="WordPress is open source software">License / GPLv2</a></li>
+		</ul>
+	</div>
+	<h6 class="aligncenter">Code is Poetry</h6>
+</div>
+<script type="text/javascript">
+  var _qevents = _qevents || [];
+  (function() {
+   var elem = document.createElement('script');
+   elem.src = (document.location.protocol == "https:" ? "https://secure" : "http://edge")
+               + ".quantserve.com/quant.js";
+   elem.async = true;
+   elem.type = "text/javascript";
+   var scpt = document.getElementsByTagName('script')[0];
+   scpt.parentNode.insertBefore(elem, scpt);
+  })();
+</script>
+<script type="text/javascript">_qevents.push( { qacct:"p-18-mFEk4J448M"} );</script>
+<noscript><img src="//pixel.quantserve.com/pixel/p-18-mFEk4J448M.gif" style="display: none;" border="0" height="1" width="1" alt="" /></noscript>
+	<script src="//wordpress.org/style/trac/wp-trac.js?38a"></script>
+	<script src="//openatd.svn.wordpress.org/atd-jquery/scripts/jquery.atd.textarea.js"></script>
+	<script src="//openatd.svn.wordpress.org/atd-jquery/scripts/csshttprequest.js"></script>
+		<script type="text/javascript">
+		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+		<script type="text/javascript">
+		try {
+		var pageTracker = _gat._getTracker("UA-52447-27");
+		pageTracker._trackPageview();
+		} catch(err) {}</script>
+		<script>
+		(function() {
+			var settings = { endpoint: '//make.wordpress.org/core/', authenticated: 0 };
+			wpTrac.notifications.init(settings);
+		})();
+		</script>
+<div id="report-popup"></div>
+<script>
+(function($){
+var titles = {
+	ryan: 'Lead Developer',
+	markjaquith: 'Lead Developer',
+	matt: 'Project Lead',
+	nacin: 'Lead Developer',
+	azaozz: 'Lead Developer',
+	westi: 'Lead Developer',
+	dd32: 'Core Committer',
+	koopersmith: 'Core Committer',
+	duck_: 'Core Committer',
+	helen: 'Core Committer',
+	wonderboymusic: 'Core Committer',
+	ocean90: 'Core Committer',
+	sergeybiryukov: 'Core Committer',
+	johnbillion: 'Core Committer',
+	iammattthomas: 'Core Committer',
+	lancewillett: 'Themes Committer',
+	drewapicture: 'Docs Committer'
+};
+$('h3.change .profile-link').each( function() {
+	var el = $(this);
+	user = el.attr('href').split('/').pop().toLowerCase();
+	if ( user in titles ) {
+		el.after( ' <span class="contributor-label">(' + titles[ user ] + ')</span>' );
+	}
+});
+})(jQuery);
+</script>
+</body>
+</html>

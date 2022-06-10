@@ -1,0 +1,11 @@
+Index: index.php
+===================================================================
+--- index.php	(revision 27295)
++++ index.php	(working copy)
+@@ -1,4 +1,6 @@
+ <?php
++
++
+ /**
+  * Front to the WordPress application. This file doesn't do anything, but loads
+  * wp-blog-header.php which does and tells WordPress to load the theme.

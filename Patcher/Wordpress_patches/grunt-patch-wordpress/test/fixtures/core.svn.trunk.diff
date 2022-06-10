@@ -1,0 +1,11 @@
+Index: trunk/wp-load.php
+===================================================================
+--- trunk/wp-load.php	(revision 27295)
++++ trunk/wp-load.php	(working copy)
+@@ -1,4 +1,6 @@
+ <?php
++
++
+ /**
+  * Bootstrap file for setting the ABSPATH constant
+  * and loading the wp-config.php file. The wp-config.php

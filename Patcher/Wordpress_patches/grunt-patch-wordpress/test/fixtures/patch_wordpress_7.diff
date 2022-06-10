@@ -1,0 +1,12 @@
+diff --git wp-admin/js/color-picker.js wp-admin/js/color-picker.js
+index a3bca29df8..52eb36036e 100644
+--- wp-admin/js/color-picker.js
++++ wp-admin/js/color-picker.js
+@@ -1,6 +1,6 @@
+ /* global wpColorPickerL10n */
+ ( function( $, undef ) {
+-
++// Very fancy patch file.
+ 	var ColorPicker,
+ 		_before = '<button type="button" class="button wp-color-result" aria-expanded="false"><span class="wp-color-result-text"></span></button>',
+ 		_after = '<div class="wp-picker-holder" />',

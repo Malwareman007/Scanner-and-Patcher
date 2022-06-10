@@ -1,0 +1,18 @@
+diff --git tests/phpunit/wp-mail-real-test.php tests/phpunit/wp-mail-real-test.php
+index a3b4826..de0f2e8 100644
+--- tests/phpunit/wp-mail-real-test.php
++++ tests/phpunit/wp-mail-real-test.php
+@@ -1,4 +1,6 @@
+ <?php
++
++
+ /**
+  * wp-mail-real-test.php
+  *
+@@ -82,4 +84,4 @@ $to = "To <wp.mail.testing+to@gmail.com>";
+ $headers[] = "BCC: {$bcc}";
+ wp_mail( '', $subject, $message, $headers );
+ echo "Test emails sent!\n"
+-?>
+\ No newline at end of file
++?>

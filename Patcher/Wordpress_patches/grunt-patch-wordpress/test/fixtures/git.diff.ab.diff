@@ -1,0 +1,38 @@
+diff --git a/src/wp-admin/css/customize-controls.css b/src/wp-admin/css/customize-controls.css
+index 448f1b5..8e0d254 100644
+--- a/src/wp-admin/css/customize-controls.css
++++ b/src/wp-admin/css/customize-controls.css
+@@ -534,11 +534,6 @@ body {
+ 	display: block;
+ }
+ 
+-#customize-control-header_image .dice {
+-	font-size: 16px;
+-	vertical-align: -1px;
+-}
+-
+ #customize-control-header_image .placeholder:hover .dice {
+ 	-webkit-animation: dice-color-change 3s infinite;
+ 	-moz-animation: dice-color-change 3s infinite;
+diff --git a/src/wp-includes/class-wp-customize-control.php b/src/wp-includes/class-wp-customize-control.php
+index f10a74f..cce9195 100644
+--- a/src/wp-includes/class-wp-customize-control.php
++++ b/src/wp-includes/class-wp-customize-control.php
+@@ -886,7 +886,7 @@ final class WP_Customize_Header_Image_Control extends WP_Customize_Image_Control
+ 
+ 			<div class="placeholder random">
+ 				<div class="inner">
+-					<span><span class="dice">&#9860;</span>
++					<span><span class="dashicons dashicons-randomize dice"></span>
+ 					<# if ( data.type === 'uploaded' ) { #>
+ 						<?php _e( 'Randomize uploaded headers' ); ?>
+ 					<# } else if ( data.type === 'default' ) { #>
+@@ -917,7 +917,7 @@ final class WP_Customize_Header_Image_Control extends WP_Customize_Image_Control
+ 
+ 			<div class="placeholder">
+ 				<div class="inner">
+-					<span><span class="dice">&#9860;</span>
++					<span><span class="dashicons dashicons-randomize dice"></span>
+ 					<# if ( data.type === 'uploaded' ) { #>
+ 						<?php _e( 'Randomizing uploaded headers' ); ?>
+ 					<# } else if ( data.type === 'default' ) { #>

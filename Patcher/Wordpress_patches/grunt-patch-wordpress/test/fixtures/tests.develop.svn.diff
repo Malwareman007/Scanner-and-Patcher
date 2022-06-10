@@ -1,0 +1,18 @@
+Index: tests/phpunit/wp-mail-real-test.php
+===================================================================
+--- tests/phpunit/wp-mail-real-test.php	(revision 27349)
++++ tests/phpunit/wp-mail-real-test.php	(working copy)
+@@ -1,4 +1,6 @@
+ <?php
++
++
+ /**
+  * wp-mail-real-test.php
+  *
+@@ -82,4 +84,4 @@
+ $headers[] = "BCC: {$bcc}";
+ wp_mail( '', $subject, $message, $headers );
+ echo "Test emails sent!\n"
+-?>
+\ No newline at end of file
++?>

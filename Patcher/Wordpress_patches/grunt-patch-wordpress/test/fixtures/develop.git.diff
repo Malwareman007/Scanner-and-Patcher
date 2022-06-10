@@ -1,0 +1,12 @@
+diff --git src/wp-load.php src/wp-load.php
+index fb85953..c94465a 100644
+--- src/wp-load.php
++++ src/wp-load.php
+@@ -1,4 +1,7 @@
+ <?php
++
++
++
+ /**
+  * Bootstrap file for setting the ABSPATH constant
+  * and loading the wp-config.php file. The wp-config.php
