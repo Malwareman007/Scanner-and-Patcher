@@ -12,5 +12,7 @@ This class helps create a program in a command-line-environment in a way that ap
 This particular library is necessary as it helps by providing various functions and variables to manipulate different parts of the Python Runtime environment.
 ## Goal of the code
 Scan the target web application for XSS vulnerabilities.
+## How To Run The Command 
+* **python3 xss.py (url)**
 ## Logic Utlilized 
 Using the Selenium Web Driver we have made a custom browser and then we test the web application in that browser to check if it accepts user input without proper validation. If an XSS vulnerability is found then the payload slows down the browser and we are informed of the existence of the vulnerability. 
