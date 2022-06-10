@@ -1,0 +1,19 @@
+{
+  "name": "John W. Appleseed",
+  "birthday": "1990-01-01",
+  "work": {
+    "company": "Acme",
+    "title": "Senior Engineer"
+  },
+  "phones": [
+    {
+      "phone": "1111111111",
+      "type": "work"
+    },
+    {
+      "phone": "2222222222"
+    }
+  ],
+  "notes": null,
+  "favorite": true
+}

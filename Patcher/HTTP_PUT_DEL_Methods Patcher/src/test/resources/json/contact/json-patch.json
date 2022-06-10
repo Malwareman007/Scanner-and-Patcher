@@ -1,0 +1,41 @@
+[
+  {
+    "op": "replace",
+    "path": "/name",
+    "value": "John W. Appleseed"
+  },
+  {
+    "op": "replace",
+    "path": "/work/title",
+    "value": "Senior Engineer"
+  },
+  {
+    "op": "replace",
+    "path": "/phones/0/phone",
+    "value": "1111111111"
+  },
+  {
+    "op": "add",
+    "path": "/phones/0/type",
+    "value": "work"
+  },
+  {
+    "op": "add",
+    "path": "/phones/1",
+    "value": {}
+  },
+  {
+    "op": "add",
+    "path": "/phones/1/phone",
+    "value": "2222222222"
+  },
+  {
+    "op": "remove",
+    "path": "/notes"
+  },
+  {
+    "op": "replace",
+    "path": "/favorite",
+    "value": true
+  }
+]
