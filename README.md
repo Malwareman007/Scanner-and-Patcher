@@ -1,4 +1,4 @@
-# Open_Source_Web-Vulnerability-Scanner and Patcher
+# Open_Source_Web-Vulnerability-Scanner and Patcher [![Build Status](https://github.com/makandra/angular_xss/workflows/Tests/badge.svg)](https://github.com/Malwareman007/Open_Source_Web-Vulnerability-Scanner-and-Patcher/actions)
 ***
 <a href="https://github.com/Malwareman007/Open_Source_Web-Vulnerability-Scanner-and-Patcher" target="_blank">
     <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" />
