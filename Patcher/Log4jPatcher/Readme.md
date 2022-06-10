@@ -1,4 +1,4 @@
-# Log4jPatcher
+# Log4jPatcher [![Build Status](https://github.com/makandra/angular_xss/workflows/Tests/badge.svg)](https://github.com/Malwareman007/Open_Source_Web-Vulnerability-Scanner-and-Patcher/actions)
 
 A Java Agent based mitigation for Log4j2 JNDI exploits.
 
