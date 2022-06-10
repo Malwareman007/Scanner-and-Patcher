@@ -1,5 +1,0 @@
-doc
-pkg
-*.gem
-.idea
-spec/*/log/*
