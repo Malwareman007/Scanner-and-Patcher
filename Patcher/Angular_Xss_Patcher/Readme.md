@@ -1,4 +1,4 @@
-angular_xss [![Build Status](https://github.com/makandra/angular_xss/workflows/Tests/badge.svg)](https://github.com/makandra/angular_xss/actions)
+angular_xss 
 ===========
 
 When rendering AngularJS templates with a server-side templating engine like ERB or Haml it is easy to introduce XSS vulnerabilities. These vulnerabilities are enabled by AngularJS evaluating user-provided strings containing interpolation symbols (default symbols are `{{` and `}}`).
