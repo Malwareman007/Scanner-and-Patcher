@@ -76,7 +76,7 @@ this will serve as a great starting point to minimizing the attack surface.
 </details>
 
 ## HOW TO RUN COMMAND ##
-  python3 log4j.py [options] (url)
+  python3 Log4jScanner.py [options] (url)
   
 ## CREDITS ##
 
