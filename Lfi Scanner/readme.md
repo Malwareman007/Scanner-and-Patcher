@@ -4,7 +4,7 @@
 * Request – This particular library has been used as we need to make HTTP requests in order to check for the LFI vulnerability.
 * sys – This particular library is necessary as it helps by providing various functions and variables to manipulate different parts of the Python Runtime environment
 ## HOW TO RUN THE CODE ##
-* python3 lfi.py [options] (url)
+* python3 Lfi.py [options] (url)
 ## Goal of the code 
 * Scan the target web application for a LFI vulnerability
 ## Logic Utilized 
