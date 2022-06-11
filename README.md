@@ -95,12 +95,13 @@ Exploitation of the vulnerability likely results in root-level compromise of ser
   
 
 ## Use
-Use Program as python3 web_scan.py (https or http) ://example.com
-
 ```
+Use Program as python3 web_scan.py (https or http) ://example.com
+```
+
 --help
 --update
-```
+
 
 |Serial No.|Vulnerabilities to Scan|   |Serial No.|Vulnerabilities to Scan|
 |:----------:|:---------------------:|---|:----------:|:---------------------:|
