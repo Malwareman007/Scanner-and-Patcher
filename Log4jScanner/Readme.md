@@ -3,6 +3,15 @@
 This repository provides a scanning solution for the log4j Remote Code Execution vulnerabilities (CVE-2021-44228 & CVE-2021-45046). 
 The information and code in this repository is provided "as is" and was assembled with the help of the Tribe N . This is not intended to be a 100% true positive solution; False negatives may occur.
 ***
+## Libraries Used 
+### Argparse
+The argparse module makes it easy to write user-friendly command-line interfaces.
+### Base64
+This module provides functions for encoding binary data to printable ASCII characters and decoding such encodings back to binary data.
+### Fuzzing
+Fuzzing is an effective way to find security bugs in software, so much so that the Microsoft Security Development Lifecycle requires fuzzing at every untrusted interface of every product. If you develop software that may process untrusted inputs, you should use fuzzing.
+### WAF
+A WAF or Web Application Firewall is the protective barrier between a web application and the internet. In simple terms, It monitors the traffic hitting website servers with requests, and filters out the ones with malicious intent.
 # For More Go here
 ## Official CISA Guidance & Resources ##
 
