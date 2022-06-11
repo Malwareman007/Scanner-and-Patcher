@@ -3,6 +3,19 @@
 This repository provides a scanning solution for the log4j Remote Code Execution vulnerabilities (CVE-2021-44228 & CVE-2021-45046). 
 The information and code in this repository is provided "as is" and was assembled with the help of the Tribe N . This is not intended to be a 100% true positive solution; False negatives may occur.
 ***
+
+## Libraries Used 
+### Fuzzing
+Fuzzing is an effective way to find security bugs in software, so much so that the Microsoft Security Development Lifecycle requires fuzzing at every untrusted interface of every product. If you develop software that may process untrusted inputs, you should use fuzzing.
+### WAF
+A WAF or Web Application Firewall is the protective barrier between a web application and the internet. In simple terms, It monitors the traffic hitting website servers with requests, and filters out the ones with malicious intent.
+### WAF bypass payloads
+Trying to gather xss payloads from the internet that bypasses WAF. All credit goes to the owners of the payloads.
+### CVE-2021-45046
+In certain non-default configurations, it was found that the fix to address CVE-2021-44228 in Apache Log4j 2.15.0 was insufficient. This issue affects the log4j version between 2.0 and 2.15. Log4j 1.x is NOT impacted by this vulnerability.
+### DNS Callback 
+DNS Callback, custom-dns-callback-host Provides libopendkim with a handle representing the DNS resolver package to be used, such as a handle to an instantiation of a library.The DNS callback is the first stop in the DNS lookup, and it is responsible for dealing with the client that made the initial request. The resolver starts the sequence of queries that ultimately leads to a URL being translated into the necessary IP address.
+
 # For More Go here
 ## Official CISA Guidance & Resources ##
 
