@@ -25,7 +25,9 @@ It can change both, foreground and background color of any text which is display
 injection and checks the playload for the vulnerability and slows it down if the vulnerabal's are presents ..
 
 ## How To Run The Command 
-* **python3 scanner.py [options] (url)**
+```
+python3 scanner.py [options] (url)
+```
 
 ## Logic Utlilized in the code 
 Using the **fuzzing** we inject and test the payload to check if the url has a vulnerability and to verfiy the url for time elapsed from when the connection is made with url . 
