@@ -1,0 +1,20 @@
+--- admin-bar.php	2020-10-07 21:04:30.563523179 +0000
++++ admin-bar.new.php	2020-10-12 09:42:53.943727326 +0000
+@@ -1140,7 +1140,7 @@
+ function wp_admin_bar_header() {
+ 	$type_attr = current_theme_supports( 'html5', 'style' ) ? '' : ' type="text/css"';
+ 	?>
+-<style<?php echo $type_attr; ?> media="print">#wpadminbar { display:none; }</style>
++<style nonce="%%secret_placeholder%%"<?php echo $type_attr; ?> media="print">#wpadminbar { display:none; }</style>
+ 	<?php
+ }
+
+@@ -1152,7 +1152,7 @@
+ function _admin_bar_bump_cb() {
+ 	$type_attr = current_theme_supports( 'html5', 'style' ) ? '' : ' type="text/css"';
+ 	?>
+-<style<?php echo $type_attr; ?> media="screen">
++<style nonce="%%secret_placeholder%%"<?php echo $type_attr; ?> media="screen">
+ 	html { margin-top: 32px !important; }
+ 	* html body { margin-top: 32px !important; }
+ 	@media screen and ( max-width: 782px ) {

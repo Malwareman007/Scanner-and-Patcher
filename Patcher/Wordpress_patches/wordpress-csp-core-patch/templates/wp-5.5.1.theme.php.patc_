@@ -1,0 +1,46 @@
+--- theme.php	2020-10-07 21:04:30.563523179 +0000
++++ theme.new.php	2020-10-12 09:52:45.612945591 +0000
+@@ -1751,7 +1751,7 @@
+
+ 	if ( ! $background && ! $color ) {
+ 		if ( is_customize_preview() ) {
+-			printf( '<style%s id="custom-background-css"></style>', $type_attr );
++			printf( '<style nonce="%%secret_placeholder%%"%s id="custom-background-css"></style>', $type_attr );
+ 		}
+ 		return;
+ 	}
+@@ -1805,7 +1805,7 @@
+ 		$style .= $image . $position . $size . $repeat . $attachment;
+ 	}
+ 	?>
+-<style<?php echo $type_attr; ?> id="custom-background-css">
++<style nonce="%%secret_placeholder%%"<?php echo $type_attr; ?> id="custom-background-css">
+ body.custom-background { <?php echo trim( $style ); ?> }
+ </style>
+ 	<?php
+@@ -1821,7 +1821,7 @@
+ 	if ( $styles || is_customize_preview() ) :
+ 		$type_attr = current_theme_supports( 'html5', 'style' ) ? '' : ' type="text/css"';
+ 		?>
+-		<style<?php echo $type_attr; ?> id="wp-custom-css">
++		<style nonce="%%secret_placeholder%%"<?php echo $type_attr; ?> id="wp-custom-css">
+ 			<?php echo strip_tags( $styles ); // Note that esc_html() cannot be used because `div &gt; span` is not interpreted properly. ?>
+ 		</style>
+ 		<?php
+@@ -2773,7 +2773,7 @@
+ 		$type_attr = current_theme_supports( 'html5', 'style' ) ? '' : ' type="text/css"';
+ 		?>
+ 		<!-- Custom Logo: hide header text -->
+-		<style id="custom-logo-css"<?php echo $type_attr; ?>>
++		<style nonce="%%secret_placeholder%%" id="custom-logo-css"<?php echo $type_attr; ?>>
+ 			<?php echo $classes; ?> {
+ 				position: absolute;
+ 				clip: rect(1px, 1px, 1px, 1px);
+@@ -3542,7 +3542,7 @@
+ 	$cross_domain = ( strtolower( $admin_origin['host'] ) != strtolower( $home_origin['host'] ) );
+ 	$type_attr    = current_theme_supports( 'html5', 'script' ) ? '' : ' type="text/javascript"';
+ 	?>
+-	<script<?php echo $type_attr; ?>>
++	<script nonce="%%secret_placeholder%%"<?php echo $type_attr; ?>>
+ 		(function() {
+ 			var request, b = document.body, c = 'className', cs = 'customize-support', rcs = new RegExp('(^|\\s+)(no-)?'+cs+'(\\s+|$)');

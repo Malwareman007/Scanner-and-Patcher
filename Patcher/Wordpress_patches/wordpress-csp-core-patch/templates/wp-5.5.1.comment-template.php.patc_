@@ -1,0 +1,10 @@
+--- comment-template.php	2020-10-09 23:05:41.276576809 +0000
++++ comment-template.new.php	2020-10-12 09:59:36.993733057 +0000
+@@ -1304,7 +1304,7 @@
+
+ 	if ( current_user_can( 'unfiltered_html' ) ) {
+ 		wp_nonce_field( 'unfiltered-html-comment_' . $post_id, '_wp_unfiltered_html_comment_disabled', false );
+-		echo "<script>(function(){if(window===window.parent){document.getElementById('_wp_unfiltered_html_comment_disabled').name='_wp_unfiltered_html_comment';}})();</script>\n";
++		echo "<script nonce=\"%%secret_placeholder%%\">(function(){if(window===window.parent){document.getElementById('_wp_unfiltered_html_comment_disabled').name='_wp_unfiltered_html_comment';}})();</script>\n";
+ 	}
+ }

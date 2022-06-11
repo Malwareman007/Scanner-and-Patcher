@@ -1,0 +1,11 @@
+--- widgets/class-wp-widget-recent-comments.php	2020-10-07 21:04:30.623523290 +0000
++++ widgets/class-wp-widget-recent-comments.new.php	2020-10-12 09:28:15.970168295 +0000
+@@ -57,7 +57,7 @@
+ 		$type_attr = current_theme_supports( 'html5', 'style' ) ? '' : ' type="text/css"';
+
+ 		printf(
+-			'<style%s>.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>',
++			'<style nonce="%%secret_placeholder%%"%s>.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>',
+ 			$type_attr
+ 		);
+ 	}

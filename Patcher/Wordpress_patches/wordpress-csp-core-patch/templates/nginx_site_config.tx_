@@ -1,0 +1,23 @@
+# This is your secret noce placeholder:
+#
+#     %%secret_placeholder%%
+#
+# Keep this value to yourself, as an attacker can use it to get his or hers
+# injection attack whitelisted by your web server.
+
+# These lines should go into the server block of your site configuration.
+# Your secret placeholder %%secret_placeholder%% will be replaced
+# by a unique nonce that changes between requests. The placeholder token
+# is randomly generated each time you run make. Keep it to yourself!
+
+set_secure_random_alphanum $cspNonce 32;
+sub_filter_once off;
+sub_filter_types text/html;
+sub_filter '%%secret_placeholder%%' $cspNonce;
+
+# This is a suggested content security header, using our dynamic nonce for
+# whitelisting of WordPress' inline scripts and styles. Put it alongside the
+# other HTTP header definitions (replace exisitng Content-Security-Policy
+# header if it already exists).
+
+add_header Content-Security-Policy "img-src 'self'; style-src 'self' 'nonce-$cspNonce' always; script-src 'self' 'nonce-$cspNonce' always; font-src 'self' data:; default-src 'self'";
