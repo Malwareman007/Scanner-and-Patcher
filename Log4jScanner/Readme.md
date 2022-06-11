@@ -75,6 +75,9 @@ this will serve as a great starting point to minimizing the attack surface.
 - Monitor the DNS server configured in **Step 2**.
 </details>
 
+## HOW TO RUN COMMAND ##
+  python3 log4j.py [options] (url)
+  
 ## CREDITS ##
 
 As many in industry, we did not feel the need to "re-invent the wheel". This
