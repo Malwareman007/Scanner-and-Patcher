@@ -12,6 +12,8 @@ This class helps create a program in a command-line-environment in a way that ap
 This particular library is necessary as it helps by providing various functions and variables to manipulate different parts of the Python Runtime environment.
 ## Goal of the code
 Scan the target web application for XSS vulnerabilities.
+cross-site scripting(XSS) is a client-side code injection attack.
+cross-site scripting (XSS)vulnerabilities continue to remain a major threat to web applications as attacks can gain control of the users accoiunt.
 ## How To Run The Command 
 ```
 python3 xss.py (url)
