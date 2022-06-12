@@ -15,7 +15,18 @@ Trying to gather xss payloads from the internet that bypasses WAF. All credit go
 In certain non-default configurations, it was found that the fix to address CVE-2021-44228 in Apache Log4j 2.15.0 was insufficient. This issue affects the log4j version between 2.0 and 2.15. Log4j 1.x is NOT impacted by this vulnerability.
 ### DNS Callback 
 DNS Callback, custom-dns-callback-host Provides libopendkim with a handle representing the DNS resolver package to be used, such as a handle to an instantiation of a library.The DNS callback is the first stop in the DNS lookup, and it is responsible for dealing with the client that made the initial request. The resolver starts the sequence of queries that ultimately leads to a URL being translated into the necessary IP address.
-
+###RSA
+RSA is a type of asymmetric encryption, which uses two different but linked keys. In RSA cryptography, both the public and the private keys can encrypt a message. The opposite key from the one used to encrypt a message is used to decrypt it.
+###B64ENCODE:-
+Base64 is a binary to a text encoding scheme that represents binary data in an ASCII string format. It is designed to carry data stored in binary format across the network channels. Base64 mechanism uses 64 characters to encode.
+###UUID4:-
+Version 4 UUIDs, are simply 128 bits of random data, with some bit-twiddling to identify the UUID version and variant. UUID collisions are extremely unlikely to happen, especially not in a single application space.
+###Decrypt_data:-
+The conversion of encrypted data into its original form is called Decryption. It is generally a reverse process of encryption. It decodes the encrypted information so that an authorized user can only decrypt the data because decryption requires a secret key or password.
+###Append:-
+Append in Python is a pre-defined method used to add a single item to certain collection types. Without the append method, developers would have to alter the entire collection's code for adding a single value or item.
+###Parse_logs:-
+Parsing is the process of splitting unstructured log data into attributes (key/value pairs). You can use these attributes to facet or filter logs in useful ways. This in turn helps you build better charts and alerts.
 # For More Go here
 ## Official CISA Guidance & Resources ##
 
