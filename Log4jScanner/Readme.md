@@ -20,7 +20,7 @@ RSA is a type of asymmetric encryption, which uses two different but linked keys
 ### B64ENCODE:-
 Base64 is a binary to a text encoding scheme that represents binary data in an ASCII string format. It is designed to carry data stored in binary format across the network channels. Base64 mechanism uses 64 characters to encode.
 ### UUID4:-
-Version 4 UUIDs, are simply 128 bits of random data, with some bit-twiddling to identify the UUID version and variant. UUID collisions are extremely unlikely to happen, especially not in a single application space.
+Version 4 UUIDs, are simply 128 bits of random data, with some bit-twiddling to identify the UUID version and variant. UUID collisions are extremely unlikely to happen, especially not in single application space.
 ### Decrypt_data:-
 The conversion of encrypted data into its original form is called Decryption. It is generally a reverse process of encryption. It decodes the encrypted information so that an authorized user can only decrypt the data because decryption requires a secret key or password.
 ### Append:-
