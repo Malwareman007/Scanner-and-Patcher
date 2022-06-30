@@ -12,9 +12,7 @@ This class helps create a program in a command-line-environment in a way that ap
 This particular library is necessary as it helps by providing various functions and variables to manipulate different parts of the Python Runtime environment.
 ## Goal of the code
 Scan the target web application for XSS vulnerabilities.
-## How to use Program in XSS:
-It contains Alternate XSS syntax they are as follows-
-1].XSS Using Script in Attributes
+## How to USE Program:
 ```
 python3 xss.py -u url -p payload.txt
 ```
