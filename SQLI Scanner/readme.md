@@ -24,9 +24,9 @@ It can change both, foreground and background color of any text which is display
 ## Goal of the code
 injection and checks the playload for the vulnerability and slows it down if the vulnerabal's are presents ..
 
-## How To Run The Command 
+## How To Run The Command for v1:
 ```
-python3 scanner.py [options] (url)
+python3 scanner.py -u url -p payload.txt
 ```
 
 ## Logic Utlilized in the code 
