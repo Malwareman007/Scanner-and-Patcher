@@ -11,7 +11,7 @@
   </a>
   
 ### This tools is very helpful for finding vulnerabilities present in the Web _**Applications**_.
-* A vulnerability scanner is a computer program designed to assess computers, networks or applications for known weaknesses. In plain words, these scanners are used to discover the weaknesses of a given system.
+* A vulnerability scanner is a computer program designed to assess computers, networks or applications for known weaknesses. In plain words, these scanners are used to discover the weaknesses of a given Web App.
 *** 
 ## Tools Used
 ***
@@ -98,9 +98,10 @@ Exploitation of the vulnerability likely results in root-level compromise of ser
 ```
 Use Program as python3 web_scan.py (https or http) ://example.com
 ```
-
+```
 --help
 --update
+```
 
 
 |Serial No.|Vulnerabilities to Scan|   |Serial No.|Vulnerabilities to Scan|
@@ -112,7 +113,7 @@ Use Program as python3 web_scan.py (https or http) ://example.com
 |9|FREAK||10|Firewall|
 |11|LOGJAM||12|FTP Service|
 |13|STUXNET||14|Telnet Service|
-|15|STUXNET||16|Stress Tests|
+|15|LOG4j||16|Stress Tests|
 |17|WebDAV||18|LFI, RFI or RCE.|
 |19|XSS, SQLi, BSQL||20|XSS Header not present|
 |21|Shellshock Bug||22|Leaks Internal IP|
