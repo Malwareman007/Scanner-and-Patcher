@@ -32,7 +32,7 @@
   ***
   
 ## Working
-
+---
 ### Phase 1
 * User has to write:- "python3 web_scan.py (https or http) ://example.com"
 * At first program will note initial time of running, then it will make url with "www.example.com".
