@@ -9,4 +9,4 @@
 * LOG4j Patch
 * Shellshock Patch
 
-# To Know more about patcher just go through readme file of every file 
+# To Know more about patcher just go through readme file of every Patcher
