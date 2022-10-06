@@ -16,7 +16,7 @@ Length: 72
 D value length of 72 is evenly divisible by 8, your application is likely vulnerable (try more d values if unsure)
 ```
 ```
-python ./dotnetdvaluedecode.py -e asdfasdfasdfasdf123123123234
+python ./ms10-070_check.py -e asdfasdfasdfasdf123123123234
 YXNkZmFzZGZhc2RmYXNkZjEyMzEyMzEyMzIzNA==
 Length: 40
 ```
