@@ -1,0 +1,17 @@
+---
+ - hosts: all
+   tasks:
+    - name: Check if chromium need patch
+      shell: test -f /usr/share/applications/chromium-browser.desktop && grep tls1 /usr/share/applications/chromium-browser.desktop
+      register: chromium_test
+      changed_when: "chromium_test.rc == 1"
+      failed_when: "chromium_test.rc > 2"
+      always_run: yes
+      tags: ["chromium", "patch"]
+
+    - name: Patch Chromium
+      replace: dest=/usr/share/applications/chromium-browser.desktop regexp='^Exec=chromium-browser' replace='Exec=chromium-browser --ssl-version-min=tls1' backup=yes
+      when: chromium_test | changed
+      tags: ["chromium", "patch"]
+
+
