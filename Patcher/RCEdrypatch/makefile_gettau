@@ -1,0 +1,55 @@
+	#################
+	# Set Variables #
+	#################
+
+INC_NETCDF = ${NETCDF_DIR}/include
+LIB_NETCDF = ${NETCDF_DIR}/lib
+LIB_HDF = ${HDF5_DIR}/lib
+INC_HDF = ${HDF5_DIR}/include
+#LIB_FFTW =${FFTW_DIR}
+FLAGS += -ipo -g -O0 -r8 -ipo -xhost -check bounds -g -traceback -I${INC_NETCDF} 
+	 # -I${INC_HDF} # remove as per TACC recommendation
+#LDFLAGS = ${FLAGS} -L${LIB_NETCDF} -lnetcdf -lnetcdff\
+#	   -L${LIB_FFTW} -lfftw3\
+#	   -L${LIB_HDF}  -lhdf5_hl -lhdf5\
+#	    -lz -lm
+
+# TACC recommendation: Just load netcdf/4.3.2 (do not load hdf5!)
+#LDFLAGS = ${FLAGS} -Wl,-rpath,${LIB_NETCDF} -L${LIB_NETCDF}  -L${LIB_FFTW} -lnetcdff -lnetcdf -lfftw3 -lz
+LDFLAGS = ${FLAGS} -Wl,-rpath,${LIB_NETCDF} -L${LIB_NETCDF} -lnetcdff -lnetcdf -lz
+
+F90 = ifort -c
+LD = ifort
+
+src_files := netcdf_mod.f90 sat.f90 oceflx.f90 gettau.F90
+obj_files := $(addsuffix .o, $(basename $(src_files)))
+mod_files := $(addsuffix .mod,$(basename $(src_files)))
+
+	  ############
+	  # Rules    #
+	  ############
+
+# Goal Program
+gettau: $(obj_files)
+	$(LD) -o $@ $(obj_files) ${LDFLAGS}
+
+# Prerequisites for goal
+netcdf_mod.o : netcdf_mod.f90
+	$(F90) $(FLAGS) -o $@ netcdf_mod.f90 
+
+netcdf_mod.mod : netcdf_mod.f90    # Note: not set as prereq for goal!
+	$(F90) $(FLAGS) -o $@ netcdf_mod.f90 
+
+gettau.o : gettau.f90 netcdf_mod.o 
+	$(F90) $(FLAGS) gettau.f90
+
+sat.o : gettau.f90 netcdf_mod.o 
+	$(F90) $(FLAGS) sat.f90
+
+oceflx.o : gettau.f90 netcdf_mod.o 
+	$(F90) $(FLAGS) oceflx.f90
+
+.PHONY: clean
+clean:
+	-rm $(obj_files)
+	-rm $(mod_files)
