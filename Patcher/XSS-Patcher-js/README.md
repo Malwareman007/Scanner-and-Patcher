@@ -4,13 +4,6 @@
 <div>$UserData</div>
 ```
 
-Examples of correct coding:
-
-```xml
-
-```
-
-
 
 ## （1）HTML Entity encoding
 
