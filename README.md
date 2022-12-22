@@ -152,7 +152,6 @@ https://user-images.githubusercontent.com/86009160/177647335-0695e922-4bbe-4f44-
 ## 👤 Authors
 👤 GitHub: [@**Malwareman007**](https://github.com/Malwareman)<br>
 👤 GitHub: [@**nano-bot01**](https://github.com/nano-bot01)<br>
-👤 GitHub: [@**bsnakshay**](https://github.com/bsnakshay)<br>
 
 ## 🤝 Contributing
 
