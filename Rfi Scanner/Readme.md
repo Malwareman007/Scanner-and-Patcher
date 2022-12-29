@@ -6,7 +6,5 @@ As said before most web application architectures allow for user input in the fo
 * sys – This particular library is necessary as it helps by providing various functions and variables to manipulate different parts of the Python Runtime environment.
 ### Goal of the code  
 * Scan the target web application for a RFI vulnerability
-### Logic Utilized
-* 
 ### To Be Noted 
 * The present version of our RFI scanner checks the local host because of legal restrictions (lack of permission) we cannot check on any web applications right now.
