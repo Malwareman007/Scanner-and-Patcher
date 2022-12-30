@@ -11,7 +11,12 @@
   </a>
   
 ### This tools is very helpful for finding vulnerabilities present in the Web _**Applications**_.
-* A vulnerability scanner is a computer program designed to assess computers, networks or applications for known weaknesses. In plain words, these scanners are used to discover the weaknesses of a given Web App.
+*  A web application scanner explores a web application by crawling through its web pages and examines it for security vulnerabilities, which involves generation of malicious inputs and evaluation of application's responses. 
+    *   These scanners are automated tools that scan web applications to look for security vulnerabilities. They test web applications for common security problems such as cross-site scripting (XSS), SQL injection, and cross-site request forgery (CSRF).
+    *   This scanner uses different tools like nmap, dnswalk, dnsrecon, dnsenum, dnsmap etc in order to scan ports, sites, hosts and network to find vulnerabilites like OpenSSL CCS Injection, Slowloris, Denial of Service, etc.
+
+
+
 *** 
 ## Tools Used
 ***
