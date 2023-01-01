@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+</head>
+<body>
+    <!-- Navbar section start -->
+    <header>
+        <a href="#" class="logo">Scanner<span>&</span>Patcher</a>
+        <div class="bx bx-menu" id="menu-icon"></div>
+
+        <ul class="navbar">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#get-started">Getting Started</a></li>
+            <li><a href="#contact">Contact</a></li>
+<!-- dark-light mode div  -->
+            <div class="bx bx-moon" id="darkmode"></div>
+        </ul>
+    </header>
+<!-- Navbar section ends  -->
+<!-- Home section start  -->
+<section class="home" id="home">
+    <div class="social">
+        <a href="https://github.com/Malwareman007" target="_blank"><i class="bx bxl-github"></i></a>
+        <a href="https://www.linkedin.com/in/kushagra-ojha-409548219/" target="_blank"><i class="bx bxl-linkedin"></i></a>
+        <a href="https://www.instagram.com/malware.man/" target="_blank"><i class="bx bxl-instagram"></i></a>
+        <a href="https://twitter.com/Malwareman007" target="_blank"><i class="bx bxl-twitter"></i></a>
+        <a href="https://ankitnainwal.hashnode.dev/open-source-web-vulnerability-scanner-and-patcher" target="_blank"><i class="bx bx-link"></i></a>
+    </div>
+    <!-- image div  -->
+    <div class="home-image">
+        <img src="Logo.jpg" alt="">
+    </div>
+    <div class="home-text">
+        <h1>Scanner & Patcher</h1>
+        <p>Scanner and Patcher is an open source software which comes with a set of web vulnerability scanner and also provide patches for it.</p>
+    </div>
+</section>
+<!-- home section end  -->
+<!-- about section start  -->
+
+<section class="about" id="about">
+    <div class="heading">
+        <h1 style="font-size: 50px;">About</h1>
+        <p>This is the documentation for open source Scanner and Patcher Project.<br />
+            Open Source Scanner and Patcher is a software which comes with a set of web vulnerability scanners and it provides patches for it. In this we are using powerful and specialized open source tools which enable us to carefully and thoroughly scan the given web application for a wide array of vulnerabilities. We have designed a solution where once a target web application has been entered in the program, the entire process can easily run without any need to monitor it. As for our patcher we have developed specific patches to patch vulnerabilities
+        </p>
+    </div>
+    <div class="about-container">
+        <div class="about-img">
+            <img src="Logo.jpg" alt="">
+        </div>
+        <div class="about-text">
+            <h2 style="margin-bottom: 5%;">Scanner</h2>
+            <p>   A web application scanner explores a web application by crawling through its web pages and examines it for security vulnerabilities, which involves generation of malicious inputs and evaluation of application's responses.  The scanners are automated tools that scan web applications to look for security vulnerabilities. They test web applications for common security problems such as cross-site scripting (XSS), SQL injection, and cross-site request forgery (CSRF).<br />
+                This scanner uses different tools like nmap, dnswalk, dnsrecon, dnsenum, dnsmap etc in order to scan ports, sites, hosts and network to find vulnerabilities like OpenSSL CCS Injection, Slowloris, Denial of Service, etc.
+            </p>
+           
+            <h2 class="para" style="margin-top: 10%; margin-bottom: 5%;">Patcher</h2>
+            <p>A patch is a software update comprised code inserted (or patched) into the code of an executable program. Typically, a patch is installed into an existing software program. Patches are often temporary fixes between full releases of a software package.<br />
+Patches may do any of the following:
+<br><br>
+   &nbsp; &nbsp;&nbsp;1. Fix a software bug.<br>
+   &nbsp; &nbsp;&nbsp;2. Install new drivers.<br>
+   &nbsp; &nbsp;&nbsp;3. Address new security vulnerabilities.<br>
+   &nbsp; &nbsp;&nbsp;4. Address software stability issues.<br>
+   &nbsp; &nbsp;&nbsp;5. Upgrade the software.
+            </p>
+        </div>
+    </div>
+</section>
+<!-- about section end  -->
+<!-- getting started section starts here  -->
+<section class="get-started" id="get-started">
+    <div class="heading">
+        <h1 style="font-size: 50px;">Getting Started</h1>
+        <h2 style="margin-top: 10%; text-align: left;">Full Scanner</h2>
+       <div class="get" >
+            <a  href="#working">1. Working</a><br>
+            <a href="#use">2. How to use?</a><br>  
+            <a href="#installation">3. How to install?</a><br>
+            <a href="#list-of-vulnerabilities">4. List of Vulnerabilities it can scan.</a><br>
+            <a href="#list-of-tool">5. List of tools use here.</a><br>
+            <a href="#local-file-inclusion">6. Local File Inclusion(LFI).</a>
+       </div>
+    </div>
+    <div class="working" id="working">
+        <h2>Working</h2>
+        <h4>Phase-1</h4>
+        <p>
+           <ul>
+            <li>	• User has to write:- "python3 web_scan.py (https or http) ://example.com".</li>
+            <li> 	•  At first the program will note the initial time of running, then it will make a url with "www.example.com".</li>
+            <li>	• After this step the system will check the internet connection using ping.</li>
+            <li> 	• Functionalities:-</li>
+            <ul>
+                <li>-> §  To navigate to helper menu write this command:- <span>--help for update --update</span></li>
+                <li>-> §  If user want to skip current scan/test:- <span>CTRL+C</span></li>
+                <li>-> §  To quit the scanner use:- <span>CTRL+Z</span></li>
+                <li>-> §  The program will tell the scanning time taken by the tool for a specific test.</li>
+            </ul>
+           </ul> 
+        </p>
+        <h4>Phase-2</h4>
+        <p>
+            <ul>
+                <li> 	•  From here the main function of scanner will start:</li>
+                <li>  The scanner will automatically select any tool to start scanning.</li>
+                <li> 	• Scanners that will be used and filename rotation (default: enabled (1))</li>
+                <li>	• Command that is used to initiate the tool (with parameters and extra params) already given in code</li>
+                <li>	• After founding vulnerability in web application scanner will classify vulnerability in specific format:-</li>
+                <ul>
+                    <li>-> §  [Responses + Severity (c - critical | h - high | m - medium | l - low | i - informational) + Reference for Vulnerability Definition and Remediation]</li>
+                    <li>-> §  Here c or critical defines most vulnerability wheres l or low is for least vulnerable system</li>
+                </ul>
+                <li>	• Vulnerabilities<br>
+                	After this scanner will show results which includes:</li>
+                    <ul>
+                        <li>-> §  Response time</li>
+                        <li>-> §  Total time for scanning</li>
+                        <li>-> §  Class of vulnerability</li>
+                    </ul>
+                    <li>  	• Remediation: Now, Scanner will tell about harmful effects of that specific type of vulnerability.
+                        Scanners tell about sources to know more about the vulnerabilities. (websites).
+                        After this step, the scanner suggests some remedies to overcome the vulnerabilities.
+                        </li>
+                     </ul>
+        </p>
+
+        <h4>Phase-3</h4>
+        <p><ul><br>
+            <li>	• Scanner will generate a proper report including:</li>
+           <br> <ul>
+                <li>-> §  Total number of vulnerabilities scanned</li>
+                <li>-> §  Total number of vulnerabilities skipped</li>
+                <li>-> §  Total number of vulnerabilities detected</li>
+                <li>-> §  Time taken for total scan</li>
+                <li>-> §  Details about each and every vulnerability.</li>
+            </ul>
+           <br> <li>	• Writing all scan files output into SA-Debug-ScanLog for debugging purposes under the same directory
+            </li>
+            <br><li>	• For Debugging Purposes, You can view the complete output generated by all the tools named SA-Debug-ScanLog.</li>
+        </ul>
+        </p>
+    </div>
+
+    <div class="use" id="use">
+        <h2 style="margin-bottom: 3%;">How to use?</h2>
+        <ul>
+            <li>Use program as python3 web_scan.py (https or http)://example.com :- </li>
+            <li>--help</li>
+            <li>--update</li>
+        </ul>
+        </div>
+
+        <div class="installation" id="installation">
+            <h2 style="margin-bottom: 3%;">How to install?</h2>
+            <p><ol>
+               <li> git clone https://github.com/Malwareman007/Open_Source_Web-Vulnerability-Scanner-and-Patcher.git</li><br>
+                <li>cd Open_Source_Web-Vulnerability-Scanner-and-Patcher/setup</li><br>
+                <li>python3 -m pip install --no-cache-dir -r requirements.txt</li>
+            </ol>
+            </p>
+        </div>
+
+        <div class="list-of-vulnerabilities" id="list-of-vulnerabilities">
+           <h2 style="margin-bottom: 2%;">List of vulnerabilities it can scan.</h2>
+           
+<!-- table  -->
+    <table class="GeneratedTable">
+     
+      <tbody>
+        <tr>
+          <td>1.</td>
+          <td>IPv6</td>
+          <td>12.</td>
+          <td>STUXNET</td>
+          <td>23.</td>
+          <td>Interesting Files</td>
+        </tr>
+        <tr>
+          <td>2.</td>
+          <td>POODLE</td>
+          <td>13.</td>
+          <td>Stress Tests</td>
+          <td>24.</td>
+          <td>Injectable Paths</td>
+        </tr>
+        <tr>
+          <td>3.</td>
+          <td>Firewall</td>
+          <td>14.</td>
+          <td>WebDAV</td>
+          <td>25.</td>
+          <td>Subdomains</td>
+        </tr>
+        <tr>
+          <td>4.</td>
+          <td>LOGJAM</td>
+          <td>15.</td>
+          <td>LFI, RFI or RCE.</td>
+          <td>26.</td>
+          <td>MS-SQL DB Service</td>
+        </tr>
+        <tr>
+          <td>5.</td>
+          <td>HEARTBLEED</td>
+          <td>16.</td>
+          <td>XSS, SQLi, BSQL</td>
+          <td>27.</td>
+          <td>ORACLE DB Service</td>
+        </tr>
+        <tr>
+          <td>6.</td>
+          <td>Wordpress, SiteMap/Robot.txt</td>
+          <td>17.</td>
+          <td>XSS Header not present</td>
+          <td>28.</td>
+          <td>RDP Server over UDP and TCP</td>
+        </tr>
+        <tr>
+          <td>7.</td>
+          <td>OpenSSL CCS Injection</td>
+          <td>18.</td>
+          <td>Shellshock Bug</td>
+          <td>29.</td>
+          <td>MySQL DB Service</td>
+        </tr>
+        <tr>
+          <td>8.</td>
+          <td>FREAK</td>
+          <td>19.</td>
+          <td>Leaks Internal IP</td>
+          <td>30.</td>
+          <td>SNMP Service</td>
+        </tr>
+        <tr>
+          <td>9.</td>
+          <td>Slowloris, Denial of Service</td>
+          <td>20.</td>
+          <td>HTTP PUT DEL Methods</td>
+          <td>31.</td>
+          <td>SMB Ports over TCP and UDP</td>
+        </tr>
+        <tr>
+          <td>10.</td>
+          <td>STUXNET</td>
+          <td>21.</td>
+          <td>Outdated</td>
+          <td>32.</td>
+          <td>IIS WebDAV</td>
+        </tr>
+        <tr>
+          <td>11.</td>
+          <td>Telnet Service</td>
+          <td>22.</td>
+          <td>CGI Directories</td>
+          <td>33.</td>
+          <td>X-XSS Protection</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="list-of-tool" id="list-of-tool">
+        <h2 style="margin-bottom: 2%;">List of tools used here.</h2>
+        <table class="GeneratedTable">
+     
+            <tbody>
+              <tr>
+                <td>1.</td>
+                <td>Whatweb</td>
+                <td>9.</td>
+                <td>Davtest</td>
+                <td>17.</td>
+                <td>nikto</td>
+              </tr>
+              <tr>
+                <td>2.</td>
+                <td>Nmap</td>
+                <td>10.</td>
+                <td>Theharvester</td>
+                <td>18.</td>
+                <td>Whois</td>
+                
+              </tr>
+              <tr>
+                <td>3.</td>
+                <td>Golismero</td>
+                <td>11.</td>
+                <td>Xsser</td>
+                <td>19.</td>
+                <td>Ibd</td>
+                
+              </tr>
+              <tr>
+                <td>4.</td>
+                <td>Host</td>
+                <td>12.</td>
+                <td>Fierce</td>
+                <td>20.</td>
+                <td>Wapiti</td>
+                
+              </tr>
+              <tr>
+                <td>5.</td>
+                <td>Wget</td>
+                <td>13.</td>
+                <td>Dnswalk</td>
+                <td>21.</td>
+                <td>Dnsmap</td>
+                
+              </tr>
+              <tr>
+                <td>6.</td>
+                <td>Uniscan</td>
+                <td>14.</td>
+                <td>Dnsrecon</td>
+                <td>22.</td>
+                <td>Devtest</td>
+                
+              </tr>
+              <tr>
+                <td>7.</td>
+                <td>Wafw00f</td>
+                <td>15.</td>
+                <td>dnsenum</td>
+                <td>23.</td>
+                <td>sslyze</td>
+                
+              </tr>
+              <tr>
+                <td>8.</td>
+                <td>Drib</td>
+                <td>16.</td>
+                <td>Dmitry</td>
+                <td></td>
+                <td></td>
+              </tbody>
+              </table>
+    </div>
+
+    <div class="lit">
+        <p>
+            <br><br>
+           <strong>"We have also worked on making separate programs which the user can utilize to scan for specific vulnerabilities but to make a complete scan for the list of vulnerabilities please utilize the full scanner."</strong> 
+        </p>
+    </div>
+
+
+<div class="local-file" id="local-file-inclusion">
+    <h2 style=" margin-top: 5%; margin-bottom: 2%;"> Local File Inclusion(LFI).</h2>
+    <h4 style="margin-top: 3%; margin-bottom: 3%;">Definition:</h4>
+    <p>
+        Local File Inclusion (LFI) allows an attacker to include files on a server through the web browser. This vulnerability exists when a web application includes a file without correctly sanitising the input, allowing an attacker to manipulate the input and inject path traversal characters and include other files from the web server. An LFI attack may lead to information disclosure, remote code execution, or even Cross-site Scripting (XSS). Typically, LFI occurs when an application uses the path to a file as input. If the application treats this input as trusted, a local file may be used in the include statement.
+    </p>
+
+    <h3>Local File Inclusion Scanner and Exploiter</h3>
+    <h4>Features</h4>
+    <ol>
+        <li>1. Scanner</li>
+        <li>2. Exploiter</li>
+    </ol>
+    <h4>Exploiter Attack Vectors:</h4>
+    <ol>
+        <li>1. /proc/self/environ</li>
+        <li>2. /var/log/auth.log</li>
+        <li>3. Apache Log Poisoning</li>
+        <li>4. php://input</li>
+        <li>5. Php Sessions and Cookies</li>
+        <li>6. Data Wrapper</li>
+        <li>7. SMTP Poisoning</li>
+        <li>8. All attacks in one</li>
+    </ol>
+    <h4>Installation</h4>
+    <ul>
+        <li>git clone https://github.com/Open_Source_Web-Vulnerability-Scanner-and-Patcher/</li><br>
+        <li>cd Lfi Scanner</li><br>
+        <li>pip3 install pyfiglet
+        </li><br>
+        <li>pip3 install SimpleTelnetMail</li><br>
+        <li>Usage</li><br>
+        <li>python3 Lfi.py</li>
+    </ul>
+</div>
+
+</section>
+
+
+<!-- get-started end  -->
+<!-- contact start here  -->
+<section class="contact" id="contact">
+<div class="heading">
+    <h1 style="font-size: 50px;">Contact</h1>
+
+</div>
+</section>
+<!-- contact end here  -->
+<div class="footer">
+    <h2>Follow Us</h2>
+    <div class="footer-social">
+        <a href="https://github.com/Malwareman007" target="_blank"><i class="bx bxl-github"></i></a>
+        <a href="https://www.linkedin.com/in/kushagra-ojha-409548219/" target="_blank"><i class="bx bxl-linkedin"></i></a>
+        <a href="https://www.instagram.com/malware.man/" target="_blank"><i class="bx bxl-instagram"></i></a>
+        <a href="https://twitter.com/Malwareman007" target="_blank"><i class="bx bxl-twitter"></i></a>
+    </div>
+</div>
+
+
+<!-- Javascript -->
+<script src="index.js"></script>
+</body>
+</html>
