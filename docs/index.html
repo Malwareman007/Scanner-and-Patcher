@@ -67,11 +67,11 @@
             <p>A patch is a software update comprised code inserted (or patched) into the code of an executable program. Typically, a patch is installed into an existing software program. Patches are often temporary fixes between full releases of a software package.<br />
 Patches may do any of the following:
 <br><br>
-   &nbsp; &nbsp;&nbsp;1. Fix a software bug.<br>
-   &nbsp; &nbsp;&nbsp;2. Install new drivers.<br>
-   &nbsp; &nbsp;&nbsp;3. Address new security vulnerabilities.<br>
-   &nbsp; &nbsp;&nbsp;4. Address software stability issues.<br>
-   &nbsp; &nbsp;&nbsp;5. Upgrade the software.
+   &nbsp;&nbsp; 1. Fix a software bug.<br>
+   &nbsp;&nbsp; 2. Install new drivers.<br>
+   &nbsp;&nbsp; 3. Address new security vulnerabilities.<br>
+   &nbsp;&nbsp; 4. Address software stability issues.<br>
+   &nbsp;&nbsp; 5. Upgrade the software.
             </p>
         </div>
     </div>
@@ -88,7 +88,11 @@ Patches may do any of the following:
             <a href="#installation">3. How to install?</a><br>
             <a href="#list-of-vulnerabilities">4. List of Vulnerabilities it can scan.</a><br>
             <a href="#list-of-tool">5. List of tools use here.</a><br>
-            <a href="#local-file-inclusion">6. Local File Inclusion(LFI).</a>
+            <a href="#local-file-inclusion">6. Local File Inclusion(LFI).</a><br>
+            <a href="#log-scanner">7. Log4j Scanner.</a><br>
+            <a href="#remote-file">8. Remote File Inclusion.</a><br>
+            <a href="sql-injection">9. SQL Injection Scanner.</a><br>
+            <a href="cross-site">10. Cross-Site Scripting(XSS).</a>
        </div>
     </div>
     <div class="working" id="working">
@@ -390,7 +394,140 @@ Patches may do any of the following:
         <li>python3 Lfi.py</li>
     </ul>
 </div>
+<div class="log-scanner" id="log-scanner">
+  <h2 style=" margin-top: 5%; margin-bottom: 2%;"> Log4j Scanner.</h2>
+  <p>This repository provides a scanning solution for the log4j Remote Code Execution vulnerabilities (CVE-2021-44228 & CVE-2021-45046). The information and code in this repository are provided "as is" and was assembled with the help of the Tribe N. This is not intended to be a 100% true positive solution; False negatives may occur.</p>
 
+<h4>Steps to test</h4>
+<ul>
+  <li>Configure your own DNS Server - preferred</li>
+  <li>DNS providers - Interact.sh or canarytokens.org</li>
+  <li>LDAP Server(optional)</li>
+  <li>HTTP Service Discovery & Scanning</li>
+</ul>
+
+<h4>How To Run Command?</h4>
+python3 Log4jScanner.py [-h] [-u URL] [-p PROXY] [-l USEDLIST]
+<br>(url)
+
+<h4>Options:-</h4>
+<ul>
+  <li>● usage: log4jscanner.py [-h] [-u URL] [-p PROXY] [-l USEDLIST]</li>
+  <li>● [--request-type REQUEST_TYPE]</li>
+  <li>● [--headers-file HEADERS_FILE] [--run-all-tests]</li>
+  <li>● [--exclude-user-agent-fuzzing] [--wait-time WAIT_TIME]</li>
+  <li>● [--waf-bypass]</li>
+  <li>● [--custom-waf-bypass-payload
+    CUSTOM_WAF_BYPASS_PAYLOAD]
+    </li>
+  <li>● [--test-CVE-2021-45046]</li>
+  <li>● [--test-CVE-2021-45046]</li>
+  <li>● [--dns-callback-provider DNS_CALLBACK_PROVIDER]</li>
+  <li>● [--custom-dns-callback-host CUSTOM_DNS_CALLBACK_HOST]</li>
+  <li>● [--disable-http-redirects]</li>
+  <li>● optional arguments:</li>
+  <li>● -h, --help show this help message and exit</li>
+  <li>● -u URL, --url URL Check a single URL.</li>
+  <li>● -p PROXY, --proxy PROXY :- send requests through proxy</li>
+  <li>● -l USEDLIST, --list USEDLIST :- Check a list of URLs.</li>
+  <li>● --request-type REQUEST_TYPE :- Request Type: (get, post) - [Default: get].</li>
+  <li>● --headers-file HEADERS_FILE :- Headers fuzzing list - [default: headers.txt].</li>
+  <li>● --run-all-tests Run all available tests on each URL.</li>
+  <li>● --exclude-user-agent-fuzzing :- Exclude User-Agent header from fuzzing -
+    useful to bypass weak checks on User-Agents.
+    </li>
+ <li>● --wait-time WAIT_TIME :- Wait time after all URLs are processed (in seconds) -
+  [Default: 5].
+  </li>
+<li>● --waf-bypass Extend scans with WAF bypass payloads.</li>
+<li>● --custom-waf-bypass-payload CUSTOM_WAF_BYPASS_PAYLOAD :- Test with
+custom WAF bypass payload.
+</li>
+<li>● --test-CVE-2021-45046 :- Test using payloads for CVE-2021-45046 (detection payloads).
+</li>
+<li>● --dns-callback-provider DNS_CALLBACK_PROVIDER :- DNS Callback provider
+[Default: interact.sh].
+</li>
+<li>● --custom-dns-callback-host CUSTOM_DNS_CALLBACK_HOST :- Custom DNS
+Callback Host.
+</li>
+<li>● --disable-http-redirects :- Disable HTTP redirects. Note: HTTP redirects are
+  useful as it allows the payloads to have a higher chance of reaching vulnerable
+  systems.
+  </li>
+</ul>
+</div>
+
+<div class="remote-file" id="remote-file">
+  <h2 style="margin-top: 3%; margin-bottom: 3%;">Remote File Inclusion.</h2>
+  <h4>Definition:</h4>
+  <p>This is a vulnerability which is extremely common with web applications which dynamically include external files. When web applications take user input (URL, parameter value, etc.) and pass them into file include commands, the web application might be tricked into including remote files with malicious code. Although almost all web application frameworks support file inclusion and they are perfectly secure. The issue begins when the user supplied input is accepted without proper validation. The malicious user can easily create backdoors, get unauthorized access to restricted data, run malicious code on the server, take complete control of the server etc. As said before most web application architectures allow for user input in the form of URL, parameter and value. When such user input is not sanitised and properly validated then the user can easily redirect the web application to an unsafe address where the security of the web application is ultimately compromised which maybe range from gaining unauthorized access to restricted data all the way to Cross Site Scripting (XSS) and thus eventually leading to a compromised system. PHP is particularly vulnerable to RFI attacks due to the extensive use of “file includes” in PHP programming and due to default server configurations that increase susceptibility to an RFI attack.</p>
+
+  <h3 style="margin-top: 2%; margin-bottom: 2%;">Python Scanner and Exploiter of Remote File Inclusion Vulnerability</h3>
+  <h4>Features:</h4>
+ <p>1. Scanner<br>2. Exploiter</p>
+ <h4>Scanner Features:</h4>
+ <p>1.1 Possibilities to reach https://www.google.com/<br>1.2 Possibilities to reach https://brave.com/<br>1.3 Possibilities to reach your server with RFI.</p>
+
+ <h4>Exploiter Features:</h4><p>2.1 Traditional Exploitation.<br>2.2 Wrappers.</p>
+
+ <h4>Installation Commands: </h4>
+ <ul>
+  <li>apt install pip</li><br>
+  <li>pip3 install python3-pyfiglet</li><br>
+  <li>pip3 install colorama</li><br>
+  <li>git clone<br>
+    https://github.com/Malwareman007/Open_Source_Web-Vulnerability-Scanner-and-Patche/
+</li>
+ </ul>
+
+ <h4>Execution:</h4>
+ <p>cd Rfi-Scanner<br>python Rfi-py</p>
+</div>
+
+<div class="sql-injection" id="sql-injection">
+<h2 style="margin-top: 3%; margin-bottom: 3%;">SQL Injection Scanner</h2>
+<h4>Definition:</h4>
+<p>A SQL injection scanner is an automated tool used to verify the vulnerability of websites and web apps for potential SQL injection attacks. SQL injection is a code injection technique used to attack data-driven applications, in which malicious SQL statements are inserted into an entry field for execution . SQL injection must exploit a security vulnerability in an application's software, for example, when user input is either incorrectly filtered for string literal escape characters embedded in SQL statements or user input is not strongly typed and unexpectedly executed. SQL injection is mostly known as an attack vector for websites but can be used to attack any type of SQL database.</p>
+
+<h4>V1:</h4>
+<p>● python3 Sqli_scanner.py -u url -p payload</p>
+
+<h4>V2:</h4>
+<p>SQLi Scanner is a fully functional SQL injection vulnerability scanner (supporting GET and POST parameters)
+ </p>
+ <img src="code1.png" alt="" style="width: 90%;">
+ <p>As of optional settings it supports HTTP proxy together with HTTP header values User-Agent, Referrer and Cookie.</p>
+
+ <h4>Sample runs:</h4>
+<p>
+  <ul>
+    <li>● python3 scanner.py -h</li>
+    <li>● Usage: scanner.py [options]</li>
+    <li>● Options:</li>
+    <li>● --version show program's version number and exit</li>
+    <li>● -h, --help show this help message and exit</li>
+    <li>● -u URL, --url=URL Target URL (e.g. "http://www.target.com/page.php?id=1")</li>
+    <li>● --data=DATA POST data (e.g. "query=test")</li>
+    <li>● --cookie=COOKIE HTTP Cookie header value</li>
+    <li>● --user-agent=UA HTTP User-Agent header value</li>
+    <li>● --referer=REFERER HTTP Referer header value</li>
+    <li>● --proxy=PROXY HTTP proxy address (e.g. "http://127.0.0.1:8080")</li>
+    <li>● python3 scanner.py -u "http://testphp.vulnweb.com/artists.php?artist=1"</li>
+  </ul>
+</p>
+</div>
+
+<div class="cross-site" id="cross-site">
+  <h2 style="margin-top: 3%; margin-bottom: 3%;">Cross-Site Scripting</h2>
+  <h4>Definition:</h4>
+  <p>Cross-Site Scripting attacks are a type of injection, in which malicious scripts are injected into otherwise trustworthy websites. An attacker exploits a XSS vulnerability via a web application, generally in the form of a browser side script to a different end user. These vulnerabilities are quite widespread as they can occur anywhere an input is taken from a user without validating or encoding it and is used to generate an output. The end user’s browser has no way to know that the script should not be trusted and it will execute the script as it thinks the script came from a trusted source. Thus, the malicious script after injection can access any cookies, session tokens, or the other sensitive information retained by the browser and used with that site.</p>
+  <h4>How To Run?</h4>
+  <p>python3 xss.py -u url -p payload.txt<br>
+    <br><strong style="font-size: 0.8rem;">If you want to do manual then we have payload1.txt file which has all xss script.</strong>
+  </p>
+  
+</div>
 </section>
 
 
