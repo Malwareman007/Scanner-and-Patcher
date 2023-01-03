@@ -384,7 +384,7 @@ Patches may do any of the following:
         <li>8. All attacks in one</li>
     </ol>
     <h4>Installation</h4>
-    <ul>
+    <ul class="bit">
         <li>git clone https://github.com/Open_Source_Web-Vulnerability-Scanner-and-Patcher/</li><br>
         <li>cd Lfi Scanner</li><br>
         <li>pip3 install pyfiglet
@@ -407,11 +407,12 @@ Patches may do any of the following:
 </ul>
 
 <h4>How To Run Command?</h4>
+<ul class="bit">
 python3 Log4jScanner.py [-h] [-u URL] [-p PROXY] [-l USEDLIST]
-<br>(url)
-
+<br><br>(url)
+</ul>
 <h4>Options:-</h4>
-<ul>
+<ul class="bit">
   <li>● usage: log4jscanner.py [-h] [-u URL] [-p PROXY] [-l USEDLIST]</li>
   <li>● [--request-type REQUEST_TYPE]</li>
   <li>● [--headers-file HEADERS_FILE] [--run-all-tests]</li>
@@ -472,17 +473,20 @@ Callback Host.
  <h4>Exploiter Features:</h4><p>2.1 Traditional Exploitation.<br>2.2 Wrappers.</p>
 
  <h4>Installation Commands: </h4>
- <ul>
+ <ul class="bit">
   <li>apt install pip</li><br>
   <li>pip3 install python3-pyfiglet</li><br>
   <li>pip3 install colorama</li><br>
   <li>git clone<br>
-    https://github.com/Malwareman007/Open_Source_Web-Vulnerability-Scanner-and-Patche/
+    https://github.com/Malwareman007/Open_Source_Web-Vulnerability-Scanner-and-Patcher/
 </li>
  </ul>
 
  <h4>Execution:</h4>
- <p>cd Rfi-Scanner<br>python Rfi-py</p>
+ <ul class="bit">
+  <li>cd Rfi-Scanner</li>
+  <li>python3 Rfi.py</li>
+ </ul>
 </div>
 
 <div class="sql-injection" id="sql-injection">
@@ -491,7 +495,7 @@ Callback Host.
 <p>A SQL injection scanner is an automated tool used to verify the vulnerability of websites and web apps for potential SQL injection attacks. SQL injection is a code injection technique used to attack data-driven applications, in which malicious SQL statements are inserted into an entry field for execution . SQL injection must exploit a security vulnerability in an application's software, for example, when user input is either incorrectly filtered for string literal escape characters embedded in SQL statements or user input is not strongly typed and unexpectedly executed. SQL injection is mostly known as an attack vector for websites but can be used to attack any type of SQL database.</p>
 
 <h4>V1:</h4>
-<p>● python3 Sqli_scanner.py -u url -p payload</p>
+<p class="bit">● python3 Sqli_scanner.py -u url -p payload</p>
 
 <h4>V2:</h4>
 <p>SQLi Scanner is a fully functional SQL injection vulnerability scanner (supporting GET and POST parameters)
@@ -501,7 +505,7 @@ Callback Host.
 
  <h4>Sample runs:</h4>
 <p>
-  <ul>
+  <ul class="bit">
     <li>● python3 scanner.py -h</li>
     <li>● Usage: scanner.py [options]</li>
     <li>● Options:</li>
@@ -522,11 +526,108 @@ Callback Host.
   <h2 style="margin-top: 3%; margin-bottom: 3%;">Cross-Site Scripting</h2>
   <h4>Definition:</h4>
   <p>Cross-Site Scripting attacks are a type of injection, in which malicious scripts are injected into otherwise trustworthy websites. An attacker exploits a XSS vulnerability via a web application, generally in the form of a browser side script to a different end user. These vulnerabilities are quite widespread as they can occur anywhere an input is taken from a user without validating or encoding it and is used to generate an output. The end user’s browser has no way to know that the script should not be trusted and it will execute the script as it thinks the script came from a trusted source. Thus, the malicious script after injection can access any cookies, session tokens, or the other sensitive information retained by the browser and used with that site.</p>
+  <h4>V1</h4>
   <h4>How To Run?</h4>
-  <p>python3 xss.py -u url -p payload.txt<br>
-    <br><strong style="font-size: 0.8rem;">If you want to do manual then we have payload1.txt file which has all xss script.</strong>
+  <p class="bit">python3 xss.py -u url -p payload.txt<br>
+    </p><p></p><strong style="font-size: 0.8rem;">If you want to do manual then we have payload1.txt file which has all xss script.</strong>
   </p>
+  <h4>V2</h4>
+  <p>XSS Scanner (XSS) is a fully functional Cross-site scripting vulnerability scanner (supporting GET and POST parameters) written in under 100 lines of code.</p>
+  <img src="code7.png" alt="" style="width: 90%;">
+  <p>As of optional settings it supports HTTP proxy together with HTTP header values User-Agent, Referrer and Cookie.</p>
+  <h4>Sample Runs:</h4>
+  <ul class="bit">
+    <li>● $ python3 xss.py -h</li>
+    <li>● XSS Scanner (XSS) #v2</li>
+    <li>● by: Malwareman</li>
+    <li>● Usage: xss.py [options]</li>
+    <li>● Options:<br>
+      --version          show program's version number and exit<br>
+      -h, --help         show this help message and exit
+    </li>
+    <li>● -u URL, --url=URL  Target URL (e.g. "http://www.target.com/page.htm?id=1")</li>
+    <li>●  --data=DATA        POST data (e.g. "query=test")</li>
+    <li>●  --cookie=COOKIE    HTTP Cookie header value</li>
+    <li>●  --user-agent=UA    HTTP User-Agent header value</li>
+    <li>●  --referer=REFERER  HTTP Referer header value</li>
+    <li>●  --proxy=PROXY      HTTP proxy address (e.g. "http://127.0.0.1:8080")</li>
+    <li>●  $ python3 xss.py -u "http://testphp.vulnweb.com/search.php?test=query" --data="searchFor=foobar"</li>
+    <li>●XSS Scanner (XSS) #v2</li>
+    <li> by: Malwareman
+      scanning GET parameter 'test'
+      scanning POST parameter 'searchFor'
+      </li>
+<br><br>
+<li> (i) POST parameter 'searchFor' appears to be XSS vulnerable (">.xss.<", outside
+  of tags, no filtering)
+ scan results: possible vulnerabilities found
+ $ python3 xss.py -u "http://public-firing-range.appspot.com/address/location.has
+ h/replace"
+ XSS Scanner (XSS) #v2
+  by: Malwareman
+ </li>
+ (i) page itself appears to be XSS vulnerable (DOM)
+  (o) ...(script)
+     var payload = window.location.hash.substr(1);location.replace(payload); 
+   (/script)... 
+     <br><strong>[note:- use <> instead of ()]</strong><br>
+(x) no usable GET/POST parameters found
+scan results: possible vulnerabilities found
+</ul>
+</div>
+     <div class="ms10" id="ms10">
+  <h2 style="margin-top: 3%; margin-bottom: 3%;">MS10-070 CheckPatch</h2>
+  <p><strong>Check for .net padding oracle patch.</strong></p>
   
+  <h4>Usage Examples:</h4>
+  <p>● ms10-070_check.py -d VHYaLecZ91Zjq-_4mV3ftpYrTteh9kHzk9zwLyjpAZAOjWL3nbx1SmIeGdHJwBu_koMj8ZGAqrtxCJkW0<br>Decoded d value: <binary output><br>Length: 60<br>D value length of 60 is not evenly divisible by 8, your application is patched<br><br>● python ms10-070_check.py -d 2nYOzoKtRvjs-g53K3r7VKmEXeQl_XMNY8nDEwcgwGVcS5Z8b9GanbNdzIgg493kfB_oI<br>Length: 72<br>D value length of 72 is evenly divisible by 8, your application is likely vulnerable (try more d values if unsure)<br><br>● python ./ms10-070_check.py -e asdfasdfasdfasdf123123123234
+    YXNkZmFzZGZhc2RmYXNkZjEyMzEyMzEyMzIzNA==
+<br>Length: 40
+</p><br>
+<img src="code2.png" alt="" style="width: 71%;"><br>
+<img src="code3.png" alt="" style="width: 72%;">
+</div>
+
+<!-- Patcher -->
+<div class="heading">
+  <h2 style="font-size: 3rem; margin-top: 10%; text-align: left;">Patcher</h2>
+  <p>For our Patcher we have separate programs which will patch up different vulnerabilities. We cannot present a complete, compiled software at this present moment as these patches are complex and are written in different languages. To get the patcher up and running in time for the final inspection would not be possible as there are many languages which would need to be compiled into one.</p>
+  <div class="get">
+    <a href="#angular-xss">1. Angular XSS Patcher.</a><br>
+    <a href="#http-put">2. HTTP PUT DEL Methods Patcher.</a><br>
+    <a href="#Json-patch">3. JSON Patch.</a><br>
+    <a href="#json-merge">4. JSON Merge Patch.</a><br>
+    <a href="#json-p">5. JSON-P: Java API for JSON Processing.</a><br>
+    <a href="#parsing">6. Parsing the request payload.</a>
+    <a href="#creating">7. Creating the controller methods.</a><br>
+    <a href="#applying">8. Applying the patch.</a><br>
+    <a href="#validating">9. Validating the patch.</a><br>
+    <a href="#bonus">10. Bonus: Decoupling the domain model from the API model.</a>
+  </div>
+</div>
+
+<div class="angular-xss" id="angular-xss">
+  <h2 style="margin-top: 3%; margin-bottom: 3%;">Angular XSS Patcher</h2>
+  <p>When rendering AngularJS templates with a server-side templating engine like ERB or Haml it is easy to introduce XSS vulnerabilities. These vulnerabilities are enabled by AngularJS evaluating user-provided strings containing interpolation symbols (default symbols are {{ and }}).<br>This gem patches ERB/rails_xss and Haml so Angular interpolation symbols are auto-escaped in unsafe strings. And by auto-escaped we mean replacing {{ with {{ $root.DOUBLE_LEFT_CURLY_BRACE }}. To leave AngularJS interpolation marks unescaped, mark the string as html_safe.<br>This is an unsatisfactory hack. A better solution is very much desired, but is not possible without some changes in AngularJS. See the related AngularJS issue.</p>
+
+  <h4>Disable escaping locally</h4>
+  <p>If you want to disable angular_xss in some part of your app, you can use
+  </p>
+  <img src="code4.png" alt="" width="100%">
+  <h4>Installation</h4>
+  <p>1. Read the code so you know what you're getting into.<br><img src="code5.png" alt=""><br>
+   2. Put this into your Gemfile after other templating engines like Haml or Erubis:<br>3. Run bundle install.
+   <br><img src="code6.png" alt="" width="">
+   <br>4. Add this to your Angular code (replacing "myApp" of course):<br>5. Run your test suite to find the places that broke.<br>6. Mark any string that is allowed to contain Angular expressions as #html_safe.
+  </p>
+  <h4>Known Limitations</h4>
+  <p>● Requires Haml. It could be refactored to only patch ERB/rails_xss.<br>● When using Haml with angular_xss, you can no longer use interpolation symbols in class or id attributes, even if the value is marked as html_safe. This is a limitation of Haml. Try using ng-class instead.</p>
+</div>
+
+<div class="http-put" id="http-put">
+  <h2 style="margin-top: 3%; margin-bottom: 3%;">HTTP PUT DEL Methods Patcher</h2>
+  <p>This project demonstrates an approach to support HTTP PATCH with JSON Patch and JSON Merge Patch for performing partial modifications to resources in Spring, as described in my [blog][blog.post]. I also have put together a [Postman collection][repo.postman] so you can play around with the API.<br>As I have seen lots of misunderstanding on how PATCH works, I aim to clarify its usage before diving into the actual solution.</p>
+  <h4>The Problem with PUT and the need for PATCH</h4>
 </div>
 </section>
 
