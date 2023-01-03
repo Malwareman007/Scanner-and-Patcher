@@ -11,7 +11,7 @@ Sample runs
 
 ```
 $ python3 xss.py -h
- XSS Scanner (XSS) < 100 LoC (Lines of Code) #v2
+ XSS Scanner (XSS) #v2
  by: Malwareman
 
 Usage: xss.py [options]
@@ -30,7 +30,7 @@ Options:
 ```
 $ python3 xss.py -u "http://testphp.vulnweb.com/search.php?test=query" --data="s
 earchFor=foobar"
-XSS Scanner (XSS) < 100 LoC (Lines of Code) #v2
+XSS Scanner (XSS) #v2
  by: Malwareman
 
 * scanning GET parameter 'test'
@@ -44,7 +44,7 @@ scan results: possible vulnerabilities found
 ```
 $ python3 xss.py -u "http://public-firing-range.appspot.com/address/location.has
 h/replace"
-XSS Scanner (XSS) < 100 LoC (Lines of Code) #v2
+XSS Scanner (XSS) #v2
  by: Malwareman
 
  (i) page itself appears to be XSS vulnerable (DOM)
