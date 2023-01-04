@@ -595,14 +595,6 @@ scan results: possible vulnerabilities found
   <div class="get">
     <a href="#angular-xss">1. Angular XSS Patcher.</a><br>
     <a href="#http-put">2. HTTP PUT DEL Methods Patcher.</a><br>
-    <a href="#Json-patch">3. JSON Patch.</a><br>
-    <a href="#json-merge">4. JSON Merge Patch.</a><br>
-    <a href="#json-p">5. JSON-P: Java API for JSON Processing.</a><br>
-    <a href="#parsing">6. Parsing the request payload.</a>
-    <a href="#creating">7. Creating the controller methods.</a><br>
-    <a href="#applying">8. Applying the patch.</a><br>
-    <a href="#validating">9. Validating the patch.</a><br>
-    <a href="#bonus">10. Bonus: Decoupling the domain model from the API model.</a>
   </div>
 </div>
 
@@ -628,19 +620,148 @@ scan results: possible vulnerabilities found
   <h2 style="margin-top: 3%; margin-bottom: 3%;">HTTP PUT DEL Methods Patcher</h2>
   <p>This project demonstrates an approach to support HTTP PATCH with JSON Patch and JSON Merge Patch for performing partial modifications to resources in Spring, as described in my [blog][blog.post]. I also have put together a [Postman collection][repo.postman] so you can play around with the API.<br>As I have seen lots of misunderstanding on how PATCH works, I aim to clarify its usage before diving into the actual solution.</p>
   <h4>The Problem with PUT and the need for PATCH</h4>
+<p>Consider, for example, we are creating an API to manage contacts. On the server, we have a resource that can be represented with the following JSON document:</p>
+<img src="code8.png" alt=""><br>
+<p>Let's say that John has been promoted to senior engineer and we want to keep our contact list updated. We could modify this resource using a PUT request, as shown below:</p>
+<img src="code9.png" alt=""><br><p>With PUT, however, we have to send the full representation of the resource even when we need to modify a single field of a resource, which may not be desirable in some situations.</p><br>
+<p>Let's have a look on how the PUT HTTP method is defined in the [RFC 7231][rfc7231], one of the documents that currently define the HTTP/1.1 protocol:</p>
+<img src="code10.png" alt="" width="90%"><br>
+<p>So, as per definition, the PUT method is meant to be used for:</p><br><br>
+<p>Creating resources [1]<br>
+  Replacing the state of a given resource<br>
+  The key here is: the PUT payload must be a new representation of the resource. Hence it's not meant for performing partial modifications to resources at all. To fill this gap, the PATCH method was created and it is currently defined in the [RFC 5789][rfc5789]:
+  </p>
+  <img src="code11.png" alt="" width="90%"><br><br>
+  <p><strong>The difference between the PUT and PATCH requests is reflected in the way the server processes the request payload to modify a given resource:</strong><br>
+ 
+    ● In a PUT request, the payload is a modified version of the resource stored on the server. And the client is requesting the stored version to be replaced with the new version.<br>
+    ● In a PATCH request, the request payload contains a set of instructions describing how a resource currently stored on the server should be modified to produce a new version.
+    </p>
+    <h4>Describing how the resource will be modified</h4>
+    <p>The PATCH method definition, however, doesn't enforce any format for the request payload apart from mentioning that the request payload should contain a set of instructions describing how the resource will be modified and that set of instructions is identified by a media type.</p><br><br>
+
+<p><strong> 
+  Let's have a look at some formats for describing how a resource is to be patched:
+  </strong></p>
+  <h4>JSON Patch:</h4>
+  <p>JSON Patch is a format for expressing a sequence of operations to be applied to a JSON document. It is defined in the [RFC 6902][rfc6902] and is identified by the application/json-patch+json media type.</p><br>
+  <p>The JSON Patch document represents an array of objects and each object represents a single operation to be applied to the target JSON document.</p><br>
+  <p>The evaluation of a JSON Patch document begins against a target JSON document and the operations are applied sequentially in the order they appear in the array. Each operation in the sequence is applied to the target document and the resulting document becomes the target of the next operation. The evaluation continues until all operations are successfully applied or until an error condition is encountered.</p><br><br>
+  <p>The operation objects must have exactly one op member, whose value indicates the operation to perform:</p>
+  <img src="code12.png" alt="" width="90%"><br>
+<strong>  <p>Any other values are considered errors.<br>
+  A request to modify John's job title could be:</p></strong>
+<img src="code13.png" alt="" width="90%">
+
+<h4>JSON Merge Patch:</h4>
+<p>JSON Merge Patch is a format that describes the changes to be made to a target JSON document using a syntax that closely mimics the document being modified. It is defined in the [RFC 7396][rfc7396] is identified by the application/merge-patch+json media type.<br><br>The server processing a JSON Merge Patch document determine the exact set of changes being requested by comparing the content of the provided patch against the current content of the target document:<br>
+&nbsp;&nbsp;1. If the merge patch contains members that do not appear within the target document, those members are added<br>&nbsp;&nbsp;2. If the target does contain the member, the value is replaced.<br>&nbsp;&nbsp;3. null values in the merge patch indicate that existing values in the target document are to be removed.<br>&nbsp;&nbsp;4. Other values in the target document will remain untouched</p><br>
+<strong><p>A request to modify John's job title could be:</p></strong>
+<img src="code14.png" alt="">
+
+<h4>JSON-P: Java API for JSON Processing</h4>
+<p>JSON-P 1.0, defined in the JSR 353 and also known as Java API for JSON Processing 1.0, brought official support for JSON processing in Java EE. JSON-P 1.1, defined in the JSR 374, introduced support for JSON Patch and JSON Merge Patch formats to Java EE.</p><br>
+<strong><p>Let's have a quick look at the API to start getting familiar with it:</p></strong>
+<img src="code15.png" alt="" width="90%"><br><br>
+<strong><p>To patch using JSON Patch, we would have the following:</p></strong>
+<img src="code16.png" alt=""><br>
 </div>
+<strong><p>And to patch using JSON Merge Patch, we would have the following:</p></strong>
+<img src="code17.png" alt=""><br>
+<strong><p>Having said that, let me highlight that JSON-P is just an API, that is, a set of interfaces. If we want to work with it, we need an implementation such as [Apache Johnzon][johnzon]:</p></strong>
+<img src="code18.png" alt=""><br><br>
+
+<h4>Parsing the request payload:</h4>
+<strong><p>To parse a PATCH request payload, we must take the following into account:</p></strong>
+<p>
+  For an incoming request with the application/json-patch+json content type, the payload must be converted to an instance of [JsonPatch][javax.json.JsonPatch].
+  For an incoming request with the application/merge-patch+json content type, the payload must be converted to an instance of [JsonMergePatch][javax.json.JsonMergePatch].
+  Spring MVC, however, doesn't know how to create instances of [JsonPatch][javax.json.JsonPatch] and [JsonMergePatch][javax.json.JsonMergePatch]. So we need to provide a custom [HttpMessageConverter<T>][org.springframework.http.converter.HttpMessageConverter] for each type. Fortunately it's pretty straightforward.
+  </p><br>
+
+  <p>For convenience, let's extend [AbstractHttpMessageConverter<T>][org.springframework.http.converter.AbstractHttpMessageConverter] and annotate the implementation with [@Component][org.springframework.stereotype.Component], so Spring can pick it up:</p>
+    <img src="code19.png" alt="" width="90%"><br>
+  <strong><p>The constructor will invoke the parent's constructor indicating the supported media type for this converter:</p></strong>
+  <img src="code20.png" alt=""><br>
+  <strong><p>We indicate that our converter supports the [JsonPatch][javax.json.JsonPatch] class:</p></strong>
+  <img src="code21.png" alt=""><br>
+  <strong><p>Then we implement the method that will read the HTTP request payload and convert it to a [JsonPatch][javax.json.JsonPatch] instance:</p></strong>
+  <img src="code22.png" alt=""><br>
+  <strong><p>It's unlikely we'll need to write [JsonPatch][javax.json.JsonPatch] instances to the responses, but we could implement it as follows:</p></strong>
+  <img src="code23.png" alt=""><br>
+  <strong><p>The message converter for [JsonMergePatch][javax.json.JsonMergePatch] is pretty much the same as the converter described above (except for the types handled by the converter):</p></strong>
+  <img src="code24.png" alt=""><br><br>
+
+  <h4>Creating the controller methods:</h4>
+  <p>With the HTTP message converters in place, we can receive [JsonPatch][javax.json.JsonPatch] and [JsonMergePatch][javax.json.JsonMergePatch] as method arguments in our controller methods, annotated with [@RequestBody][org.springframework.web.bind.annotation.RequestBody]:</p>
+  <img src="code25.png" alt=""><br>
+  <img src="code26.png" alt=""><br><br>
+
+  <h4>Applying the patch:</h4>
 </section>
 
-
-<!-- get-started end  -->
-<!-- contact start here  -->
-<section class="contact" id="contact">
+<!-- developer start here  -->
+<section class="developer" id="developer">
 <div class="heading">
-    <h1 style="font-size: 50px;">Contact</h1>
-
+    <h1 style="font-size: 50px;">Development Team</h1>
+    <div class="responsive-container-block outer-container">
+      <div class="responsive-container-block inner-container">
+        <p class="text-blk section-head-text">Meet Our Developers
+        </p>
+        <div class="responsive-container-block">
+          <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 team-card-container">
+            <div class="team-card">
+              <div class="img-wrapper">
+                <img src="kushagra.jpeg"
+                  class="team-img" />
+              </div>
+              <p class="text-blk name">Kushagra Ojha
+              </p>
+              <div class="social-media-links">
+                <a href="https://github.com/Malwareman007" target="_blank"><i class="bx bxl-github"></i></a>
+            <a href="https://www.linkedin.com/in/kushagra-ojha-409548219/" target="_blank"><i class="bx bxl-linkedin"></i></a>
+            <a href="https://www.instagram.com/malware.man/" target="_blank"><i class="bx bxl-instagram"></i></a>
+            <a href="https://twitter.com/Malwareman007" target="_blank"><i class="bx bxl-twitter"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 team-card-container">
+            <div class="team-card">
+              <div class="img-wrapper">
+                <img src="ankit.jpg"
+                  class="team-img" />
+              </div>
+              <p class="text-blk name">Ankit Nainwal
+              </p>
+              <div class="social-media-links">
+                <a href="https://github.com/nano-bot01" target="_blank"><i class="bx bxl-github"></i></a>
+                <a href="https://www.linkedin.com/in/ankit-nainwal1/" target="_blank"><i class="bx bxl-linkedin"></i></a>
+                <a href="https://www.instagram.com/the.ankit.nainwal/" target="_blank"><i class="bx bxl-instagram"></i></a>
+                <a href="https://twitter.com/Anku___" target="_blank"><i class="bx bxl-twitter"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 team-card-container">
+            <div class="team-card">
+              <div class="img-wrapper">
+                <img src="riya.jpeg"
+                  class="team-img" />
+              </div>
+              <p class="text-blk name">Riya Mishra
+              </p>
+              <div class="social-media-links">
+                <a href="https://github.com/Riya73" target="_blank"><i class="bx bxl-github"></i></a>
+                <a href="https://www.linkedin.com/in/riya-mishra-1112b9213/" target="_blank"><i class="bx bxl-linkedin"></i></a>
+                <a href="https://www.instagram.com/riya_mishra_119/" target="_blank"><i class="bx bxl-instagram"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 </div>
 </section>
-<!-- contact end here  -->
+<!-- developer end here  -->
 <div class="footer">
     <h2>Follow Us</h2>
     <div class="footer-social">
