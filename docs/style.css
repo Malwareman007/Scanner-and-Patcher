@@ -254,7 +254,7 @@
 }
 /* table design  */
 table.GeneratedTable {
-    width: 50%;
+    width: 10%;
     background-color: lightsteelblue;
     border-collapse: collapse;
     border-width: 2px;
@@ -280,7 +280,7 @@ table.GeneratedTable {
 
 .installation ol{
     background-color: lightgrey;
-    width: 500px;
+    width: 400px;
     border: 5px solid black;
     padding: 15px;
     margin: 20px;
