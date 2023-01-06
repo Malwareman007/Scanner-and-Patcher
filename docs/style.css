@@ -361,6 +361,36 @@ table.GeneratedTable {
   padding: 15px;
   margin: 20px;
 }
+
+.patch-lfi h4{
+  margin-top: 3%;
+  margin-bottom: 3%;
+}
+
+.grunt h4{
+  margin-top: 3%;
+  margin-bottom: 3%;
+}
+
+.wp-csp h4{
+  margin-top: 3%;
+  margin-bottom: 3%;
+}
+
+.wordpress h1{
+  margin-top: 3%;
+  margin-bottom: 3%;
+}
+
+.sqli h4{
+  margin-top: 3%;
+  margin-bottom: 3%;
+}
+
+.log4j h4{
+  margin-top: 3%;
+  margin-bottom: 3%;
+}
 /* Develpopment team */
 
 *{
