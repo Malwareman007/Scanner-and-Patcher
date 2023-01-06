@@ -168,7 +168,7 @@ Patches may do any of the following:
         <div class="installation" id="installation">
             <h2 style="margin-bottom: 3%;">How to install?</h2>
             <p><ol class="bit">
-               <li> git clone https://github.com/Malwareman007/Open_Source_Web-Vulnerability-Scanner-and-Patcher.git</li><br>
+               <li> git clone &nbsp;https://github.com/Malwareman007/<br>Open_Source_Web-Vulnerability-Scanner-and-Patcher.git</li><br>
                 <li>cd Open_Source_Web-Vulnerability-Scanner-and-Patcher/setup</li><br>
                 <li>python3 -m pip install --no-cache-dir -r requirements.txt</li>
             </ol>
@@ -479,8 +479,7 @@ Callback Host.
   <li>apt install pip</li><br>
   <li>pip3 install python3-pyfiglet</li><br>
   <li>pip3 install colorama</li><br>
-  <li>git clone<br>
-    https://github.com/Malwareman007/Open_Source_Web-Vulnerability-Scanner-and-Patcher/
+  <li>git clone https://github.com/Malwareman007/<br>Open_Source_Web-Vulnerability-Scanner-and-Patcher/
 </li>
  </ul>
 
@@ -570,7 +569,7 @@ Callback Host.
  </li>
  (i) page itself appears to be XSS vulnerable (DOM)
   (o) ...(script) 
-     var payload = window.location.hash.substr(1);location.replace(payload); 
+     var payload = window.location.hash.substr(1);<br>location.replace(payload); 
    (/script)... 
    <br><strong>[note:- use <> instead of ()]</strong><br>
 (x) no usable GET/POST parameters found
@@ -583,13 +582,15 @@ scan results: possible vulnerabilities found
   <p><strong>Check for .net padding oracle patch.</strong></p>
   
   <h4>Usage Examples:</h4>
-  <p>● ms10-070_check.py -d VHYaLecZ91Zjq-_4mV3ftpYrTteh9kHzk9zwLyjpAZAOjWL3nbx1SmIeGdHJwBu_koMj8ZGAqrtxCJkW0<br>Decoded d value: <binary output><br>Length: 60<br>D value length of 60 is not evenly divisible by 8, your application is patched<br><br>● python ms10-070_check.py -d 2nYOzoKtRvjs-g53K3r7VKmEXeQl_XMNY8nDEwcgwGVcS5Z8b9GanbNdzIgg493kfB_oI<br>Length: 72<br>D value length of 72 is evenly divisible by 8, your application is likely vulnerable (try more d values if unsure)<br><br>● python ./ms10-070_check.py -e asdfasdfasdfasdf123123123234
-    YXNkZmFzZGZhc2RmYXNkZjEyMzEyMzEyMzIzNA==
+  <p><ul class="bit">
+    ● ms10-070_check.py -d VHYaLecZ91Zjq-_4mV3ftpYrTteh9kHzk9zwLyjpAZAOjWL3nbx1S<br>mIeGdHJwBu_koMj8ZGAqrtxCJkW0<br>Decoded d value: <binary output><br>Length: 60<br>D value length of 60 is not evenly divisible by 8, your application is patched<br><br>● python ms10-070_check.py -d 2nYOzoKtRvjs-g53K3r7VKmEXeQl_XMNY8nDEwcgwGVcS5Z8b9G<br>anbNdzIgg493kfB_oI<br>Length: 72<br>D value length of 72 is evenly divisible by 8, your application is likely vulnerable (try more d values if unsure)<br><br>● python ./ms10-070_check.py -e asdfasdfasdfasdf123123123234
+    YXNkZmFzZGZhc2RmYXNkZjEyMzEyMzEyMzIzNA<br>==
 <br>Length: 40
+  </ul>
 </p><br>
 <img src="code2.png" alt="error" style="width: 71%;"><br>
 <img src="code3.png" alt="error" style="width: 72%;">
-<video width="500" height="300" controls>
+<video width="70%" height="300" controls>
   <source src="video.mp4" type="video/mp4">
 </video>
 </div>
@@ -620,11 +621,11 @@ scan results: possible vulnerabilities found
   <h4>Disable escaping locally</h4>
   <p>If you want to disable angular_xss in some part of your app, you can use
   </p>
-  <img src="code4.png" alt="error" width="100%">
+  <img src="code4.png" alt="error" width="70%">
   <h4>Installation</h4>
-  <p>1. Read the code so you know what you're getting into.<br><img src="code5.png" alt="error"><br>
+  <p>1. Read the code so you know what you're getting into.<br><img src="code5.png" alt="error" width="70%"><br>
    2. Put this into your Gemfile after other templating engines like Haml or Erubis:<br>3. Run bundle install.
-   <br><img src="code6.png" alt="error" width="">
+   <br><img src="code6.png" alt="error" width="70%">
    <br>4. Add this to your Angular code (replacing "myApp" of course):<br>5. Run your test suite to find the places that broke.<br>6. Mark any string that is allowed to contain Angular expressions as #html_safe.
   </p>
   <h4>Known Limitations</h4>
@@ -636,17 +637,17 @@ scan results: possible vulnerabilities found
   <p>This project demonstrates an approach to support HTTP PATCH with JSON Patch and JSON Merge Patch for performing partial modifications to resources in Spring, as described in my [blog][blog.post]. I also have put together a [Postman collection][repo.postman] so you can play around with the API.<br>As I have seen lots of misunderstanding on how PATCH works, I aim to clarify its usage before diving into the actual solution.</p>
   <h4>The Problem with PUT and the need for PATCH</h4>
 <p>Consider, for example, we are creating an API to manage contacts. On the server, we have a resource that can be represented with the following JSON document:</p>
-<img src="code8.png" alt="error"><br>
+<img src="code8.png" alt="error" width="70%"><br>
 <p>Let's say that John has been promoted to senior engineer and we want to keep our contact list updated. We could modify this resource using a PUT request, as shown below:</p>
-<img src="code9.png" alt="error"><br><p>With PUT, however, we have to send the full representation of the resource even when we need to modify a single field of a resource, which may not be desirable in some situations.</p><br>
+<img src="code9.png" alt="error" width="70%"><br><p>With PUT, however, we have to send the full representation of the resource even when we need to modify a single field of a resource, which may not be desirable in some situations.</p><br>
 <p>Let's have a look on how the PUT HTTP method is defined in the [RFC 7231][rfc7231], one of the documents that currently define the HTTP/1.1 protocol:</p>
-<img src="code10.png" alt="error" width="90%"><br>
+<img src="code10.png" alt="error" width="70%"><br>
 <p>So, as per definition, the PUT method is meant to be used for:</p><br><br>
 <p>Creating resources [1]<br>
   Replacing the state of a given resource<br>
   The key here is: the PUT payload must be a new representation of the resource. Hence it's not meant for performing partial modifications to resources at all. To fill this gap, the PATCH method was created and it is currently defined in the [RFC 5789][rfc5789]:
   </p>
-  <img src="code11.png" alt="error" width="90%"><br><br>
+  <img src="code11.png" alt="error" width="70%"><br><br>
   <p><strong>The difference between the PUT and PATCH requests is reflected in the way the server processes the request payload to modify a given resource:</strong><br>
  
     ● In a PUT request, the payload is a modified version of the resource stored on the server. And the client is requesting the stored version to be replaced with the new version.<br>
@@ -663,28 +664,28 @@ scan results: possible vulnerabilities found
   <p>The JSON Patch document represents an array of objects and each object represents a single operation to be applied to the target JSON document.</p><br>
   <p>The evaluation of a JSON Patch document begins against a target JSON document and the operations are applied sequentially in the order they appear in the array. Each operation in the sequence is applied to the target document and the resulting document becomes the target of the next operation. The evaluation continues until all operations are successfully applied or until an error condition is encountered.</p><br><br>
   <p>The operation objects must have exactly one op member, whose value indicates the operation to perform:</p><br>
-  <img src="code12.png" alt="error" width="90%"><br>
+  <img src="code12.png" alt="error" width="70%"><br>
 <strong>  <p>Any other values are considered errors.<br>
   A request to modify John's job title could be:</p></strong><br>
-<img src="code13.png" alt="error" width="90%"><br>
+<img src="code13.png" alt="error" width="70%"><br>
 
 <h4>JSON Merge Patch:</h4>
 <p>JSON Merge Patch is a format that describes the changes to be made to a target JSON document using a syntax that closely mimics the document being modified. It is defined in the [RFC 7396][rfc7396] is identified by the application/merge-patch+json media type.<br><br>The server processing a JSON Merge Patch document determine the exact set of changes being requested by comparing the content of the provided patch against the current content of the target document:<br>
 &nbsp;&nbsp;1. If the merge patch contains members that do not appear within the target document, those members are added<br>&nbsp;&nbsp;2. If the target does contain the member, the value is replaced.<br>&nbsp;&nbsp;3. null values in the merge patch indicate that existing values in the target document are to be removed.<br>&nbsp;&nbsp;4. Other values in the target document will remain untouched</p><br>
 <strong><p>A request to modify John's job title could be:</p></strong><br>
-<img src="code14.png" alt="error"><br>
+<img src="code14.png" alt="error" width="70%"><br>
 
 <h4>JSON-P: Java API for JSON Processing</h4>
 <p>JSON-P 1.0, defined in the JSR 353 and also known as Java API for JSON Processing 1.0, brought official support for JSON processing in Java EE. JSON-P 1.1, defined in the JSR 374, introduced support for JSON Patch and JSON Merge Patch formats to Java EE.</p><br>
 <strong><p>Let's have a quick look at the API to start getting familiar with it:</p></strong><br>
-<img src="code15.png" alt="error" width="90%"><br><br>
+<img src="code15.png" alt="error" width="70%"><br><br>
 <strong><p>To patch using JSON Patch, we would have the following:</p></strong><br>
-<img src="code16.png" alt="error"><br>
+<img src="code16.png" alt="error" width="70%"><br>
 </div>
 <strong><p>And to patch using JSON Merge Patch, we would have the following:</p></strong><br>
-<img src="code17.png" alt="error"><br>
+<img src="code17.png" alt="error" width="70%"><br>
 <strong><p>Having said that, let me highlight that JSON-P is just an API, that is, a set of interfaces. If we want to work with it, we need an implementation such as [Apache Johnzon][johnzon]:</p></strong><br>
-<img src="code18.png" alt="error"><br><br>
+<img src="code18.png" alt="error" width="70%"><br><br>
 
 <h4>Parsing the request payload:</h4>
 <strong><p>To parse a PATCH request payload, we must take the following into account:</p></strong>
@@ -695,63 +696,63 @@ scan results: possible vulnerabilities found
   </p><br>
 
   <p>For convenience, let's extend [AbstractHttpMessageConverter<T>][org.springframework.http.converter.AbstractHttpMessageConverter] and annotate the implementation with [@Component][org.springframework.stereotype.Component], so Spring can pick it up:</p><br>
-    <img src="code19.png" alt="error" width="90%"><br>
+    <img src="code19.png" alt="error" width="70%"><br>
   <strong><p>The constructor will invoke the parent's constructor indicating the supported media type for this converter:</p></strong><br>
-  <img src="code20.png" alt="error"><br>
+  <img src="code20.png" alt="error" width="70%"><br>
   <strong><p>We indicate that our converter supports the [JsonPatch][javax.json.JsonPatch] class:</p></strong><br>
-  <img src="code21.png" alt="error"><br>
+  <img src="code21.png" alt="error" width="70%"><br>
   <strong><p>Then we implement the method that will read the HTTP request payload and convert it to a [JsonPatch][javax.json.JsonPatch] instance:</p></strong><br>
-  <img src="code22.png" alt="error"><br>
+  <img src="code22.png" alt="error" width="70%"><br>
   <strong><p>It's unlikely we'll need to write [JsonPatch][javax.json.JsonPatch] instances to the responses, but we could implement it as follows:</p></strong><br>
-  <img src="code23.png" alt="error"><br>
+  <img src="code23.png" alt="error" width="70%"><br>
   <strong><p>The message converter for [JsonMergePatch][javax.json.JsonMergePatch] is pretty much the same as the converter described above (except for the types handled by the converter):</p></strong><br>
-  <img src="code24.png" alt="error"><br><br>
+  <img src="code24.png" alt="error" width="70%"><br><br>
 
   <h4>Creating the controller methods:</h4>
   <p>With the HTTP message converters in place, we can receive [JsonPatch][javax.json.JsonPatch] and [JsonMergePatch][javax.json.JsonMergePatch] as method arguments in our controller methods, annotated with [@RequestBody][org.springframework.web.bind.annotation.RequestBody]:</p><br>
-  <img src="code25.png" alt="error"><br>
-  <img src="code26.png" alt="error"><br><br>
+  <img src="code25.png" alt="error" width="70%"><br>
+  <img src="code26.png" alt="error" width="70%"><br><br>
 
   <h4>Applying the patch:</h4>
   <p>It is worth it to mention that both JSON Patch and JSON Merge Patch operate over JSON documents.<br>So, to apply the patch to a Java bean, we first need to convert the Java bean to a JSON-P type, such as [JsonStructure][javax.json.JsonStructure] or [JsonValue][javax.json.JsonValue]. Then we apply the patch to it and convert the patched document back to a Java bean:</p><br>
-  <img src="code27.png" alt="error" width="80%"><br>
+  <img src="code27.png" alt="error" width="70%"><br>
   <p>These conversions could be handled by Jackson, which provides an [extension module][jackson-datatype-jsr353] to work with JSON-P types. With this extension module, we can read JSON as [JsonValue][javax.json.JsonValue]s and write [JsonValue][javax.json.JsonValue]s as JSON as part of normal Jackson processing, taking advantage of the powerful data-binding features that Jackson provides:</p><br>
-  <img src="code28.png" alt="error"><br>
+  <img src="code28.png" alt="error" width="70%"><br>
   <p>With module extension dependency on the classpath, we can configure the [ObjectMapper][com.fasterxml.jackson.databind.ObjectMapper] and expose it as a Spring [@Bean][org.springframework.context.annotation.Bean] (so it can be picked up by String and can be injected in other Spring beans):
   </p><br>
-  <img src="code29.png" alt="error"><br>
+  <img src="code29.png" alt="error" width="70%"><br>
   <p>The[findAndRegisterModules()][com.fasterxml.jackson.databind.ObjectMapper.findAndRegisterModules] method is important here: it tells Jackson to search and register the any modules found in the classpath, including the [jackson-datatype-jsr353][jackson-datatype-jsr353] extension module. Alternatively, we can register the module manually:</p><br>
-  <img src="code30.png" alt="error"><br>
+  <img src="code30.png" alt="error" width="70%"><br>
   <p>Once the [ObjectMapper][com.fasterxml.jackson.databind.ObjectMapper] is configured, we can inject it in our Spring beans and create a method to apply the JSON Patch to a Java bean:</p><br>
-  <img src="code31.png" alt="error"><br>
+  <img src="code31.png" alt="error" width="70%"><br>
   <p>And here's the method to patch using JSON Merge Patch:</p><br>
-  <img src="code32.png" alt="error"><br>
+  <img src="code32.png" alt="error" width="70%"><br>
   <p>With this in place, the controller method implementation for JSON Patch could be like:</p><br>
-  <img src="code33.png" alt="error"><br>
+  <img src="code33.png" alt="error" width="70%"><br>
   <p>And the implementation is quite similar for JSON Merge Patch, except for the media type and for the types handled by the method:</p><br>
-  <img src="code34.png" alt="error"><br>
+  <img src="code34.png" alt="error" width="70%"><br>
 
   <h4>Validating the patch: </h4>
   <p>Once the patch has been applied and before persisting the changes, we must ensure that the patch didn't lead the resource to an invalid state. We could use [Bean Validation annotations][javax.validation.constraints] to define constraints and then ensure that the state of the model is valid.</p><br>
-  <img src="code35.png" alt="error"><br>
+  <img src="code35.png" alt="error" width="70%"><br>
   <p>To perform the validation, we could inject [Validator][javax.validation.Validator] in our class and invoke the [validate()][javax.validation.Validator.validate] method. If any constraint has been violated, it will return a set of [ConstraintViolation<T>][javax.validation.ConstraintViolation] and then we can throw a [ConstraintViolationException][javax.validation.ConstraintViolationException]. So the method to apply the patch could be updated to handle the validation, as shown below:</p><br>
-    <img src="code36.png" alt="error"><br>
+    <img src="code36.png" alt="error" width="70%"><br>
     <p>Alternatively, we could simply annotate the method with [@Valid][javax.validation.Valid] and Bean Validation will take care of performing the the validation on the returned value (the Spring bean may need to be annotated with [@Validated][org.springframework.validation.annotation.Validated] to trigger the validation):</p><br>
-    <img src="code37.png" alt="error"><br><br>
+    <img src="code37.png" alt="error" width="70%"><br><br>
 
     <h4>Bonus: Decoupling the domain model from the API model</h4>
     <p>The models that represent the domain of our application and the models that represent the data handled by our API are (or at least should be) different concerns and should be decoupled from each other. We don't want to break our API clients when we add, remove or rename a field from the application domain model.<br>While our service layer operates over the domain/persistence models, our API controllers should operate over a different set of models. As our domain/persistence models evolve to support new business requirements, for example, we may want to create new versions of the API models to support these changes. We also may want to deprecate the old versions of our API as new versions are released. And it's perfectly possible to achieve when the things are decoupled.<br>To minimize the boilerplate code of converting the domain model to the API model (and vice versa), we could rely on frameworks such as [MapStruct][mapstruct]. And we also could consider using [Lombok][lombok] to generate getters, setters, equals(), hashcode() and toString() methods for us.
 <br> By decoupling the API model from domain model, we also can ensure that we expose only the fields that can be modified. For example, we don't want to allow the client to modify the id field of our domain model. So our API model shouldn't contain the id field (and any attempt to modify it may cause an error or may be ignored).<br><br> In this example, the domain model class is called Contact and the model class that represents a resource is called ContactResourceInput. To convert between these two models with MapStruct, we could define a mapper interface and MapStruct will generate an implementation for it:  </p><br>
-<img src="code38.png" alt="error"><br>
+<img src="code38.png" alt="error" width="70%"><br>
 <p>The ContactMapper implementation will be exposed as a Spring [@Component][org.springframework.stereotype.Component], so it can be injected in other Spring beans. Let me highlight that MapStruct doesn't use reflections. Instead, it creates an actual implementation for the mapper interface and we can even check the code if we want to.<br><br>Once the ContactMapper is injected in our controller, we can use it to handle the model conversion. Here's what the controller method for handling PATCH requests with JSON Patch could be like:</p><br>
-<img src="code39.png" alt="error"><br>
+<img src="code39.png" alt="error" width="70%"><br>
 <p>And, for comparison purposes, here's a controller method for handling PUT requests:</p><br>
-<img src="code40.png" alt="error">
+<img src="code40.png" alt="error" width="70%">
 
 <div class="patch-lfi" id="patch-lfi">
   <h2 style="margin-top: 3%; margin-bottom: 3%;">[Patch] LFI (revslider) vulnerability</h2>
   <p>In December 2014 thousands of pages based on WordPress suffered a large amount of cyber attacks. The problem boils down to a Local File Inclusion (LFI) vulnerability, a widely used plugin in WordPress templates, Revolution Slider (revslider).<br>This is a serious problem, which allows the attacker access to system files without any restrictions, for example the file /etc/passwd or the WordPress wp-config.php file, which has the authentication data with the system database.</p><br>
-  <img src="code41.png" alt="error"><br>
+  <img src="code41.png" alt="error" width="70%"><br>
   <p>The solution to the vulnerability patch is updating the plugin to the latest version, however, this can bring some compatibility problems and dependence on certain systems. To this end, a corrective patch is herein distributed.</p>
   <h4>Use</h4>
 <p>
@@ -760,14 +761,14 @@ scan results: possible vulnerabilities found
 -> Use the corrective patch directly in the file.<br>
 The file to be updated is as follows: image_view.class.php, and can be found on the directories described below.
 </p><br>
-<img src="code42.png" alt="error"><br>
+<img src="code42.png" alt="error" width="70%"><br>
 <p>To use it, enter in the command line:</p><br>
 <img src="code43.png" alt="error"><br>
 <p>or
 </p><br>
-<img src="code44.png" alt="error"><br>
+<img src="code44.png" alt="error" width="70%"><br>
 <p>For experience  users, use:</p><br>
-<img src="code45.png" alt="error"><br><br>
+<img src="code45.png" alt="error" width="70%"><br><br>
 <p>At the end, the follows message is presented in terminal:<strong> patching file {wordpress_path}/wp-content/plugins/revslider/inc_php/image_view.class.php</strong>
   </p>
 </div>
@@ -814,11 +815,11 @@ Open a database<br>
     Install SQLite3, enabling option SQLITE_ENABLE_COLUMN_METADATA (see www.sqlite.org/compile.html for details).
   </p>
   <p>Then do the following:</p>
-  <img src="code47.png" alt="error">
+  <img src="code47.png" alt="error" width="70%">
   <p>Alternatively, you can download and install the RubyGem package for SQLite3/Ruby (you must have RubyGems and SQLite3 installed, first):</p>
-  <img src="code48.png" alt="error">
+  <img src="code48.png" alt="error" width="70%">
   <p>If you have sqlite3 installed in a non-standard location, you can specify the location of the include and lib files by doing:</p>
-  <img src="code49.png" alt="error">
+  <img src="code49.png" alt="error" width="70%">
   <h4>Usage: </h4>
   <p>For help figuring out the SQLite3/Ruby interface, check out the FAQ. It includes examples of usage. If you have any questions that you feel should be address in the FAQ, please send them to <b>ojhakushagra73@gmail.com</b></p>
 </div>
@@ -1039,7 +1040,7 @@ grunt.loadNpmTasks('grunt-contrib-uglify');<br>
 
   <h1>XSS-Patcher-js</h1>
   <p>Correctly encoded in different locations</p>
-  <img src="code46.png" alt="error" width="100%">
+  <img src="code46.png" alt="error" width="70%">
 </div>
 
 </section>
