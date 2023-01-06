@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scanner-and-Patcher-Project</title>
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <title>Document</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 </head>
@@ -22,7 +21,7 @@
             <li><a href="#developer">Development Team</a></li>
 <!-- dark-light mode div  -->
             <div class="bx bx-moon" id="darkmode"></div>
-        </ul> 
+        </ul>
     </header>
 <!-- Navbar section ends  -->
 <!-- Home section start  -->
@@ -36,7 +35,7 @@
     </div>
     <!-- image div  -->
     <div class="home-image">
-        <img src="Logo.jpg" alt="">
+        <img src="Logo.jpg" alt="error">
     </div>
     <div class="home-text">
         <h1>Scanner & Patcher</h1>
@@ -55,7 +54,7 @@
     </div>
     <div class="about-container">
         <div class="about-img">
-            <img src="Logo.jpg" alt="">
+            <img src="Logo.jpg" alt="error">
         </div>
         <div class="about-text">
             <h2 style="margin-bottom: 5%;">Scanner</h2>
@@ -67,11 +66,12 @@
             <p>A patch is a software update comprised code inserted (or patched) into the code of an executable program. Typically, a patch is installed into an existing software program. Patches are often temporary fixes between full releases of a software package.<br />
 Patches may do any of the following:
 <br><br>
-   &nbsp;&nbsp; 1. Fix a software bug.<br>
-   &nbsp;&nbsp; 2. Install new drivers.<br>
-   &nbsp;&nbsp; 3. Address new security vulnerabilities.<br>
-   &nbsp;&nbsp; 4. Address software stability issues.<br>
-   &nbsp;&nbsp; 5. Upgrade the software.
+<!--  -->
+  &nbsp;&nbsp; 1. Fix a software bug.<br>
+  &nbsp;&nbsp; 2. Install new drivers.<br>
+  &nbsp;&nbsp; 3. Address new security vulnerabilities.<br>
+  &nbsp;&nbsp; 4. Address software stability issues.<br>
+  &nbsp;&nbsp; 5. Upgrade the software.
             </p>
         </div>
     </div>
@@ -92,7 +92,8 @@ Patches may do any of the following:
             <a href="#log-scanner">7. Log4j Scanner.</a><br>
             <a href="#remote-file">8. Remote File Inclusion.</a><br>
             <a href="#sql-injection">9. SQL Injection Scanner.</a><br>
-            <a href="#cross-site">10. Cross-Site Scripting(XSS).</a>
+            <a href="#cross-site">10. Cross-Site Scripting(XSS).</a><br>
+            <a href="#ms10">11. MS10-070 CheckPatch </a>
        </div>
     </div>
     <div class="working" id="working">
@@ -157,7 +158,7 @@ Patches may do any of the following:
 
     <div class="use" id="use">
         <h2 style="margin-bottom: 3%;">How to use?</h2>
-        <ul>
+        <ul class="bit">
             <li>Use program as python3 web_scan.py (https or http)://example.com :- </li>
             <li>--help</li>
             <li>--update</li>
@@ -166,7 +167,7 @@ Patches may do any of the following:
 
         <div class="installation" id="installation">
             <h2 style="margin-bottom: 3%;">How to install?</h2>
-            <p><ol>
+            <p><ol class="bit">
                <li> git clone https://github.com/Malwareman007/Open_Source_Web-Vulnerability-Scanner-and-Patcher.git</li><br>
                 <li>cd Open_Source_Web-Vulnerability-Scanner-and-Patcher/setup</li><br>
                 <li>python3 -m pip install --no-cache-dir -r requirements.txt</li>
@@ -361,7 +362,7 @@ Patches may do any of the following:
 
 <div class="local-file" id="local-file-inclusion">
     <h2 style=" margin-top: 5%; margin-bottom: 2%;"> Local File Inclusion(LFI).</h2>
-    <h4 style="margin-top: 3%; margin-bottom: 3%;">Definition:</h4>
+    <h4>Definition:</h4>
     <p>
         Local File Inclusion (LFI) allows an attacker to include files on a server through the web browser. This vulnerability exists when a web application includes a file without correctly sanitising the input, allowing an attacker to manipulate the input and inject path traversal characters and include other files from the web server. An LFI attack may lead to information disclosure, remote code execution, or even Cross-site Scripting (XSS). Typically, LFI occurs when an application uses the path to a file as input. If the application treats this input as trusted, a local file may be used in the include statement.
     </p>
@@ -394,16 +395,17 @@ Patches may do any of the following:
         <li>python3 Lfi.py</li>
     </ul>
 </div>
+
 <div class="log-scanner" id="log-scanner">
   <h2 style=" margin-top: 5%; margin-bottom: 2%;"> Log4j Scanner.</h2>
   <p>This repository provides a scanning solution for the log4j Remote Code Execution vulnerabilities (CVE-2021-44228 & CVE-2021-45046). The information and code in this repository are provided "as is" and was assembled with the help of the Tribe N. This is not intended to be a 100% true positive solution; False negatives may occur.</p>
 
 <h4>Steps to test</h4>
 <ul>
-  <li>Configure your own DNS Server - preferred</li>
-  <li>DNS providers - Interact.sh or canarytokens.org</li>
-  <li>LDAP Server(optional)</li>
-  <li>HTTP Service Discovery & Scanning</li>
+  <li>Configure your own DNS Server - preferred</li><br>
+  <li>DNS providers - Interact.sh or canarytokens.org</li><br>
+  <li>LDAP Server(optional)</li><br>
+  <li>HTTP Service Discovery & Scanning</li><br>
 </ul>
 
 <h4>How To Run Command?</h4>
@@ -500,7 +502,7 @@ Callback Host.
 <h4>V2:</h4>
 <p>SQLi Scanner is a fully functional SQL injection vulnerability scanner (supporting GET and POST parameters)
  </p>
- <img src="code1.png" alt="" style="width: 90%;">
+ <img src="code1.png" alt="error" style="width: 90%;">
  <p>As of optional settings it supports HTTP proxy together with HTTP header values User-Agent, Referrer and Cookie.</p>
 
  <h4>Sample runs:</h4>
@@ -533,7 +535,7 @@ Callback Host.
   </p>
   <h4>V2</h4>
   <p>XSS Scanner (XSS) is a fully functional Cross-site scripting vulnerability scanner (supporting GET and POST parameters) written in under 100 lines of code.</p>
-  <img src="code7.png" alt="" style="width: 90%;">
+  <img src="code7.png" alt="error" style="width: 90%;">
   <p>As of optional settings it supports HTTP proxy together with HTTP header values User-Agent, Referrer and Cookie.</p>
   <h4>Sample Runs:</h4>
   <ul class="bit">
@@ -567,15 +569,16 @@ Callback Host.
   by: Malwareman
  </li>
  (i) page itself appears to be XSS vulnerable (DOM)
-  (o) ...(script)
+  (o) ...(script) 
      var payload = window.location.hash.substr(1);location.replace(payload); 
    (/script)... 
-     <br><strong>[note:- use <> instead of ()]</strong><br>
+   <br><strong>[note:- use <> instead of ()]</strong><br>
 (x) no usable GET/POST parameters found
 scan results: possible vulnerabilities found
-</ul>
+
+  </ul>
 </div>
-     <div class="ms10" id="ms10">
+<div class="ms10" id="ms10">
   <h2 style="margin-top: 3%; margin-bottom: 3%;">MS10-070 CheckPatch</h2>
   <p><strong>Check for .net padding oracle patch.</strong></p>
   
@@ -584,8 +587,11 @@ scan results: possible vulnerabilities found
     YXNkZmFzZGZhc2RmYXNkZjEyMzEyMzEyMzIzNA==
 <br>Length: 40
 </p><br>
-<img src="code2.png" alt="" style="width: 71%;"><br>
-<img src="code3.png" alt="" style="width: 72%;">
+<img src="code2.png" alt="error" style="width: 71%;"><br>
+<img src="code3.png" alt="error" style="width: 72%;">
+<video width="500" height="300" controls>
+  <source src="video.mp4" type="video/mp4">
+</video>
 </div>
 
 <!-- Patcher -->
@@ -595,6 +601,15 @@ scan results: possible vulnerabilities found
   <div class="get">
     <a href="#angular-xss">1. Angular XSS Patcher.</a><br>
     <a href="#http-put">2. HTTP PUT DEL Methods Patcher.</a><br>
+    <a href="#patch-lfi">3. [Patch] LFI (revslider) vulnerability.</a><br>
+    <a href="#log4j">4. Log4jPatcher</a>
+    <a href="#sqli">5. SQLI Patcher.</a><br>
+    <a href="#wordpress">6. Wordpress Patch
+      <div class="req">
+        &nbsp;&nbsp;&nbsp;&nbsp;<a href="#grunt">i. Grunt Patch</a>
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#wp-csp">ii. WP CSP CORE Patches for WordPress v. 5.5.1</a>
+      </div>
+    </a>
   </div>
 </div>
 
@@ -605,11 +620,11 @@ scan results: possible vulnerabilities found
   <h4>Disable escaping locally</h4>
   <p>If you want to disable angular_xss in some part of your app, you can use
   </p>
-  <img src="code4.png" alt="" width="100%">
+  <img src="code4.png" alt="error" width="100%">
   <h4>Installation</h4>
-  <p>1. Read the code so you know what you're getting into.<br><img src="code5.png" alt=""><br>
+  <p>1. Read the code so you know what you're getting into.<br><img src="code5.png" alt="error"><br>
    2. Put this into your Gemfile after other templating engines like Haml or Erubis:<br>3. Run bundle install.
-   <br><img src="code6.png" alt="" width="">
+   <br><img src="code6.png" alt="error" width="">
    <br>4. Add this to your Angular code (replacing "myApp" of course):<br>5. Run your test suite to find the places that broke.<br>6. Mark any string that is allowed to contain Angular expressions as #html_safe.
   </p>
   <h4>Known Limitations</h4>
@@ -621,17 +636,17 @@ scan results: possible vulnerabilities found
   <p>This project demonstrates an approach to support HTTP PATCH with JSON Patch and JSON Merge Patch for performing partial modifications to resources in Spring, as described in my [blog][blog.post]. I also have put together a [Postman collection][repo.postman] so you can play around with the API.<br>As I have seen lots of misunderstanding on how PATCH works, I aim to clarify its usage before diving into the actual solution.</p>
   <h4>The Problem with PUT and the need for PATCH</h4>
 <p>Consider, for example, we are creating an API to manage contacts. On the server, we have a resource that can be represented with the following JSON document:</p>
-<img src="code8.png" alt=""><br>
+<img src="code8.png" alt="error"><br>
 <p>Let's say that John has been promoted to senior engineer and we want to keep our contact list updated. We could modify this resource using a PUT request, as shown below:</p>
-<img src="code9.png" alt=""><br><p>With PUT, however, we have to send the full representation of the resource even when we need to modify a single field of a resource, which may not be desirable in some situations.</p><br>
+<img src="code9.png" alt="error"><br><p>With PUT, however, we have to send the full representation of the resource even when we need to modify a single field of a resource, which may not be desirable in some situations.</p><br>
 <p>Let's have a look on how the PUT HTTP method is defined in the [RFC 7231][rfc7231], one of the documents that currently define the HTTP/1.1 protocol:</p>
-<img src="code10.png" alt="" width="90%"><br>
+<img src="code10.png" alt="error" width="90%"><br>
 <p>So, as per definition, the PUT method is meant to be used for:</p><br><br>
 <p>Creating resources [1]<br>
   Replacing the state of a given resource<br>
   The key here is: the PUT payload must be a new representation of the resource. Hence it's not meant for performing partial modifications to resources at all. To fill this gap, the PATCH method was created and it is currently defined in the [RFC 5789][rfc5789]:
   </p>
-  <img src="code11.png" alt="" width="90%"><br><br>
+  <img src="code11.png" alt="error" width="90%"><br><br>
   <p><strong>The difference between the PUT and PATCH requests is reflected in the way the server processes the request payload to modify a given resource:</strong><br>
  
     ● In a PUT request, the payload is a modified version of the resource stored on the server. And the client is requesting the stored version to be replaced with the new version.<br>
@@ -647,29 +662,29 @@ scan results: possible vulnerabilities found
   <p>JSON Patch is a format for expressing a sequence of operations to be applied to a JSON document. It is defined in the [RFC 6902][rfc6902] and is identified by the application/json-patch+json media type.</p><br>
   <p>The JSON Patch document represents an array of objects and each object represents a single operation to be applied to the target JSON document.</p><br>
   <p>The evaluation of a JSON Patch document begins against a target JSON document and the operations are applied sequentially in the order they appear in the array. Each operation in the sequence is applied to the target document and the resulting document becomes the target of the next operation. The evaluation continues until all operations are successfully applied or until an error condition is encountered.</p><br><br>
-  <p>The operation objects must have exactly one op member, whose value indicates the operation to perform:</p>
-  <img src="code12.png" alt="" width="90%"><br>
+  <p>The operation objects must have exactly one op member, whose value indicates the operation to perform:</p><br>
+  <img src="code12.png" alt="error" width="90%"><br>
 <strong>  <p>Any other values are considered errors.<br>
-  A request to modify John's job title could be:</p></strong>
-<img src="code13.png" alt="" width="90%">
+  A request to modify John's job title could be:</p></strong><br>
+<img src="code13.png" alt="error" width="90%"><br>
 
 <h4>JSON Merge Patch:</h4>
 <p>JSON Merge Patch is a format that describes the changes to be made to a target JSON document using a syntax that closely mimics the document being modified. It is defined in the [RFC 7396][rfc7396] is identified by the application/merge-patch+json media type.<br><br>The server processing a JSON Merge Patch document determine the exact set of changes being requested by comparing the content of the provided patch against the current content of the target document:<br>
 &nbsp;&nbsp;1. If the merge patch contains members that do not appear within the target document, those members are added<br>&nbsp;&nbsp;2. If the target does contain the member, the value is replaced.<br>&nbsp;&nbsp;3. null values in the merge patch indicate that existing values in the target document are to be removed.<br>&nbsp;&nbsp;4. Other values in the target document will remain untouched</p><br>
-<strong><p>A request to modify John's job title could be:</p></strong>
-<img src="code14.png" alt="">
+<strong><p>A request to modify John's job title could be:</p></strong><br>
+<img src="code14.png" alt="error"><br>
 
 <h4>JSON-P: Java API for JSON Processing</h4>
 <p>JSON-P 1.0, defined in the JSR 353 and also known as Java API for JSON Processing 1.0, brought official support for JSON processing in Java EE. JSON-P 1.1, defined in the JSR 374, introduced support for JSON Patch and JSON Merge Patch formats to Java EE.</p><br>
-<strong><p>Let's have a quick look at the API to start getting familiar with it:</p></strong>
-<img src="code15.png" alt="" width="90%"><br><br>
-<strong><p>To patch using JSON Patch, we would have the following:</p></strong>
-<img src="code16.png" alt=""><br>
+<strong><p>Let's have a quick look at the API to start getting familiar with it:</p></strong><br>
+<img src="code15.png" alt="error" width="90%"><br><br>
+<strong><p>To patch using JSON Patch, we would have the following:</p></strong><br>
+<img src="code16.png" alt="error"><br>
 </div>
-<strong><p>And to patch using JSON Merge Patch, we would have the following:</p></strong>
-<img src="code17.png" alt=""><br>
-<strong><p>Having said that, let me highlight that JSON-P is just an API, that is, a set of interfaces. If we want to work with it, we need an implementation such as [Apache Johnzon][johnzon]:</p></strong>
-<img src="code18.png" alt=""><br><br>
+<strong><p>And to patch using JSON Merge Patch, we would have the following:</p></strong><br>
+<img src="code17.png" alt="error"><br>
+<strong><p>Having said that, let me highlight that JSON-P is just an API, that is, a set of interfaces. If we want to work with it, we need an implementation such as [Apache Johnzon][johnzon]:</p></strong><br>
+<img src="code18.png" alt="error"><br><br>
 
 <h4>Parsing the request payload:</h4>
 <strong><p>To parse a PATCH request payload, we must take the following into account:</p></strong>
@@ -679,27 +694,357 @@ scan results: possible vulnerabilities found
   Spring MVC, however, doesn't know how to create instances of [JsonPatch][javax.json.JsonPatch] and [JsonMergePatch][javax.json.JsonMergePatch]. So we need to provide a custom [HttpMessageConverter<T>][org.springframework.http.converter.HttpMessageConverter] for each type. Fortunately it's pretty straightforward.
   </p><br>
 
-  <p>For convenience, let's extend [AbstractHttpMessageConverter<T>][org.springframework.http.converter.AbstractHttpMessageConverter] and annotate the implementation with [@Component][org.springframework.stereotype.Component], so Spring can pick it up:</p>
-    <img src="code19.png" alt="" width="90%"><br>
-  <strong><p>The constructor will invoke the parent's constructor indicating the supported media type for this converter:</p></strong>
-  <img src="code20.png" alt=""><br>
-  <strong><p>We indicate that our converter supports the [JsonPatch][javax.json.JsonPatch] class:</p></strong>
-  <img src="code21.png" alt=""><br>
-  <strong><p>Then we implement the method that will read the HTTP request payload and convert it to a [JsonPatch][javax.json.JsonPatch] instance:</p></strong>
-  <img src="code22.png" alt=""><br>
-  <strong><p>It's unlikely we'll need to write [JsonPatch][javax.json.JsonPatch] instances to the responses, but we could implement it as follows:</p></strong>
-  <img src="code23.png" alt=""><br>
-  <strong><p>The message converter for [JsonMergePatch][javax.json.JsonMergePatch] is pretty much the same as the converter described above (except for the types handled by the converter):</p></strong>
-  <img src="code24.png" alt=""><br><br>
+  <p>For convenience, let's extend [AbstractHttpMessageConverter<T>][org.springframework.http.converter.AbstractHttpMessageConverter] and annotate the implementation with [@Component][org.springframework.stereotype.Component], so Spring can pick it up:</p><br>
+    <img src="code19.png" alt="error" width="90%"><br>
+  <strong><p>The constructor will invoke the parent's constructor indicating the supported media type for this converter:</p></strong><br>
+  <img src="code20.png" alt="error"><br>
+  <strong><p>We indicate that our converter supports the [JsonPatch][javax.json.JsonPatch] class:</p></strong><br>
+  <img src="code21.png" alt="error"><br>
+  <strong><p>Then we implement the method that will read the HTTP request payload and convert it to a [JsonPatch][javax.json.JsonPatch] instance:</p></strong><br>
+  <img src="code22.png" alt="error"><br>
+  <strong><p>It's unlikely we'll need to write [JsonPatch][javax.json.JsonPatch] instances to the responses, but we could implement it as follows:</p></strong><br>
+  <img src="code23.png" alt="error"><br>
+  <strong><p>The message converter for [JsonMergePatch][javax.json.JsonMergePatch] is pretty much the same as the converter described above (except for the types handled by the converter):</p></strong><br>
+  <img src="code24.png" alt="error"><br><br>
 
   <h4>Creating the controller methods:</h4>
-  <p>With the HTTP message converters in place, we can receive [JsonPatch][javax.json.JsonPatch] and [JsonMergePatch][javax.json.JsonMergePatch] as method arguments in our controller methods, annotated with [@RequestBody][org.springframework.web.bind.annotation.RequestBody]:</p>
-  <img src="code25.png" alt=""><br>
-  <img src="code26.png" alt=""><br><br>
+  <p>With the HTTP message converters in place, we can receive [JsonPatch][javax.json.JsonPatch] and [JsonMergePatch][javax.json.JsonMergePatch] as method arguments in our controller methods, annotated with [@RequestBody][org.springframework.web.bind.annotation.RequestBody]:</p><br>
+  <img src="code25.png" alt="error"><br>
+  <img src="code26.png" alt="error"><br><br>
 
   <h4>Applying the patch:</h4>
+  <p>It is worth it to mention that both JSON Patch and JSON Merge Patch operate over JSON documents.<br>So, to apply the patch to a Java bean, we first need to convert the Java bean to a JSON-P type, such as [JsonStructure][javax.json.JsonStructure] or [JsonValue][javax.json.JsonValue]. Then we apply the patch to it and convert the patched document back to a Java bean:</p><br>
+  <img src="code27.png" alt="error" width="80%"><br>
+  <p>These conversions could be handled by Jackson, which provides an [extension module][jackson-datatype-jsr353] to work with JSON-P types. With this extension module, we can read JSON as [JsonValue][javax.json.JsonValue]s and write [JsonValue][javax.json.JsonValue]s as JSON as part of normal Jackson processing, taking advantage of the powerful data-binding features that Jackson provides:</p><br>
+  <img src="code28.png" alt="error"><br>
+  <p>With module extension dependency on the classpath, we can configure the [ObjectMapper][com.fasterxml.jackson.databind.ObjectMapper] and expose it as a Spring [@Bean][org.springframework.context.annotation.Bean] (so it can be picked up by String and can be injected in other Spring beans):
+  </p><br>
+  <img src="code29.png" alt="error"><br>
+  <p>The[findAndRegisterModules()][com.fasterxml.jackson.databind.ObjectMapper.findAndRegisterModules] method is important here: it tells Jackson to search and register the any modules found in the classpath, including the [jackson-datatype-jsr353][jackson-datatype-jsr353] extension module. Alternatively, we can register the module manually:</p><br>
+  <img src="code30.png" alt="error"><br>
+  <p>Once the [ObjectMapper][com.fasterxml.jackson.databind.ObjectMapper] is configured, we can inject it in our Spring beans and create a method to apply the JSON Patch to a Java bean:</p><br>
+  <img src="code31.png" alt="error"><br>
+  <p>And here's the method to patch using JSON Merge Patch:</p><br>
+  <img src="code32.png" alt="error"><br>
+  <p>With this in place, the controller method implementation for JSON Patch could be like:</p><br>
+  <img src="code33.png" alt="error"><br>
+  <p>And the implementation is quite similar for JSON Merge Patch, except for the media type and for the types handled by the method:</p><br>
+  <img src="code34.png" alt="error"><br>
+
+  <h4>Validating the patch: </h4>
+  <p>Once the patch has been applied and before persisting the changes, we must ensure that the patch didn't lead the resource to an invalid state. We could use [Bean Validation annotations][javax.validation.constraints] to define constraints and then ensure that the state of the model is valid.</p><br>
+  <img src="code35.png" alt="error"><br>
+  <p>To perform the validation, we could inject [Validator][javax.validation.Validator] in our class and invoke the [validate()][javax.validation.Validator.validate] method. If any constraint has been violated, it will return a set of [ConstraintViolation<T>][javax.validation.ConstraintViolation] and then we can throw a [ConstraintViolationException][javax.validation.ConstraintViolationException]. So the method to apply the patch could be updated to handle the validation, as shown below:</p><br>
+    <img src="code36.png" alt="error"><br>
+    <p>Alternatively, we could simply annotate the method with [@Valid][javax.validation.Valid] and Bean Validation will take care of performing the the validation on the returned value (the Spring bean may need to be annotated with [@Validated][org.springframework.validation.annotation.Validated] to trigger the validation):</p><br>
+    <img src="code37.png" alt="error"><br><br>
+
+    <h4>Bonus: Decoupling the domain model from the API model</h4>
+    <p>The models that represent the domain of our application and the models that represent the data handled by our API are (or at least should be) different concerns and should be decoupled from each other. We don't want to break our API clients when we add, remove or rename a field from the application domain model.<br>While our service layer operates over the domain/persistence models, our API controllers should operate over a different set of models. As our domain/persistence models evolve to support new business requirements, for example, we may want to create new versions of the API models to support these changes. We also may want to deprecate the old versions of our API as new versions are released. And it's perfectly possible to achieve when the things are decoupled.<br>To minimize the boilerplate code of converting the domain model to the API model (and vice versa), we could rely on frameworks such as [MapStruct][mapstruct]. And we also could consider using [Lombok][lombok] to generate getters, setters, equals(), hashcode() and toString() methods for us.
+<br> By decoupling the API model from domain model, we also can ensure that we expose only the fields that can be modified. For example, we don't want to allow the client to modify the id field of our domain model. So our API model shouldn't contain the id field (and any attempt to modify it may cause an error or may be ignored).<br><br> In this example, the domain model class is called Contact and the model class that represents a resource is called ContactResourceInput. To convert between these two models with MapStruct, we could define a mapper interface and MapStruct will generate an implementation for it:  </p><br>
+<img src="code38.png" alt="error"><br>
+<p>The ContactMapper implementation will be exposed as a Spring [@Component][org.springframework.stereotype.Component], so it can be injected in other Spring beans. Let me highlight that MapStruct doesn't use reflections. Instead, it creates an actual implementation for the mapper interface and we can even check the code if we want to.<br><br>Once the ContactMapper is injected in our controller, we can use it to handle the model conversion. Here's what the controller method for handling PATCH requests with JSON Patch could be like:</p><br>
+<img src="code39.png" alt="error"><br>
+<p>And, for comparison purposes, here's a controller method for handling PUT requests:</p><br>
+<img src="code40.png" alt="error">
+
+<div class="patch-lfi" id="patch-lfi">
+  <h2 style="margin-top: 3%; margin-bottom: 3%;">[Patch] LFI (revslider) vulnerability</h2>
+  <p>In December 2014 thousands of pages based on WordPress suffered a large amount of cyber attacks. The problem boils down to a Local File Inclusion (LFI) vulnerability, a widely used plugin in WordPress templates, Revolution Slider (revslider).<br>This is a serious problem, which allows the attacker access to system files without any restrictions, for example the file /etc/passwd or the WordPress wp-config.php file, which has the authentication data with the system database.</p><br>
+  <img src="code41.png" alt="error"><br>
+  <p>The solution to the vulnerability patch is updating the plugin to the latest version, however, this can bring some compatibility problems and dependence on certain systems. To this end, a corrective patch is herein distributed.</p>
+  <h4>Use</h4>
+<p>
+  In order to resolve this vulnerability you have two possibilities:<br>
+-> Using a bash script provided with the patch, or if you are an experienced user.<br>
+-> Use the corrective patch directly in the file.<br>
+The file to be updated is as follows: image_view.class.php, and can be found on the directories described below.
+</p><br>
+<img src="code42.png" alt="error"><br>
+<p>To use it, enter in the command line:</p><br>
+<img src="code43.png" alt="error"><br>
+<p>or
+</p><br>
+<img src="code44.png" alt="error"><br>
+<p>For experience  users, use:</p><br>
+<img src="code45.png" alt="error"><br><br>
+<p>At the end, the follows message is presented in terminal:<strong> patching file {wordpress_path}/wp-content/plugins/revslider/inc_php/image_view.class.php</strong>
+  </p>
+</div>
+<br>
+<div class="log4j" id="log4j">
+  <h2 style="margin-top: 3%; margin-bottom: 3%;">Log4jPatcher</h2>
+  A Java Agent based mitigation for Log4j2 JNDI exploits.
+<br><br>
+This agent employs 2 patches:
+<br>
+Disabling all Lookup conversions (on supported Log4j versions) in org.apache.logging.log4j.core.pattern.MessagePatternConverter by setting noLookups to true in the constructor.<br>
+Disabling the org.apache.logging.log4j.core.lookup.JndiLookup class by just returning null in its lookup function.
+<h4>To use</h4>
+<p><ul class="bit">
+  <strong>Add:- javaagent:Log4jPatcher.jar</strong> as a JVM argument.</p>
+<p>For Minecraft users: The full path to the jar needs to be added in the above argument unless the jar is put into the instance (or .minecraft) folder. This jar does not go into the mods folder.
+</ul></p>
+</div>
+<br><br><br>
+
+<div class="sqli" id="sqli">
+  <h2 style="margin-top: 3%; margin-bottom: 3%;">SQLI Patcher</h2>
+  <h4>Description: </h4>
+  <p>This module allows Ruby programs to interface with the SQLite3 database engine (http://www.sqlite.org). You must have the SQLite engine installed in order to build this module.
+<br><br>
+    Note that this module is NOT compatible with SQLite 2.x.
+    </p>
+
+  <h4>Synopsis: </h4>
+  <p>
+    require sqlite3<br>
+
+Open a database<br>
+<b>db = SQLite3::Database.new test.db</b><br><br>
+<ul>
+  Create a database rows = db.execute <<-SQL create table numbers ( name varchar(30), val int ); SQL<br>
+    Execute a few inserts { "one" => 1, "two" => 2, }.each do |pair| db.execute "insert into numbers values ( ?, ? )", pair end<br>
+    Find a few rows db.execute( "select * from numbers" ) do |row| p row end
+</ul>
+  </p>
+
+  <h4>Compilation and Installation: </h4>
+  <p>
+    Install SQLite3, enabling option SQLITE_ENABLE_COLUMN_METADATA (see www.sqlite.org/compile.html for details).
+  </p>
+  <p>Then do the following:</p>
+  <img src="code47.png" alt="error">
+  <p>Alternatively, you can download and install the RubyGem package for SQLite3/Ruby (you must have RubyGems and SQLite3 installed, first):</p>
+  <img src="code48.png" alt="error">
+  <p>If you have sqlite3 installed in a non-standard location, you can specify the location of the include and lib files by doing:</p>
+  <img src="code49.png" alt="error">
+  <h4>Usage: </h4>
+  <p>For help figuring out the SQLite3/Ruby interface, check out the FAQ. It includes examples of usage. If you have any questions that you feel should be address in the FAQ, please send them to <b>ojhakushagra73@gmail.com</b></p>
+</div>
+
+<div class="wordpress" id="wordpress">
+  <h1 style="margin-top: 3%; margin-bottom: 3%;">Wordpress Patch</h1>
+<div class="grunt" id="grunt">
+  <h2 style="margin-top: 3%; margin-bottom: 3%;">Grunt Patch</h2>
+  <p>Grunt and Grunt plugins are installed and managed via <a href="https://www.npmjs.org/">npm</a>, the <a href="https://nodejs.org/">Node.js</a> package manager. Grunt 0.4.x requires stable Node.js versions <b>>= 0.8.0</b>.<br>
+    Before setting up Grunt ensure that your <a href="https://www.npmjs.org/">npm</a> is up-to-date by running <b>npm update -g npm</b> (this might require <b>sudo</b> on certain systems).
+    If you already have installed Grunt and are now searching for some quick reference, please checkout our <b>Gruntfile</b> <a href="https://gruntjs.com/sample-gruntfile">example</a> and how to <a href="https://gruntjs.com/configuring-tasks">configure a task</a>.</p>
+
+    <h4>Installing the CLI: </h4>
+    <b>Using Grunt 0.3? Please see <a href="https://gruntjs.com/upgrading-from-0.3-to-0.4#grunt-0.3-notes">Grunt 0.3 Notes</a></b><br>
+In order to get started, you'll want to install Grunt's command line interface (CLI) globally. You may need to use sudo (for OSX, *nix, BSD etc) or run your command shell as Administrator (for Windows) to do this.<br><br>
+<b>npm install -g grunt-cli</b><br>
+This will put the <b>grunt</b> command in your system path, allowing it to be run from any directory.<br>
+Note that installing <b>grunt-cli</b> does not install the Grunt task runner! The job of the Grunt CLI is simple: run the version of Grunt which has been installed next to a <b>Gruntfile</b>. This allows multiple versions of Grunt to be installed on the same machine simultaneously.
+
+<h4>How the CLI works?</h4>
+<p>Each time <b>grunt</b> is run, it looks for a locally installed Grunt using node's <b>require()</b> system. Because of this, you can run <b>grunt</b> from any subfolder in your project.
+  <br><br>If a locally installed Grunt is found, the CLI loads the local installation of the Grunt library, applies the configuration from your <b>Gruntfile</b>, and executes any tasks you've requested for it to run. To really understand what is happening, <a href="https://github.com/gruntjs/grunt-cli/blob/master/bin/grunt">read the code</a>.</p>
+
+  <h4>Working with an existing Grunt project:</h4>
+  <p>
+    Assuming that the Grunt CLI has been installed and that the project has already been configured with a <b>package.json</b> and a <b>Gruntfile</b>, it's very easy to start working with Grunt:
+  <li>1. Change to the project's root directory.</li>
+  <li>2. Install project dependencies with <b>npm install</b>.</li>
+  <li>3. Run Grunt with <b>grunt</b>.</li>
+<br>
+That's really all there is to it. Installed Grunt tasks can be listed by running <b>grunt --help</b> but it's usually a good idea to start with the project's documentation.
+  </p>
+  <h4>Preparing a new Grunt project: </h4>
+  <p>A typical setup will involve adding two files to your project: package.json and the Gruntfile.</p>
+  <p>package.json: This file is used by npm to store metadata for projects published as npm modules. You will list grunt and the Grunt plugins your project needs as <a href="https://docs.npmjs.com/files/package.json#devdependencies">devDependencies</a> in this file.</p>
+  <p>Gruntfile: This file is named <b>Gruntfile.js</b> or <b>Gruntfile.js</b> and is used to configure or define tasks and load Grunt plugins. When this documentation mentions a Gruntfile it is talking about a file, which is either a <b>Gruntfile.js</b> or a <b>Gruntfile.js</b>.</p>
+  <h4>package.json</h4>
+  <p>The package.json file belongs in the root directory of your project, next to the Gruntfile, and should be committed with your project source. Running npm install in the same folder as a package.json file will install the correct version of each dependency listed therein.</p>
+  <p>There are a few ways to create a package.json file for your project:
+    <li>-> Most <a href="https://gruntjs.com/project-scaffolding">grunt-init</a> templates will automatically create a project-specific package.json file.</li>
+    <li>-> The <a href="https://docs.npmjs.com/cli/init">npm init</a> command will create a basic package.json file.</li>
+    <li>-> Start with the example below, and expand as needed, following this <a href="https://docs.npmjs.com/files/package.json">specification</a>.</li>
+  </p>
+  <ul class="bit">
+    {
+      "name": "my-project-name",<br>
+      "version": "0.1.0",<br>
+      "devDependencies": {<br>
+        "grunt": "~0.4.5",<br>
+        "grunt-contrib-jshint": "~0.10.0",<br>
+        "grunt-contrib-nodeunit": "~0.4.1",<br>
+        "grunt-contrib-uglify": "~0.5.0"<br>
+      &nbsp;&nbsp;}<br>
+    }
+  </ul>
+  <h4>Installating Grunt and grunt plugins:</h4>
+  <p>The easiest way to add Grunt and grunt plugins to an existing package.json is with the command <b>npm install (module) --save-dev. Not only will this install (module)</b> locally <b>[note: use <> instead of ().]</b>, but it will automatically be added to the devDependencies section, using a tilde version range.</p><br>
+    <p>For example, this will install the latest version of Grunt in your project folder, adding it to your devDependencies:</p><br>
+    <b>npm install grunt --save-dev</b><br>
+    <p>The same can be done for grunt plugins and other node modules. As seen in the following example installing the JSHint task module:</p><br>
+      <b>npm install grunt-contrib-jshint --save-dev
+      </b><br>
+      <p>Checkout the current available grunt plugins to be installed and used on your project at the plugins page.</p><br>
+      <p>Be sure to commit the updated package.json file with your project when you're done!</p><br>
+
+      <h4>The Gruntfile: </h4>
+      The Gruntfile.js or <b>Gruntfile.js</b> file is a valid JavaScript or CoffeeScript file that belongs in the root directory of your project, next to the package.json file, and should be committed with your project source.<br>
+A Gruntfile is comprised of the following parts:<br><br>
+<li>-> The "wrapper" function</li>
+<li>-> Project and task configurstion</li>
+<li>-> Loading Grunt plugins and tasks</li>
+<li>-> Custom tasks</li>
+<h4>An example Gruntfile:</h4>
+<p>In the following Gruntfile, project metadata is imported into the Grunt config from the project's package.json file and the grunt-contrib-uglify plugin's uglify task is configured to minify a source file and generate a banner comment dynamically using that metadata. When grunt is run on the command line, the uglify task will be run by default.</p><br>
+<ul class="bit">
+  module.exports = function(grunt) {<br>
+    // Project configuration.<br>
+    grunt.initConfig({<br>
+      pkg: grunt.file.readJSON('package.json'),<br>
+      uglify: {<br>
+        options: {<br>
+          banner: '/*! <%= pkg.name %> <%= grunt.template.<br>today("yyyy-mm-dd") %> */\n'<br>
+        },<br>
+        build: {<br>
+          src: 'src/<%= pkg.name %>.js',<br>
+          dest: 'build/<%= pkg.name %>.min.js'<br>
+        }<br>
+      }<br>
+    });<br>
+  
+    // Load the plugin that provides the "uglify" task.<br>
+    grunt.loadNpmTasks('grunt-contrib-uglify');<br>
+    // Default task(s).<br>
+    grunt.registerTask('default', ['uglify']);<br>
+  
+  };
+  </ul>
+  <p>Now that you've seen the whole Gruntfile, let's look at its component parts.</p>
+ <h4>The "wrapper" function</h4>
+ <p>Every Gruntfile (and grunt plugin) uses this basic format, and all of your Grunt code must be specified inside this function:</p>
+ <ul class="bit">
+  module.exports = function(grunt) {<br>
+    // Do grunt-related things in here<br>
+  };
+  
+ </ul>
+
+<h4>Project and task configuration: </h4>
+<p>Most Grunt tasks rely on configuration data defined in an object passed to the <a href="https://gruntjs.com/grunt#grunt.initconfig">grunt.initConfig</a> method.<br>
+  In this example, <b>grunt.file.readJSON('package.json')</b> imports the JSON metadata stored in <b>package.json</b> into the grunt config. Because <b><% %></b> template strings may reference any config properties, configuration data like file paths and file lists may be specified this way to reduce repetition.<br>
+  You may store any arbitrary data inside of the configuration object, and as long as it doesn't conflict with properties your tasks require, it will be otherwise ignored. Also, because this is JavaScript, you're not limited to JSON; you may use any valid JS here. You can even programmatically generate the configuration if necessary.<br>
+  Like most tasks, the <a href="https://github.com/gruntjs/grunt-contrib-uglify"> grunt-contrib-uglify </a> plugin's <b>uglify</b> task expects its configuration to be specified in a property of the same name. Here, the <b>banner</b> option is specified, along with a single uglify target named <b>build</b> that minifies a single source file to a single destination file.<br></p>
+  <ul class="bit">
+    // Project configuration.<br>
+grunt.initConfig({<br>
+  pkg: grunt.file.readJSON('package.json'),<br>
+  uglify: {<br>
+    options: {<br>
+      banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'<br>
+    },<br>
+    build: {<br>
+      src: 'src/<%= pkg.name %>.js',<br>
+      dest: 'build/<%= pkg.name %>.min.js'<br>
+    }<br>
+  }<br>
+});
+</ul>
+
+<h4>Loading Grunt plugins and tasks: </h4>
+<p>Many commonly used tasks like <a href="https://github.com/gruntjs/grunt-contrib-concat">concatenation</a>, <a href="https://github.com/gruntjs/grunt-contrib-uglify">minification</a> and <a href="https://github.com/gruntjs/grunt-contrib-jshint">linting</a> are available as grunt plugins. As long as a plugin is specified in package.json as a dependency, and has been installed via npm install, it may be enabled inside your Gruntfile with a simple command:</p>
+<ul class="bit">
+  // Load the plugin that provides the "uglify" task.<br>
+grunt.loadNpmTasks('grunt-contrib-uglify');<br>
+</ul>
+<b>Note:</b> the <b>grunt --help</b> command will list all available tasks.
+
+<h4>Custom tasks: </h4>
+<p>You can configure Grunt to run one or more tasks by <b>default</b> by defining a default task. In the following example, running <b>grunt</b> at the command line without specifying a task will run the <b>uglify</b> task. This is functionally the same as explicitly running <b>grunt uglify</b> or even <b>grunt default</b>. Any number of tasks (with or without arguments) may be specified in the array.</p>
+<ul>// Default task(s).<br>
+  grunt.registerTask('default', ['uglify']);<br></ul>
+  <p>If your project requires tasks not provided by a Grunt plugin, you may define custom tasks right inside the Gruntfile. For example, this Gruntfile defines a completely custom default task that doesn't even utilize task configuration:</p>
+  <ul class="bit">
+    module.exports = function(grunt) {<br>
+      // A very basic default task.<br>
+      grunt.registerTask('default', 'Log some stuff.', function() {<br>
+        grunt.log.write('Logging some stuff...').ok();<br>
+      });
+</ul>
+<p>Custom project-specific tasks don't need to be defined in the Gruntfile; they may be defined in external .js files and loaded via the grunt.loadTasks method.</p>
+
+<h4>Further Reading:</h4>
+<p>
+  <ul>
+    <li>-> The <a href="https://gruntjs.com/installing-grunt/">Installing grunt </a> guide has detailed information about installing specific, production or in-development, versions of Grunt and grunt-cli.</li>
+    <li>-> The <a href="https://gruntjs.com/configuring-tasks/">Configuring Tasks</a> guide has an in-depth explanation on how to configure tasks, targets, options and files inside the Gruntfile, along with an explanation of templates, globbing patterns and importing external data.</li>
+    <li>-> The <a href="https://gruntjs.com/creating-tasks/">Creating Tasks</a> guide lists the differences between the types of Grunt tasks and shows a number of sample tasks and configurations.</li>
+    <li>-> For more information about writing custom tasks or Grunt plugins, check out the <a href="https://gruntjs.com/grunt">developer documentation</a>.</li>
+  </ul>
+</p>
+</div>
+
+<div class="wp-csp" id="wp-csp">
+  <h2 style="margin-top: 3%; margin-bottom: 3%;">Grunt Patch</h2>
+  <p>WordPress' core templates contain some inline styling and scripting elements that must be dealt with in order to implement a proper Content Security Policy (CSP).</p>
+  <p>By applying these patches, a nonce attribute is added to inline (script) and (style) tags in the relevant source files. The attribute value is a secret placeholder value that the web server will replace with a random nonce that changes with each request. The nonce proves that inline scripts and styles originate from the web application itself, so that it will not be blocked when the client enforces the Content Security Policy. See my blog posting about this project for more details.<br>
+  <b>[Note: Use <> instead of ()</b></p>
+  <p>Please note that the elements patched here are the ones causing trouble for my specific WordPress installation. However, there might be even more unpatched inline scripts and styles in the core that I have not yet encountered. Feel free to create an issue or pull request where you suggest additional patches.</p><br><br>
+
+  <h1>How to install the patches</h1>
+  <b>Before you start, make a backup copy of your WordPress directory!</b>
+  <ul class="bit">
+   1. Clone the Git repository and cd into the base directory:<br>
+   #> git clone https://github.com/Malwareman007/ Open_Source_Web-Vulnerability-Scanner-and-Patcher.git<br>
+   #> cd Open_Source_Web-Vulnerability-Scanner-and-Patcher/Patcher/Wordpress_patcher/wp-csp-core-patches<br>
+  2. Run make to build the patches and write the output files to wp-csp-patch. This will also generate the secret nonce placeholder that will be known to you only:<br>
+  #> make<br>
+  3. Move wp-csp-patch to WordPress' root directory:<br>
+  #> mv wp-csp-patch /path/to/wordpress/root/.<br>
+  4. From WordPress' root directory, run the apply.sh script:<br>
+  #> cd /path/to/wordpress/root/<br>
+  #> wp-csp-patch/apply.sh<br>
+  5. Restore ownership of patched files. The owner of the patched files may have changed after the patch. Reset the owner to the correct one, usually www-data, for all php files in wp-includes:<br>
+  #> cd /path/to/wordpress/root/<br>
+  #> sudo chown www-data:www-data wp-includes/*.php<br>
+  #> sudo chown www-data:www-data wp-includes/widgets/*.php<br>
+  6. Update Nginx. Insert the generated nonce placeholder into the site configuration file. See your secret nonce placeholder value along with suggested configuration parameters in wp-csp-patch/nginx_site_config.txt.<br>
+
+  7. Restart Nginx.
+</ul>
+
+
+</div>
+<h1>NOTE: </h1>
+<p>I Don't Hack Wordpress' Core -- although that's exactly what these patches do. There are a couple of reasons why. First and foremost, the patches do not change anything substantial in the code. It merely appends an extra, static attribute to inline (script) and (style) tags. Updating or reinstalling WordPress will revert the patches, which is fine. Then you will have to run the apply.sh script again, or bail out and allow unsafe-inline in your CSP header. The patch files can be easily inspected to check what modifications are made. That is good from a security perspective. Besides, this is a temporary fix, as I expect inline scripts and styles to be removed from WordPress within a few iterations.</p>
+<b>[Note: Use <> instead of ()</b>
+
+<h1>Nginx setup:</h1>
+<p>For this to work, Nginx must be configured with two additional modules:
+  <br><br>
+  -> ngx_set_misc for random nonce generation
+  -> http_sub_module for search and replace functionality
+  Please refer to Scott Helme's excellent description on how to implement CSP Nonce support in Nginx for details about compiling Nginx with these two modules.<br>
+  
+  Suggested server settings for your Nginx site configuration can be found in the generated file wp-csp-patch/nginx_site.conf.<br>
+  Basically, the web server searches for the secret placeholder string and replaces it with a one-shot nonce value that is referred to by the CSP header. This confirms to the client that the inline (script) or (style) tags in question are legitimate and not from someone attempting an injection attack.
+  </p>
+  <b>[Note: Use <> instead of ()</b>
+  <h1>Disclaimer</h1>
+  <p>Although the author has attempted to find and correct any bugs in the free software programs, the author is not responsible for any damage or losses of any kind caused by the use or misuse of the programs. The author is under no obligation to provide support, service, corrections, or upgrades to the free software programs.</p>
+  <h1>Ansible patch ssl3 poodle</h1>
+  <p>Ansible playbook to remove support of ssl3 from browser (POODLE vulnerability)</p>
+  <h4>Test your browser :</h4>
+  <p>https://www.ssllabs.com/ssltest/viewMyClient.html</p>
+  <h4>Supported browsers :</h4>
+  <p>chromium on ubuntu</p>
+  <h4>Launch the patch on your local system :</h4>
+  <p>ansible-playbook -i "localhost," -c local patch-ssl3-poodle.yml --sudo -K</p>
+
+  <h1>XSS-Patcher-js</h1>
+  <p>Correctly encoded in different locations</p>
+  <img src="code46.png" alt="error" width="100%">
+</div>
+
 </section>
 
+<!-- get-started end  -->
 <!-- developer start here  -->
 <section class="developer" id="developer">
 <div class="heading">
