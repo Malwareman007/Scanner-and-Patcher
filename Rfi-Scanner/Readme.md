@@ -35,7 +35,7 @@ pip3 install python3-pyfiglet
 
 pip3 install colorama
 
-git clone https://github.com/Malwareman007/Open_Source_Web-Vulnerability-Scanner-and-Patcher/
+git clone https://github.com/Malwareman007/Scanner-and-Patcher/
 ```
 **Execution**
 ```
