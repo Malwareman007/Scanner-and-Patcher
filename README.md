@@ -1,13 +1,13 @@
-# Open Source Web Vulnerability Scanner and Patcher [![Build Status](https://github.com/makandra/angular_xss/workflows/Tests/badge.svg)](https://github.com/Malwareman007/Open_Source_Web-Vulnerability-Scanner-and-Patcher/actions)
+# Scanner and Patcher [![Build Status](https://github.com/makandra/angular_xss/workflows/Tests/badge.svg)](https://github.com/Malwareman007/Scanner-and-Patcher/actions)
 ***
-<a href="https://github.com/Malwareman007/Open_Source_Web-Vulnerability-Scanner-and-Patcher" target="_blank">
+<a href="https://github.com/Malwareman007/Scanner-and-Patcher" target="_blank">
     <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" />
   </a>
-  <a href="https://github.com/Malwareman007/Open_Source_Web-Vulnerability-Scanner-and-Patcher/blob/main/README.md" target="_blank">
+  <a href="https://github.com/Malwareman007/Scanner-and-Patcher/blob/main/README.md" target="_blank">
     <img alt="Documentation" src="https://img.shields.io/badge/Documentation-yes-brightgreen.svg" />
   </a>
-    <a href="https://github.com/Malwareman007/Open_Source_Web-Vulnerability-Scanner-and-Patcher/blob/main/LICENSE" target="_blank">
-    <img alt="License: MIT" src="https://img.shields.io/github/license/Malwareman007/Open_Source_Web-Vulnerability-Scanner-and-Patcher" />
+    <a href="https://github.com/Malwareman007/Scanner-and-Patcher/blob/main/LICENSE" target="_blank">
+    <img alt="License: MIT" src="https://img.shields.io/github/license/Malwareman007/Scanner-and-Patcher" />
   </a>
   
 ### This tools is very helpful for finding vulnerabilities present in the Web _**Applications**_.
@@ -135,8 +135,8 @@ Use Program as python3 web_scan.py (https or http) ://example.com
 ### Installation
 
 ```
-git clone https://github.com/Malwareman007/Open_Source_Web-Vulnerability-Scanner-and-Patcher.git
-cd Open_Source_Web-Vulnerability-Scanner-and-Patcher/setup
+git clone https://github.com/Malwareman007/Scanner-and-Patcher.git
+cd Scanner-and-Patcher/setup
 python3 -m pip install --no-cache-dir -r requirements.txt
 ```
 
@@ -155,9 +155,9 @@ https://user-images.githubusercontent.com/86009160/177647335-0695e922-4bbe-4f44-
 💪 Contributions
 -----
 
-[Template contributions ](https://github.com/Malwareman007/Open_Source_Web-Vulnerability-Scanner-and-Patcher/issues/new?assignees=&labels=&template=submit-template.md&title=%5BOpen_Source_Web-Vulnerability-Scanner-and-Patcher%5D+), 
-[Feature Requests](https://github.com/Malwareman007/Open_Source_Web-Vulnerability-Scanner-and-Patcher/issues/new?assignees=&labels=&template=feature_request.md&title=%5BFeature%5D+) and 
-[Bug Reports](https://github.com/Malwareman007/Open_Source_Web-Vulnerability-Scanner-and-Patcher/issues/new?assignees=&labels=&template=bug_report.md&title=%5BBug%5D+) are more than welcome.
+[Template contributions ](https://github.com/Malwareman007/Scanner-and-Patcher/issues/new?assignees=&labels=&template=submit-template.md&title=%5BOpen_Source_Web-Vulnerability-Scanner-and-Patcher%5D+), 
+[Feature Requests](https://github.com/Malwareman007/Scanner-and-Patcher/issues/new?assignees=&labels=&template=feature_request.md&title=%5BFeature%5D+) and 
+[Bug Reports](https://github.com/Malwareman007/Scanner-and-Patcher/issues/new?assignees=&labels=&template=bug_report.md&title=%5BBug%5D+) are more than welcome.
 
 ![Alt](https://repobeats.axiom.co/api/embed/db183b1278e4cbc24cdbe0eb3f86be56b4541bef.svg "Repobeats analytics image")
 
@@ -169,7 +169,7 @@ https://user-images.githubusercontent.com/86009160/177647335-0695e922-4bbe-4f44-
 
 ## 🤝 Contributing
 
-Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/Malwareman007/Open_Source_Web-Vulnerability-Scanner-and-Patcher/issues).
+Contributions, issues and feature requests are welcome!<br />Feel free to check [issues page](https://github.com/Malwareman007/Scanner-and-Patcher/issues).
 
 
 
