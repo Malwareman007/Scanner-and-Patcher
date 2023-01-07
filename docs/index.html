@@ -398,15 +398,44 @@ Patches may do any of the following:
 
 <div class="log-scanner" id="log-scanner">
   <h2 style=" margin-top: 5%; margin-bottom: 2%;"> Log4j Scanner.</h2>
-  <p>This repository provides a scanning solution for the log4j Remote Code Execution vulnerabilities (CVE-2021-44228 & CVE-2021-45046). The information and code in this repository are provided "as is" and was assembled with the help of the Tribe N. This is not intended to be a 100% true positive solution; False negatives may occur.</p>
+  <p>This repository provides a scanning solution for the log4j Remote Code Execution vulnerabilities (CVE-2021-44228 & CVE-2021-45046). The information and code in this repository are provided "as is" and was assembled with the help of the Tribe N. This is not intended to be a 100% true positive solution; False negatives may occur.</p><br>
 
-<h4>Steps to test</h4>
-<ul>
-  <li>Configure your own DNS Server - preferred</li><br>
-  <li>DNS providers - Interact.sh or canarytokens.org</li><br>
-  <li>LDAP Server(optional)</li><br>
-  <li>HTTP Service Discovery & Scanning</li><br>
-</ul>
+  <h4>Official CISA Guidance & Resources</h4>
+  <p>-> <a href="https://www.cisa.gov/uscert/apache-log4j-vulnerability-guidance">CISA Apache Log4j Vulnerability Guidance</a><br>
+  -> <a href="https://www.cisa.gov/news/2021/12/11/statement-cisa-director-easterly-log4j-vulnerability">Statement from CISA Director Easterly on “Log4j” Vulnerability.</a></p>
+
+  <h4>CVE-2021-44228 & CVE-2021-45046 </h4><br>
+<h4>Steps to test:- </h4>
+<p><b>1. Configure your own DNS Server - Preferred)</b> <br>- Add DNS records to your domain. (example.com)</p>
+<p>● A record with a value of your IP address (test.example.com -> )<br>
+   ● NS record (ns1.example.com) with a value of the test.example.com as chosen above.<br>
+   ● Host a DNS server to log DNS requests made to your domain.<br>
+   ● Install the requirement modules -> pip3 install -r requirements.txt<br>
+   ● Modify the dns/ddnsserver.py script with the value of the NS record above (test.example.com)<br>
+   ● python3 ddnsserver.py --port 53 --udp >> dns-results.txt<br>
+   ● Test it with nslookup hello.test.example.com. You can run tail -f dns-results.txt to monitor these logs.<br>
+   ● You should see the entry in your dns-results.txt file after the nslookup command. Once you do, you're ready to scan!<br>
+   ● Note: Same concepts will apply if you're using internal DNS to test this.
+  </p> 
+
+  <p><b>2. DNS providers - (Interact.sh or canarytokens.org)</b></p>
+  <p><a href="https://github.com/projectdiscovery/interactsh">-> Interact.sh</a> - Interactsh is an open-source solution for out-of-band data extraction. It is a tool designed to detect bugs that cause external interactions. These bugs include, Blind SQLi, Blind CMDi, SSRF, etc.</p><br>
+<p><a href="https://canarytokens.org/generate">-> Canarytokens.org</a> - Canarytokens helps track activity and actions on your network.</p>
+
+<p><b>3. LDAP Server (OPTIONAL)</b></p>
+<p>Reference the README.md under the ldap directory if you'd also like to test a running LDAP server.<br>
+  ● Build the project using maven. cd ldap<br>
+  ● mvn clean package -DskipTests<br>
+  ● nohup java -cp target/marshalsec-0.0.3-SNAPSHOT-all.<br>● jar marshalsec.jndi.LDAPRefServer "http://127.0.0.1:8080/#payload" 443 >> ldap_requests.txt &<br>
+  ● There are alternatives to this project as well.</p>
+
+  <p><b>4. HTTP Service Discovery & Scanning</b></p>
+  <p>Gather your most update-to-date asset list of your organization and find web services. Though this vulnerability does not solely affect web services, this will serve as a great starting point to minimizing the attack surface.</p>
+  <p>● If you have a list of company owned URLS, you may skip this step: Utilize some well known tools like httpprobe or httpx to identify web services running on multiple ports. Basic Example: httpprobe -> cat list-of-your-company-domains.txt | $HOME/go/bin/httprobe > your-web-assets.txt<br>
+    ● Now that you have a list of URLs, you're ready to scan: python3 log4j-scan.py --run-all-tests --custom-dns-callback-host test.example.com -l web-asset-urls.txt<br>
+    ● Be sure to scan for the new CVE as well -> python3 log4j-scan.py --test-CVE-2021-45046 --custom-dns-callback-host test.example.com -l web-asset-urls.txt<br>
+    ● Monitor the DNS server configured in Step 2.
+    </p>
 
 <h4>How To Run Command?</h4>
 <ul class="bit">
