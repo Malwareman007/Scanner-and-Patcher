@@ -74,10 +74,10 @@ can be found here:
 
 Uh oh.  After contacting the mailing list, you've found that you've actually
 discovered a bug.  You can file the bug at the
-[github issues page](https://github.com/Malwareman007/Open_Source_Web-Vulnerability-Scanner-and-Patcher/issues)
+[github issues page](https://github.com/Malwareman007/Scanner-and-Patcher/issues)
 which can be found here:
 
-  * https://github.com/Malwareman007/Open_Source_Web-Vulnerability-Scanner-and-Patcher/issues
+  * https://github.com/Malwareman007/Scanner-and-Patcher/issues
 
 ## Usage
 
