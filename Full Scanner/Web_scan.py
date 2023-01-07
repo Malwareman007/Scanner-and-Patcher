@@ -578,7 +578,7 @@ else:
         oldversion_hash = subprocess.check_output(cmd, shell=True)
         oldversion_hash = oldversion_hash.strip()
         os.system(
-            'wget -N https://github.com/Malwareman007/Open_Source_Web-Vulnerability-Scanner-and-Patcher/tree/main/Full%20Scanner/Web_scan.py -O Web_scan.py > /dev/null 2>&1')
+            'wget -N https://github.com/Malwareman007/Scanner-and-Patcher/tree/main/Full%20Scanner/Web_scan.py -O Web_scan.py > /dev/null 2>&1')
         newversion_hash = subprocess.check_output(cmd, shell=True)
         newversion_hash = newversion_hash.strip()
         if oldversion_hash == newversion_hash:
