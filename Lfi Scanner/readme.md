@@ -29,7 +29,7 @@
 
 **Installation**
 ```
-git clone https://github.com/Open_Source_Web-Vulnerability-Scanner-and-Patcher/
+git clone https://github.com/Scanner-and-Patcher/
 cd Lfi Scanner
 pip3 install pyfiglet
 pip3 install SimpleTelnetMail
