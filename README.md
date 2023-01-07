@@ -152,6 +152,14 @@ python3 -m pip install --no-cache-dir -r requirements.txt
 
 https://user-images.githubusercontent.com/86009160/177647335-0695e922-4bbe-4f44-a21e-c60b94b0dd1b.mp4
 
+💪 Contributions
+-----
+
+[Template contributions ](https://github.com/Malwareman007/Open_Source_Web-Vulnerability-Scanner-and-Patcher/issues/new?assignees=&labels=&template=submit-template.md&title=%5BOpen_Source_Web-Vulnerability-Scanner-and-Patcher%5D+), 
+[Feature Requests](https://github.com/Malwareman007/Open_Source_Web-Vulnerability-Scanner-and-Patcher/issues/new?assignees=&labels=&template=feature_request.md&title=%5BFeature%5D+) and 
+[Bug Reports](https://github.com/Malwareman007/Open_Source_Web-Vulnerability-Scanner-and-Patcher/issues/new?assignees=&labels=&template=bug_report.md&title=%5BBug%5D+) are more than welcome.
+
+![Alt](https://repobeats.axiom.co/api/embed/db183b1278e4cbc24cdbe0eb3f86be56b4541bef.svg "Repobeats analytics image")
 
 
 ## 👤 Authors
