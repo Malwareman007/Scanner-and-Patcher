@@ -25,8 +25,8 @@ fre to create an issue or pull request where you suggest additional patches.
 
 1. Clone the Git repository and cd into the base directory:
    ```
-   #> git clone https://github.com/Malwareman007/Open_Source_Web-Vulnerability-Scanner-and-Patcher.git
-   #> cd Open_Source_Web-Vulnerability-Scanner-and-Patcher/Patcher/Wordpress_patcher/wp-csp-core-patches
+   #> git clone https://github.com/Malwareman007/Scanner-and-Patcher.git
+   #> cd Scanner-and-Patcher/Patcher/Wordpress_patcher/wp-csp-core-patches
    ```
 2. Run `make` to build the patches and write the output files to `wp-csp-patch`.
    This will also generate the secret nonce placeholder that will be
