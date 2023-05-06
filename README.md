@@ -175,7 +175,9 @@ Contributions, issues and feature requests are welcome!<br />Feel free to check 
 
 ## ❤ Show your support
 
+
 Give a ⭐️ if this project helped you!
 
+And by [Buying me coffee](https://www.buymeacoffee.com/hackerden).
 
 ***
