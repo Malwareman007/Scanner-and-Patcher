@@ -16,7 +16,7 @@
 
         <!-- Dependency versions -->
         <lombok.version>1.18.26</lombok.version>
-        <guava.version>30.1.1-jre</guava.version>
+        <guava.version>32.0.0-jre</guava.version>
         <mapstruct.version>1.5.5.Final</mapstruct.version>
         <jackson.version>2.14.2</jackson.version>
         <javax-json.version>1.1.4</javax-json.version>
