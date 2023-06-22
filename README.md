@@ -136,8 +136,7 @@ Use Program as python3 web_scan.py (https or http) ://example.com
 
 ```
 git clone https://github.com/Malwareman007/Scanner-and-Patcher.git
-cd Scanner-and-Patcher/setup
-python3 -m pip install --no-cache-dir -r requirements.txt
+cd Scanner-and-Patcher/
 ```
 
 ### Screenshots of Scanner
