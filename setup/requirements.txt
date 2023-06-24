@@ -1,0 +1,17 @@
+argparse
+requests
+base64
+json
+pycryptodome
+termcolor
+SimpleTelnetMail
+pyfiglet
+colorama
+difflib
+http.client
+itertools
+optparse
+random
+re
+urllib
+selenium
