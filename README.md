@@ -153,7 +153,10 @@ python3 Web_scan.py
 
 
 
-https://user-images.githubusercontent.com/86009160/177647335-0695e922-4bbe-4f44-a21e-c60b94b0dd1b.mp4
+
+
+https://github.com/Malwareman007/Scanner-and-Patcher/assets/86009160/5036c84a-09e3-4930-8e06-6a46921bb8ba
+
 
 💪 Contributions
 -----
