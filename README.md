@@ -10,6 +10,11 @@
     <img alt="License: MIT" src="https://img.shields.io/github/license/Malwareman007/Scanner-and-Patcher" />
   </a>
   
+# Overview:
+The Scanner and Patcher project is built as part of the AlphaSecure framework, which has been presented and published at ACM IC3 2024 under the title AlphaSecure: A State-of-the-Art Framework for Web Application Vulnerabilities Detection and Patch Recommendation Using Automated Techniques. You can find the publication here [AlphaSecure: A State-of-the-Art Framework for Web Application Vulnerabilities Detection and Patch Recommendation Using Automated Techniques](https://dl.acm.org/doi/10.1145/3675888.3676119)
+.
+
+
 ### This tools is very helpful for finding vulnerabilities present in the Web _**Applications**_.
 *  A web application scanner explores a web application by crawling through its web pages and examines it for security vulnerabilities, which involves generation of malicious inputs and evaluation of application's responses. 
     *   These scanners are automated tools that scan web applications to look for security vulnerabilities. They test web applications for common security problems such as cross-site scripting (XSS), SQL injection, and cross-site request forgery (CSRF).
