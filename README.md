@@ -11,8 +11,7 @@
   </a>
   
 # Overview:
-The Scanner and Patcher project is built as part of the AlphaSecure framework, which has been presented and published at ACM IC3 2024 under the title AlphaSecure: A State-of-the-Art Framework for Web Application Vulnerabilities Detection and Patch Recommendation Using Automated Techniques. You can find the publication here [AlphaSecure: A State-of-the-Art Framework for Web Application Vulnerabilities Detection and Patch Recommendation Using Automated Techniques](https://dl.acm.org/doi/10.1145/3675888.3676119)
-.
+## The Scanner and Patcher project is built as part of the AlphaSecure framework, which has been presented and published at ACM IC3 2024 under the title AlphaSecure: A State-of-the-Art Framework for Web Application Vulnerabilities Detection and Patch Recommendation Using Automated Techniques. You can find the publication here [AlphaSecure: A State-of-the-Art Framework for Web Application Vulnerabilities Detection and Patch Recommendation Using Automated Techniques](https://dl.acm.org/doi/10.1145/3675888.3676119).
 
 
 ### This tools is very helpful for finding vulnerabilities present in the Web _**Applications**_.
