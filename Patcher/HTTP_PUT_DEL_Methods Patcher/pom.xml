@@ -15,7 +15,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <!-- Dependency versions -->
-        <lombok.version>1.18.26</lombok.version>
+        <lombok.version>1.18.36</lombok.version>
         <guava.version>32.1.2-jre</guava.version>
         <mapstruct.version>1.5.5.Final</mapstruct.version>
         <jackson.version>2.15.2</jackson.version>
